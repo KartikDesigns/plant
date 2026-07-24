@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../styles/base.css" rel="stylesheet"/>
+    <link href="../styles/typography.css" rel="stylesheet"/>
+    <link href="../styles/components.css" rel="stylesheet"/>
+    <link href="../styles/navigation-desktop.css" rel="stylesheet"/>
+    <link href="../styles/animations.css" rel="stylesheet"/>
+    <link href="../styles/responsive.css" rel="stylesheet"/>
+    <link href="../styles/navigation-mobile.css" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<meta name="description" content="Discover Tulsi (Holy Basil) — India's most sacred plant. 100% organic, nursery certified. Available in Rama, Krishna, and Vana varieties."/>
+<meta property="og:title" content="Tulsi (Holy Basil) — Ankuram"/>
+<meta property="og:description" content="Discover Tulsi (Holy Basil) — India's most sacred plant. Available in Rama, Krishna, and Vana varieties."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content="../assets/white_background_202607131940.jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+    <title>Tulsi (Holy Basil) — Ankuram</title>
+  </head>
+  <body>
+    <div id="page-loader" class="page-loader" role="status" aria-label="Loading">
+  <div class="loader-content">
+    <div class="loader-icon">
+      <span class="material-symbols-outlined loader-leaf">eco</span>
+    </div>
+    <h2 class="loader-brand">Ankuram</h2>
+    <p class="loader-tagline">Growing something beautiful...</p>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+</div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+    <div
+      class="bg-primary py-2 text-center overflow-hidden announcement-scroll" role="status" aria-live="polite"
+    >
+      <div class="announcement-scroll-inner">
+        <p class="text-on-primary text-label-sm d-inline-block mx-4">
+          Free premium shipping on orders over ₹150. Experience botanical
+          luxury.
+        </p>
+        <p class="text-on-primary text-label-sm d-inline-block mx-4">
+          🌿 100% Organic &amp; Nursery Certified Plants
+        </p>
+        <p class="text-on-primary text-label-sm d-inline-block mx-4">
+          ✨ New Tulsi Varieties Added — Shop Now!
+        </p>
+        <p class="text-on-primary text-label-sm d-inline-block mx-4">
+          Free premium shipping on orders over ₹150. Experience botanical
+          luxury.
+        </p>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom py-3 site-navbar" aria-label="Main navigation">
+      <div class="container-custom px-margin-desktop">
+        <a class="navbar-brand text-headline-md fw-bold text-primary text-decoration-none flex-shrink-0" href="../index.html">Ankuram</a>
+        <button class="navbar-toggler border-0 bg-transparent flex-shrink-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+        <div class="offcanvas offcanvas-lg offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+          <div class="offcanvas-header d-lg-none">
+            <div class="offcanvas-title" id="navbarOffcanvasLabel">
+              <div class="nav-brand">Ankuram<small>Menu</small></div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-start flex-grow-1 gap-1 d-none d-lg-flex">
+              <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+              <li class="nav-item"><a class="nav-link" href="indoor.html">Indoor Plants</a></li>
+              <li class="nav-item"><a class="nav-link" href="outdoor.html">Outdoor Plants</a></li>
+              <li class="nav-item"><a class="nav-link" href="succulent.html">Succulents</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Desktop Search Trigger -->
+            <button class="d-none d-lg-flex align-items-center justify-content-center site-navbar-icon desktop-search-trigger me-2" id="desktop-search-trigger" type="button" aria-label="Toggle search" title="Search">
+              <span class="material-symbols-outlined">search</span>
+            </button>
+            <ul class="navbar-nav align-items-center gap-2 ms-lg-auto flex-row mt-3 mt-lg-0">
+              <li class="nav-item d-none d-lg-flex">
+                <a class="nav-link site-navbar-icon position-relative" id="wishlist-btn" href="wishlist.html" aria-label="Wishlist"><span class="material-symbols-outlined" aria-hidden="true">favorite</span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary text-on-primary d-none" id="wishlist-badge" style="font-size:0.6rem;min-width:18px;height:18px;line-height:18px;padding:0 4px">0</span></a>
+              </li>
+
+          <li class="nav-item d-none d-lg-flex" id="user-menu-item">
+            <div id="user-menu-container">
+              <a class="nav-link site-navbar-icon" href="create-account.html" aria-label="Account" title="Create Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></a>
+            </div>
+          </li>
+        </ul>
+            <!-- Mobile search bar -->
+            <div class="d-lg-none px-0 pt-2 pb-3">
+        <!-- Mobile search bar - premium redesign -->
+        <div class="d-lg-none px-0 pt-2 pb-3 mobile-search-section">
+          <div class="mobile-search-header">
+            <span class="material-symbols-outlined header-icon">eco</span>
+            Find Your Plant
+          </div>
+          <div class="mobile-search-bar">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input placeholder="Search plants, varieties..." type="text" id="mobile-search-input"/>
+            <button class="mobile-search-clear" id="mobile-search-clear" aria-label="Clear search">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+        </div>
+            </div>
+            <!-- Mobile navigation links -->
+            <div class="d-lg-none mt-2 pt-2 border-top border-outline-variant">
+              <ul class="navbar-nav">
+                <li class="nav-item mobile-nav-item"><a class="nav-link" href="../index.html"><span class="material-symbols-outlined me-2">home</span>Home</a></li>
+                <li class="nav-item mobile-nav-item"><a class="nav-link" href="shop.html"><span class="material-symbols-outlined me-2">store</span>Shop</a></li>
+                <li class="nav-item mobile-nav-item"><a class="nav-link" href="indoor.html"><span class="material-symbols-outlined me-2">cottage</span>Indoor Plants</a></li>
+                <li class="nav-item mobile-nav-item"><a class="nav-link" href="outdoor.html"><span class="material-symbols-outlined me-2">park</span>Outdoor Plants</a></li>
+                <li class="nav-item mobile-nav-item"><a class="nav-link" href="succulent.html"><span class="material-symbols-outlined me-2">local_florist</span>Succulents</a></li>
+              </ul>
+              <hr class="border-outline-variant my-2"/>
+              <ul class="navbar-nav">
+                <li class="nav-item mobile-nav-item"><a class="nav-link active" aria-current="page" href="tulsi.html"><span class="material-symbols-outlined me-2">spa</span>Tulsi</a></li>
+                <li class="nav-item mobile-nav-item"><a class="nav-link" href="most-wishlisted.html"><span class="material-symbols-outlined me-2">trending_up</span>Most Wishlisted</a></li>
+                <li class="nav-item mobile-nav-item"><a class="nav-link" href="about.html"><span class="material-symbols-outlined me-2">info</span>About</a></li>
+                <li class="nav-item mobile-nav-item"><a class="nav-link" href="contact.html"><span class="material-symbols-outlined me-2">mail</span>Contact</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="care-guide.html"><span class="material-symbols-outlined me-2">menu_book</span>Care Guide</a></li>
+            
+            <li class="nav-item mobile-nav-item d-none" id="mobile-user-menu-item">
+              <div id="mobile-user-menu-container">
+                <a class="nav-link" href="create-account.html"><span class="material-symbols-outlined me-2">person_add</span>Create Account</a>
+              </div>
+            </li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="privacy-policy.html"><span class="material-symbols-outlined me-2">shield</span>Privacy Policy</a></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Search Panel (slides down on trigger click) -->
+        <div class="desktop-search-panel" id="desktop-search-panel">
+          <div class="container-custom px-margin-desktop">
+            <div class="d-flex align-items-center gap-3 py-2">
+              <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0" style="font-size:24px">search</span>
+              <input id="search-input" class="flex-grow-1 bg-transparent border-0" type="text" placeholder="Search plants, varieties, care tips..." autocomplete="off" style="outline:none;font-size:1rem;min-width:0" />
+      
+              <button type="button" class="desktop-search-close-btn" id="desktop-search-close" aria-label="Close search">
+                <span class="material-symbols-outlined">close</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <section class="bg-surface-container-low py-section-gap">
+        <div class="container-custom px-margin-desktop">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-6 reveal-fade-left">
+              <div
+                class="position-relative rounded-4 overflow-hidden shadow-lg group img-zoom-container cursor-pointer"
+                data-lightbox="../assets/white_background_202607131940.jpeg"
+              >
+                <img
+                  class="w-100 object-fit-cover transition-standard group-hover-scale-105"
+                  src="../assets/white_background_202607131940.jpeg"
+                  alt="Tulsi Plant"
+                  style="height: 600px"
+                />
+                <span
+                  class="position-absolute top-0 start-0 z-10 bg-primary text-on-primary px-4 py-2 rounded-5 text-label-sm"
+                  style="margin: 1rem"
+                  >Bestseller</span
+                >
+                <span
+                  class="position-absolute bottom-0 end-0 bg-black bg-opacity-50 text-white px-3 py-2 rounded-5 text-label-sm m-2 d-flex align-items-center gap-1"
+                  style="z-index: 5; backdrop-filter: blur(4px)"
+                  ><span
+                    class="material-symbols-outlined"
+                    style="font-size: 16px"
+                    >fullscreen</span
+                  >
+                  Click to zoom</span
+                >
+              </div>
+            </div>
+            <div class="col-lg-6 reveal-fade-right delay-200">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb text-label-sm mb-3">
+                  <li class="breadcrumb-item">
+                    <a
+                      class="text-on-surface-variant text-decoration-none hover-text-primary"
+                      href="../index.html"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a
+                      class="text-on-surface-variant text-decoration-none hover-text-primary"
+                      href="shop.html"
+                      >Shop</a
+                    >
+                  </li>
+                  <li
+                    class="breadcrumb-item active text-on-surface fw-medium"
+                    aria-current="page"
+                  >
+                    Tulsi (Holy Basil)
+                  </li>
+                </ol>
+              </nav>
+              <span
+                class="badge bg-primary text-on-primary px-3 py-2 rounded-5 text-label-sm mb-3"
+                >Sacred Plant</span
+              >
+              <h1 class="text-headline-lg text-on-surface mb-3">
+                Tulsi (Holy Basil)
+              </h1>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="fw-bold text-primary text-headline-sm"
+                  >₹25.00</span
+                >
+                <span class="text-label-sm text-on-surface-variant"
+                  ><s>₹49.00</s>
+                  <span class="text-tertiary fw-medium ms-1"
+                    >49% OFF</span
+                  ></span
+                >
+              </div>
+              <p class="text-body-md text-on-surface-variant mb-4">
+                India's most revered plant, Tulsi (Holy Basil), is a sacred plant
+                known for its medicinal properties, distinct aroma, and
+                spiritual significance. Grown in certified organic soil, this
+                hardy plant thrives indoors and outdoors.
+              </p>
+              <div class="d-flex flex-column gap-3 mb-4">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="material-symbols-outlined text-primary"
+                    >verified</span
+                  >
+                  <span class="text-label-md text-on-surface"
+                    >100% Organic, Nursery Certified</span
+                  >
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="material-symbols-outlined text-primary"
+                    >local_shipping</span
+                  >
+                  <span class="text-label-md text-on-surface"
+                    >Free delivery on orders above ₹150</span
+                  >
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="material-symbols-outlined text-primary"
+                    >currency_rupee</span
+                  >
+                  <span class="text-label-md text-on-surface"
+                    >Order via WhatsApp — Easy &amp; Quick</span
+                  >
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <label class="text-label-sm text-on-surface-variant mb-0"
+                  >Quantity:</label
+                >
+                <div class="qty-selector" id="qty-selector">
+                  <button id="qty-minus">
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 18px"
+                      >remove</span
+                    >
+                  </button>
+                  <span id="qty-value">1</span>
+                  <button id="qty-plus">
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 18px"
+                      >add</span
+                    >
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-3 flex-wrap">
+                <a
+                  href="https://wa.me/916393394554?text=Hi!%20I'd%20like%20to%20order%20Tulsi%20(Holy%20Basil)%20-%20%E2%82%B925"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-success text-white px-5 py-3 rounded-3 text-label-md border-0 shadow-sm transition-standard active-scale-98 d-inline-flex align-items-center justify-content-center gap-2 text-decoration-none"
+                  style="background-color:#25D366"
+                >
+                  <span class="d-flex align-items-center gap-2"
+                    ><span class="material-symbols-outlined" aria-hidden="true"
+                      >chat</span
+                    >
+                    Buy on WhatsApp</span
+                  >
+                </a>
+                <button
+                  class="border border-primary text-primary px-5 py-3 rounded-3 text-label-md bg-transparent hover-bg-primary transition-standard active-scale-98 btn-toggle-wishlist"
+                  data-product='{"name":"Tulsi (Holy Basil)","price":25,"category":"Sacred Plant","image":"../assets/white_background_202607131940.jpeg"}'
+                  style="border-width: 1.5px"
+                >
+                  <span class="d-flex align-items-center gap-2"
+                    ><span class="material-symbols-outlined" aria-hidden="true">favorite</span> Add
+                    to Wishlist</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-section-gap">
+        <div class="container-custom px-margin-desktop">
+          <div class="row g-5">
+            <div class="col-lg-7 reveal-fade-up">
+              <h2 class="text-headline-md text-on-surface mb-4">Why Tulsi?</h2>
+              <div class="row row-cols-1 row-cols-sm-2 g-4 stagger-children">
+                <div class="col">
+                  <div class="bg-surface-container-low rounded-3 p-4 h-100 transition-base hover-lift-sm hover-border-primary-soft border border-transparent">
+                    <span
+                      class="material-symbols-outlined text-primary d-block mb-2"
+                      style="font-size: 32px"
+                      >spa</span
+                    >
+                    <h3 class="text-label-md fw-bold text-on-surface mb-2">
+                      Medicinal Powerhouse
+                    </h3>
+                    <p class="text-body-md text-on-surface-variant mb-0">
+                      Tulsi has been used in Ayurveda for thousands of years to
+                      boost immunity, relieve stress, and support respiratory
+                      health.
+                    </p>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="bg-surface-container-low rounded-3 p-4 h-100 transition-base hover-lift-sm hover-border-primary-soft border border-transparent">
+                    <span
+                      class="material-symbols-outlined text-primary d-block mb-2"
+                      style="font-size: 32px"
+                      >air</span
+                    >
+                    <h3 class="text-label-md fw-bold text-on-surface mb-2">
+                      Air Purifying
+                    </h3>
+                    <p class="text-body-md text-on-surface-variant mb-0">
+                      This plant releases oxygen for up to 20 hours a day and
+                      absorbs harmful toxins like carbon monoxide.
+                    </p>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="bg-surface-container-low rounded-3 p-4 h-100 transition-base hover-lift-sm hover-border-primary-soft border border-transparent">
+                    <span
+                      class="material-symbols-outlined text-primary d-block mb-2"
+                      style="font-size: 32px"
+                      >temple_buddhist</span
+                    >
+                    <h3 class="text-label-md fw-bold text-on-surface mb-2">
+                      Sacred &amp; Spiritual
+                    </h3>
+                    <p class="text-body-md text-on-surface-variant mb-0">
+                      Worshipped across India as a manifestation of Goddess
+                      Lakshmi, Tulsi is an essential part of daily puja and
+                      Vastu shastra.
+                    </p>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="bg-surface-container-low rounded-3 p-4 h-100 transition-base hover-lift-sm hover-border-primary-soft border border-transparent">
+                    <span
+                      class="material-symbols-outlined text-primary d-block mb-2"
+                      style="font-size: 32px"
+                      >eco</span
+                    >
+                    <h3 class="text-label-md fw-bold text-on-surface mb-2">
+                      Easy to Grow
+                    </h3>
+                    <p class="text-body-md text-on-surface-variant mb-0">
+                      Tulsi is incredibly resilient — thrives in Indian climates
+                      with minimal care, perfect for beginners.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 reveal-fade-right delay-200">
+              <div class="mb-4">
+                <span class="stock-indicator stock-in-stock mb-2"
+                  ><span class="dot"></span> In Stock — Ready to Ship</span
+                >
+              </div>
+              <h2 class="text-headline-md text-on-surface mb-4">
+                🌱 Care Instructions
+              </h2>
+              <div class="row g-2">
+                <div class="col-6">
+                  <div class="care-tip-card bg-white rounded-3 p-3 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+                    <div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-2" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+                      <span class="material-symbols-outlined text-primary">water_drop</span>
+                    </div>
+                    <h4 class="text-label-sm fw-bold text-on-surface mb-1">Watering</h4>
+                    <p class="text-body-md text-on-surface-variant mb-0" style="font-size:0.8125rem">Every 2-3 weeks — drought tolerant</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="care-tip-card bg-white rounded-3 p-3 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+                    <div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-2" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+                      <span class="material-symbols-outlined text-primary">light_mode</span>
+                    </div>
+                    <h4 class="text-label-sm fw-bold text-on-surface mb-1">Light</h4>
+                    <p class="text-body-md text-on-surface-variant mb-0" style="font-size:0.8125rem">Low to bright indirect</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="care-tip-card bg-white rounded-3 p-3 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+                    <div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-2" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+                      <span class="material-symbols-outlined text-primary">thermostat</span>
+                    </div>
+                    <h4 class="text-label-sm fw-bold text-on-surface mb-1">Temperature</h4>
+                    <p class="text-body-md text-on-surface-variant mb-0" style="font-size:0.8125rem">Keep between 15–30°C.</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="care-tip-card bg-white rounded-3 p-3 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+                    <div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-2" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+                      <span class="material-symbols-outlined text-primary">nutrition</span>
+                    </div>
+                    <h4 class="text-label-sm fw-bold text-on-surface mb-1">Fertilizer</h4>
+                    <p class="text-body-md text-on-surface-variant mb-0" style="font-size:0.8125rem">Every 3 months</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="care-tip-card bg-white rounded-3 p-3 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-2" style="background-color:rgba(232,168,124,0.15)!important;width:48px;height:48px">
+                      <span class="material-symbols-outlined" style="color:var(--c-validation-soft)">ac_unit</span>
+                    </div>
+                    <h4 class="text-label-sm fw-bold text-on-surface mb-1">Winter Care</h4>
+                    <p class="text-body-md text-on-surface-variant mb-0" style="font-size:0.8125rem">Protect from frost; keep above 10°C</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="care-tip-card bg-white rounded-3 p-3 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-2" style="background-color:rgba(232,168,124,0.15)!important;width:48px;height:48px">
+                      <span class="material-symbols-outlined" style="color:var(--c-validation-soft)">timer</span>
+                    </div>
+                    <h4 class="text-label-sm fw-bold text-on-surface mb-1">Survival Time</h4>
+                    <p class="text-body-md text-on-surface-variant mb-0" style="font-size:0.8125rem">2-3 weeks without water</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-surface-container-low py-section-gap">
+        <div class="container-custom px-margin-desktop">
+          <div class="text-center mb-5 reveal-fade-down">
+            <h2 class="text-headline-lg text-on-surface mb-2">
+              Tulsi Varieties
+            </h2>
+            <p class="text-body-md text-on-surface-variant mb-0">
+              Explore the different types of Holy Basil we offer.
+            </p>
+          </div>
+          <div
+            class="row row-cols-1 row-cols-md-3 g-4 stagger-children reveal-fade-up"
+          >
+            <div class="col-12 text-center py-4">
+              <div class="d-flex flex-column align-items-center gap-2">
+                <span class="material-symbols-outlined text-on-surface-variant" style="font-size: 48px; opacity: 0.4">spa</span>
+                <p class="text-body-md text-on-surface-variant mb-0">Tulsi variety listings are currently being updated. The classic Tulsi plant remains available above.</p>
+                <a class="text-primary fw-medium text-decoration-none hover-text-primary-darker" href="product.html?name=Tulsi%20(Holy%20Basil)">→ Shop Tulsi Plant</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer
+      class="bg-surface-container-lowest border-top border-outline-variant/20 pt-section-gap pb-5"
+    >
+      <div class="container-custom px-margin-desktop">
+        <div class="row row-cols-1 row-cols-md-4 g-3 mb-5">
+          <div class="col d-flex flex-column gap-4">
+            <a
+              class="text-headline-md fw-bold text-primary text-decoration-none"
+              href="../index.html"
+              >Ankuram</a
+            >
+            <p class="text-body-md text-on-surface-variant mb-0">
+              Curating the finest botanical specimens for the modern home.
+              Sustainable, premium, and delivered with care.
+            </p>
+            <p
+              class="text-label-sm fw-bold text-uppercase text-on-surface mb-2 tracking-wider"
+            >
+              Follow Us
+            </p>
+            <div class="d-flex gap-2">
+              <a
+                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none"
+                href="#"
+                style="width: 36px; height: 36px"
+                title="Instagram"
+                ><span class="fw-bold text-label-sm text-on-surface-variant"
+                  >IG</span
+                ></a
+              >
+              <a
+                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none"
+                href="#"
+                style="width: 36px; height: 36px"
+                title="Facebook"
+                ><span class="fw-bold text-label-sm text-on-surface-variant"
+                  >FB</span
+                ></a
+              >
+              <a
+                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none"
+                href="#"
+                style="width: 36px; height: 36px"
+                title="X"
+                ><span class="fw-bold text-label-sm text-on-surface-variant"
+                  >X</span
+                ></a
+              >
+              <a
+                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none"
+                href="#"
+                style="width: 36px; height: 36px"
+                title="YouTube"
+                ><span class="fw-bold text-label-sm text-on-surface-variant"
+                  >YT</span
+                ></a
+              >
+              <a
+                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none"
+                href="#"
+                style="width: 36px; height: 36px"
+                title="Pinterest"
+                ><span class="fw-bold text-label-sm text-on-surface-variant"
+                  >Pin</span
+                ></a
+              >
+            </div>
+            <!-- Newsletter section commented out
+            <p class="text-label-sm fw-bold text-uppercase text-on-surface mt-3 mb-2 tracking-wider">Newsletter</p>
+            <p class="text-body-md text-on-surface-variant mb-2">Get 10% off your first order.</p>
+            <div class="d-flex">
+              <input class="form-control border-outline-variant text-label-md rounded-0 rounded-start" placeholder="your@email.com" type="email" style="outline: none"/>
+              <button class="bg-primary text-on-primary px-3 text-label-md border-0 rounded-0 rounded-end transition-standard active-scale-95" type="submit">Join</button>
+            </div>
+            -->
+          </div>
+          <div class="col d-flex flex-column gap-4">
+            <h4
+              class="text-label-md fw-bold text-uppercase text-on-surface mb-0"
+            >
+              Shop
+            </h4>
+            <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="indoor.html"
+                  >Indoor Plants</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="outdoor.html"
+                  >Outdoor Plants</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="shop.html"
+                  >Pots &amp; Planters</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="most-wishlisted.html"
+                  >Most Wishlisted</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="wishlist.html"
+                  >Wishlist</a
+                >
+              </li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="create-account.html">Create Account</a></li>
+          </ul>
+            <div class="nav-footer">
+              <p>Quick access to shop, categories, and support.</p>
+            </div>
+          </div>
+          <div class="col d-flex flex-column gap-4">
+            <h4
+              class="text-label-md fw-bold text-uppercase text-on-surface mb-0"
+            >
+              Company
+            </h4>
+            <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="about.html"
+                  >Our Story</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="about.html#press"
+                  >Press</a
+                >
+              </li><li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html">Contact</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+          </div>
+          <div class="col d-flex flex-column gap-4">
+            <h4
+              class="text-label-md fw-bold text-uppercase text-on-surface mb-0"
+            >
+              Support
+            </h4>
+            <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="contact.html#shipping-info"
+                  >Shipping Info</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="contact.html#returns-policy"
+                  >Returns Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="care-guide.html"
+                  >Plant Care Guide</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-decoration-none hover-text-primary"
+                  href="contact.html#faq"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-top border-outline-variant/20 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"
+        >
+          <p class="text-label-sm text-on-surface-variant mb-0">
+            &copy; 2026 Ankuram. All rights reserved.
+          </p>
+          <div class="d-flex gap-4"><a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy</a>
+            <a
+              class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary"
+              href="#"
+              >Terms</a
+            >
+            <a
+              class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary"
+              href="#"
+              >Accessibility</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer><div id="toast-container"></div>
+    <button class="back-to-top" id="back-to-top" title="Back to top">
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+    </button><div class="lightbox-overlay" id="lightbox-overlay">
+  <button class="lightbox-close" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+  <div class="lightbox-image-wrap">
+    <img src="../images/placeholder.svg" alt="Enlarged view"/>
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+  <div class="lightbox-hint"><kbd>←</kbd> <kbd>→</kbd> navigate &middot; <kbd>Esc</kbd> close</div>
+</div>
+
+    <script>
+      // Quantity selector for product detail page
+      (function () {
+        const minus = document.getElementById("qty-minus");
+        const plus = document.getElementById("qty-plus");
+        const value = document.getElementById("qty-value");
+        if (!minus || !plus || !value) return;
+
+        minus.addEventListener("click", function () {
+          let qty = parseInt(value.textContent) || 1;
+          if (qty > 1) {
+            qty--;
+            value.textContent = qty;
+          }
+        });
+
+        plus.addEventListener("click", function () {
+          let qty = parseInt(value.textContent) || 1;
+          if (qty < 99) {
+            qty++;
+            value.textContent = qty;
+          }
+        });
+
+        // Update WhatsApp link with quantity
+        const whatsappBtn = document.querySelector(".btn-whatsapp");
+        if (whatsappBtn) {
+          function updateWhatsAppLink() {
+            const qty = parseInt(value.textContent) || 1;
+            const price = 25 * qty;
+            const msg = qty > 1
+              ? "Hi! I'd like to order " + qty + "x Tulsi (Holy Basil) - ₹" + price
+              : "Hi! I'd like to order Tulsi (Holy Basil) - ₹25";
+            whatsappBtn.href = "https://wa.me/916393394554?text=" + encodeURIComponent(msg);
+          }
+          updateWhatsAppLink();
+          minus.addEventListener("click", updateWhatsAppLink);
+          plus.addEventListener("click", updateWhatsAppLink);
+        }
+      })();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/pages/cart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="../config/firebase-config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="../config/firestore-sync.js"></script>
+    <script src="../js/modules/script.js"></script>
+  </body>
+</html>
+
+

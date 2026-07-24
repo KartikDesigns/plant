@@ -1,0 +1,34 @@
+/* ====================================================================
+   HISTORY PAGE — Ankuram (Earthy & Organic Design System)
+   ==================================================================== */
+
+/* ===== Animated Item Entry ===== */
+.animate-item {
+  animation: slideIn 0.4s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== History Stats Card ===== */
+.history-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.history-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== Tab Button Active State ===== */
+.tab-btn.active-tab {
+  background: var(--c-primary) !important;
+  color: var(--c-on-primary) !important;
+  border-color: var(--c-primary) !important;
+}

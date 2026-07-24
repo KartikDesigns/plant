@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" fill="none">
+  <!-- Background -->
+  <rect width="600" height="750" fill="#f0f5eb"/>
+  <!-- Decorative circle -->
+  <circle cx="300" cy="350" r="120" fill="#d4e8d0" opacity="0.6"/>
+  <!-- Minimal leaf icon -->
+  <path d="M300 280 C310 310 330 330 350 340 C370 350 350 380 330 390 C310 400 290 400 270 390 C250 380 230 350 250 340 C270 330 290 310 300 280Z" fill="#4a8c5c" opacity="0.5"/>
+  <path d="M300 300 C305 320 320 340 335 345 C350 350 335 370 320 375 C305 380 295 380 280 375 C265 370 250 350 265 345 C280 340 295 320 300 300Z" fill="#3d7a4f" opacity="0.4"/>
+  <!-- Stem -->
+  <line x1="300" y1="390" x2="300" y2="460" stroke="#5a9c6c" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <!-- Text -->
+  <text x="300" y="520" text-anchor="middle" fill="#8a9a85" font-family="DM Sans, sans-serif" font-size="16" font-weight="500">Plant Image</text>
+  <!-- Camera icon -->
+  <circle cx="300" cy="560" r="18" fill="#d4e8d0" opacity="0.5"/>
+  <path d="M290 555H295L298 552H302L305 555H310V565H290V555Z" fill="#5a9c6c" opacity="0.6"/>
+  <circle cx="300" cy="560" r="5" fill="#5a9c6c" opacity="0.5"/>
+</svg>

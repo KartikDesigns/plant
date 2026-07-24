@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../styles/base.css" rel="stylesheet"/>
+<link href="../styles/typography.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
+<link href="../styles/navigation-desktop.css" rel="stylesheet"/>
+<link href="../styles/animations.css" rel="stylesheet"/>
+<link href="../styles/responsive.css" rel="stylesheet"/>
+<link href="../styles/navigation-mobile.css" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<meta name="description" content="Manage your Ankuram account settings, profile, and preferences."/>
+<meta property="og:title" content="Account Settings — Ankuram"/>
+<meta property="og:description" content="Manage your Ankuram account settings, profile, and preferences."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="../assets/white_background_202607131940.jpeg"/>
+<title>Account Settings — Ankuram</title>
+<style>
+  :root {
+    --c-validation-soft: #E8A87C;
+    --c-validation-bg: #FDF3ED;
+    --c-validation-border: #F0C8B0;
+  }
+  .field-hint {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--c-on-surface-variant);
+    margin-top: 4px;
+    min-height: 1.1em;
+  }
+  .field-error {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--c-validation-soft);
+    margin-top: 4px;
+    min-height: 1.1em;
+    transition: opacity 0.2s ease;
+  }
+  .form-control.field-invalid {
+    border-color: var(--c-validation-soft) !important;
+    background-color: var(--c-validation-bg);
+  }
+  .form-control.field-invalid:focus {
+    box-shadow: 0 0 0 3px rgba(232, 168, 124, 0.2);
+  }
+  .form-control.field-valid {
+    border-color: var(--c-primary) !important;
+  }
+  .save-btn {
+    transition: all 0.25s ease;
+  }
+  .save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 168, 124, 0.35);
+  }
+  .save-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+  .success-banner {
+    background: var(--c-validation-bg);
+    border: 1px solid var(--c-validation-border);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    color: #8B5E3C;
+    font-size: 0.875rem;
+    animation: slideDown 0.3s ease;
+  }
+  .success-banner.show {
+    display: flex;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .settings-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-on-surface-variant);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .settings-section-title .material-symbols-outlined {
+    font-size: 18px;
+    color: var(--c-primary);
+  }
+
+  /* ===== Premium Avatar Header ===== */
+  .settings-avatar-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    background: var(--c-surface);
+    border: 1px solid var(--c-outline-variant);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .settings-avatar-wrapper {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .settings-avatar-ring {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--c-primary), var(--c-primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: avatarRingPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes avatarRingPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(61, 122, 79, 0.3); }
+    50% { box-shadow: 0 0 0 8px rgba(61, 122, 79, 0); }
+  }
+
+  .settings-avatar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--c-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .settings-avatar-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--c-primary);
+    line-height: 1;
+  }
+
+  .settings-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .settings-avatar-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--c-surface);
+    border: 2px solid var(--c-outline-variant);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-on-surface-variant);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .settings-avatar-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .settings-avatar-info h1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 576px) {
+    .settings-avatar-header {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    .settings-avatar-info {
+      text-align: center;
+    }
+    .settings-avatar-info #page-joined {
+      justify-content: center;
+    }
+  }
+
+</style>
+</head>
+<body>
+<div id="page-loader" class="page-loader" role="status" aria-label="Loading">
+  <div class="loader-content">
+    <div class="loader-icon">
+      <span class="material-symbols-outlined loader-leaf">eco</span>
+    </div>
+    <h2 class="loader-brand">Ankuram</h2>
+    <p class="loader-tagline">Growing something beautiful...</p>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+</div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="bg-primary py-2 text-center overflow-hidden announcement-scroll" role="status" aria-live="polite">
+<div class="announcement-scroll-inner">
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">🌿 100% Organic &amp; Nursery Certified Plants</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">✨ New Tulsi Varieties Added — Shop Now!</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+</div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom py-3 site-navbar" aria-label="Main navigation">
+  <div class="container-custom px-margin-desktop">
+    <a class="navbar-brand text-headline-md fw-bold text-primary text-decoration-none flex-shrink-0" href="../index.html">Ankuram</a>
+    <button class="navbar-toggler border-0 bg-transparent flex-shrink-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+    </button>
+    <div class="offcanvas offcanvas-lg offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+      <div class="offcanvas-header d-lg-none">
+        <div class="offcanvas-title" id="navbarOffcanvasLabel">
+          <div class="nav-brand">Ankuram<small>Menu</small></div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1 gap-1 d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="indoor.html">Indoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="outdoor.html">Outdoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="succulent.html">Succulents</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <button class="d-none d-lg-flex align-items-center justify-content-center site-navbar-icon desktop-search-trigger me-2" id="desktop-search-trigger" type="button" aria-label="Toggle search" title="Search">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <ul class="navbar-nav align-items-center gap-2 ms-lg-auto flex-row mt-3 mt-lg-0">
+          <li class="nav-item d-none d-lg-flex">
+            <a class="nav-link site-navbar-icon position-relative" id="wishlist-btn" href="wishlist.html" aria-label="Wishlist"><span class="material-symbols-outlined" aria-hidden="true">favorite</span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary text-on-primary d-none" id="wishlist-badge" style="font-size:0.6rem;min-width:18px;height:18px;line-height:18px;padding:0 4px">0</span></a>
+          </li>
+
+          <li class="nav-item d-none d-lg-flex" id="user-menu-item">
+            <div id="user-menu-container">
+              <a class="nav-link site-navbar-icon" href="create-account.html" aria-label="Account" title="Create Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></a>
+            </div>
+          </li>
+        </ul>
+        <div class="d-lg-none px-0 pt-2 pb-3">
+        <!-- Mobile search bar - premium redesign -->
+        <div class="d-lg-none px-0 pt-2 pb-3 mobile-search-section">
+          <div class="mobile-search-header">
+            <span class="material-symbols-outlined header-icon">eco</span>
+            Find Your Plant
+          </div>
+          <div class="mobile-search-bar">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input placeholder="Search plants, varieties..." type="text" id="mobile-search-input"/>
+            <button class="mobile-search-clear" id="mobile-search-clear" aria-label="Clear search">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+        </div>
+        </div>
+        <div class="d-lg-none mt-2 pt-2 border-top border-outline-variant">
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="../index.html"><span class="material-symbols-outlined me-2">home</span>Home</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="shop.html"><span class="material-symbols-outlined me-2">store</span>Shop</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="indoor.html"><span class="material-symbols-outlined me-2">cottage</span>Indoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="outdoor.html"><span class="material-symbols-outlined me-2">park</span>Outdoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="succulent.html"><span class="material-symbols-outlined me-2">local_florist</span>Succulents</a></li>
+          </ul>
+          <hr class="border-outline-variant my-2"/>
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="tulsi.html"><span class="material-symbols-outlined me-2">spa</span>Tulsi</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="most-wishlisted.html"><span class="material-symbols-outlined me-2">trending_up</span>Most Wishlisted</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="about.html"><span class="material-symbols-outlined me-2">info</span>About</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="contact.html"><span class="material-symbols-outlined me-2">mail</span>Contact</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="care-guide.html"><span class="material-symbols-outlined me-2">menu_book</span>Care Guide</a></li>
+            
+            <li class="nav-item mobile-nav-item d-none" id="mobile-user-menu-item">
+              <div id="mobile-user-menu-container">
+                <a class="nav-link" href="create-account.html"><span class="material-symbols-outlined me-2">person_add</span>Create Account</a>
+              </div>
+            </li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="privacy-policy.html"><span class="material-symbols-outlined me-2">shield</span>Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="desktop-search-panel" id="desktop-search-panel">
+    <div class="container-custom px-margin-desktop">
+      <div class="d-flex align-items-center gap-3 py-2">
+        <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0" style="font-size:24px">search</span>
+        <input id="search-input" class="flex-grow-1 bg-transparent border-0" type="text" placeholder="Search plants, varieties, care tips..." autocomplete="off" style="outline:none;font-size:1rem;min-width:0" />
+
+        <button type="button" class="desktop-search-close-btn" id="desktop-search-close" aria-label="Close search">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content" class="container-custom px-margin-desktop pt-5 pb-section-gap">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <!-- ===== Premium Avatar Header ===== -->
+      <div class="settings-avatar-header mb-5">
+        <div class="settings-avatar-wrapper" id="avatar-wrapper">
+          <div class="settings-avatar-ring">
+            <div class="settings-avatar-inner" id="page-avatar">
+              <span class="settings-avatar-letter">U</span>
+              <img class="settings-avatar-img d-none" id="avatar-img" src="" alt="Profile photo"/>
+            </div>
+          </div>
+          <div class="settings-avatar-badge" id="avatar-badge">
+            <span class="material-symbols-outlined" style="font-size:14px">person</span>
+          </div>
+        </div>
+        <div class="settings-avatar-info">
+          <h1 class="text-headline-md text-on-surface mb-1" id="page-name">Your Name</h1>
+          <p class="text-body-md text-on-surface-variant mb-0" id="page-email">Loading...</p>
+          <div class="d-flex align-items-center gap-2 mt-2" id="page-joined">
+            <span class="material-symbols-outlined text-on-surface-variant" style="font-size:14px;opacity:0.6">calendar_month</span>
+            <span class="text-label-sm text-on-surface-variant" id="page-joined-date"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="success-banner mb-4" id="success-banner">
+        <span class="material-symbols-outlined" style="font-size:20px;color:var(--c-primary)">check_circle</span>
+        <span id="success-message">Settings saved successfully!</span>
+      </div>
+
+      <!-- Profile Section -->
+      <div class="bg-white rounded-3 p-4 p-md-5 shadow-sm border border-outline-variant/10 mb-4">
+        <div class="settings-section-title mb-4">
+          <span class="material-symbols-outlined">person</span> Profile Information
+        </div>
+
+        <div class="mb-3">
+          <label class="text-label-sm text-on-surface-variant mb-1 fw-medium" for="settings-name">Full Name</label>
+          <input class="form-control border-outline-variant text-label-md" id="settings-name" type="text" placeholder="Your full name" autocomplete="name"/>
+          <span class="field-error" id="settings-name-error"></span>
+        </div>
+
+        <div class="mb-3">
+          <label class="text-label-sm text-on-surface-variant mb-1 fw-medium" for="settings-email">Email</label>
+          <input class="form-control border-outline-variant text-label-md bg-surface-container-high" id="settings-email" type="email" readonly disabled style="cursor:not-allowed"/>
+          <span class="field-hint">Email cannot be changed.</span>
+        </div>
+
+        <div class="mb-3">
+          <label class="text-label-sm text-on-surface-variant mb-1 fw-medium" for="settings-location">Location</label>
+          <input class="form-control border-outline-variant text-label-md" id="settings-location" type="text" placeholder="City, State (e.g. Bangalore, Karnataka)" autocomplete="address-level2"/>
+          <span class="field-error" id="settings-location-error"></span>
+          <span class="field-hint">Used for shipping estimates and local weather-based plant tips.</span>
+        </div>
+
+        <button class="btn save-btn px-5 py-3 rounded-3 text-label-md border-0 d-inline-flex align-items-center gap-2 text-white" id="save-profile-btn" style="background:var(--c-validation-soft)">
+          <span class="material-symbols-outlined" style="font-size:18px">save</span> Save Changes
+        </button>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="bg-surface-container-lowest border-top border-outline-variant/20 pt-section-gap pb-5">
+<div class="container-custom px-margin-desktop">
+<div class="row row-cols-1 row-cols-md-4 g-3 mb-5">
+<div class="col d-flex flex-column gap-4">
+<a class="text-headline-md fw-bold text-primary text-decoration-none" href="../index.html">Ankuram</a>
+<p class="text-body-md text-on-surface-variant mb-0">
+Curating the finest botanical specimens for the modern home. Sustainable, premium, and delivered with care.
+</p>
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mb-2 tracking-wider">Follow Us</p>
+<div class="d-flex gap-2">
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Instagram"><span class="fw-bold text-label-sm text-on-surface-variant">IG</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Facebook"><span class="fw-bold text-label-sm text-on-surface-variant">FB</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="X"><span class="fw-bold text-label-sm text-on-surface-variant">X</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="YouTube"><span class="fw-bold text-label-sm text-on-surface-variant">YT</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Pinterest"><span class="fw-bold text-label-sm text-on-surface-variant">Pin</span></a>
+</div>
+<!-- Newsletter section commented out
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mt-3 mb-2 tracking-wider">Newsletter</p>
+<p class="text-body-md text-on-surface-variant mb-2">Get 10% off your first order.</p>
+<div class="d-flex">
+<input class="form-control border-outline-variant text-label-md rounded-0 rounded-start" placeholder="your@email.com" type="email" style="outline:none"/>
+<button class="bg-primary text-on-primary px-3 text-label-md border-0 rounded-0 rounded-end transition-standard active-scale-95" type="submit">Join</button>
+</div>
+-->
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Shop</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="shop.html">All Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="indoor.html">Indoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="outdoor.html">Outdoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="tulsi.html">Tulsi (Holy Basil)</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="most-wishlisted.html">Most Wishlisted</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="wishlist.html">Wishlist</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="create-account.html">Create Account</a></li>
+</ul>
+  <div class="nav-footer">
+    <p>Quick access to shop, categories, and support.</p>
+  </div>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Company</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="about.html">Our Story</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html">Contact</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Support</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#shipping-info">Shipping Info</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#returns-policy">Returns Policy</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="care-guide.html">Plant Care Guide</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#faq">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="border-top border-outline-variant/20 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+<p class="text-label-sm text-on-surface-variant mb-0">&copy; 2026 Ankuram. All rights reserved.</p>
+<div class="d-flex gap-4">
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Terms</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+</footer>
+
+<div id="toast-container"></div>
+<button class="back-to-top" id="back-to-top" title="Back to top">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+</button>
+
+<div class="lightbox-overlay" id="lightbox-overlay">
+  <button class="lightbox-close" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+  <div class="lightbox-image-wrap">
+    <img src="../images/placeholder.svg" alt="Enlarged view"/>
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+  <div class="lightbox-hint"><kbd>←</kbd> <kbd>→</kbd> navigate &middot; <kbd>Esc</kbd> close</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/pages/cart.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="../config/firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="../config/firestore-sync.js"></script>
+<script src="../js/modules/script.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  var AUTH_KEY = 'leafUser';
+  var PROFILE_KEY = 'leafProfile';
+
+  var formModified = false;
+
+  function getCurrentUser() {
+    try {
+      var data = localStorage.getItem(AUTH_KEY);
+      return data ? JSON.parse(data) : null;
+    } catch(e) { return null; }
+  }
+
+  function getProfile() {
+    var user = getCurrentUser();
+    if (!user) return null;
+    try {
+      var saved = localStorage.getItem(PROFILE_KEY + '_' + user.sub);
+      if (saved) return JSON.parse(saved);
+    } catch(e) {}
+    return { name: user.name, email: user.email, given_name: user.given_name, location: '', picture: user.picture || null };
+  }
+
+  function saveProfile(profile) {
+    var user = getCurrentUser();
+    if (!user) return;
+    try {
+      localStorage.setItem(PROFILE_KEY + '_' + user.sub, JSON.stringify(profile));
+    } catch(e) {}
+  }
+
+  function setError(id, msg) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = msg;
+  }
+
+  function markInvalid(inputId, errorId, msg) {
+    var input = document.getElementById(inputId);
+    if (input) { input.classList.add('field-invalid'); input.classList.remove('field-valid'); }
+    setError(errorId, msg);
+  }
+
+  function markValid(inputId, errorId) {
+    var input = document.getElementById(inputId);
+    if (input) { input.classList.remove('field-invalid'); input.classList.add('field-valid'); }
+    setError(errorId, '');
+  }
+
+  function clearFieldStyles() {
+    document.querySelectorAll('.field-invalid, .field-valid').forEach(function(el) {
+      el.classList.remove('field-invalid', 'field-valid');
+    });
+    document.querySelectorAll('.field-error').forEach(function(el) { el.textContent = ''; });
+  }
+
+  function showToast(message, type) {
+    if (typeof window.showToast === 'function') {
+      window.showToast(message, type || 'success');
+    }
+  }
+
+  function showBanner(msg) {
+    var banner = document.getElementById('success-banner');
+    var msgEl = document.getElementById('success-message');
+    if (msgEl) msgEl.textContent = msg;
+    if (banner) { banner.classList.add('show'); setTimeout(function() { banner.classList.remove('show'); }, 3500); }
+  }
+
+  function loadProfile() {
+    var profile = getProfile();
+    if (!profile) {
+      window.location.href = 'create-account.html';
+      return;
+    }
+    document.getElementById('settings-name').value = profile.name || '';
+    document.getElementById('settings-email').value = profile.email || '';
+    document.getElementById('settings-location').value = profile.location || '';
+    document.getElementById('page-name').textContent = profile.name || 'Your Name';
+    document.getElementById('page-email').textContent = profile.email || '';
+    updateAvatar(profile);
+  }
+
+  function updateAvatar(profile) {
+    var letterEl = document.querySelector('.settings-avatar-letter');
+    var imgEl = document.getElementById('avatar-img');
+    var initial = (profile.given_name || profile.name || 'U').charAt(0).toUpperCase();
+    
+    if (profile.picture && profile.picture !== 'null' && profile.picture !== '') {
+      letterEl.classList.add('d-none');
+      imgEl.classList.remove('d-none');
+      imgEl.src = profile.picture;
+      imgEl.alt = (profile.name || 'User') + ' photo';
+    } else {
+      letterEl.classList.remove('d-none');
+      imgEl.classList.add('d-none');
+      letterEl.textContent = initial;
+    }
+  }
+
+  function validateForm() {
+    var valid = true;
+    var name = document.getElementById('settings-name').value.trim();
+    var location = document.getElementById('settings-location').value.trim();
+
+    if (!name) { markInvalid('settings-name', 'settings-name-error', 'Name is required'); valid = false; }
+    else if (name.length < 2) { markInvalid('settings-name', 'settings-name-error', 'Name must be at least 2 characters'); valid = false; }
+    else { markValid('settings-name', 'settings-name-error'); }
+
+    if (location && location.length < 3) { markInvalid('settings-location', 'settings-location-error', 'Enter a full location (city, state)'); valid = false; }
+    else { markValid('settings-location', 'settings-location-error'); }
+
+    return valid;
+  }
+
+  document.getElementById('settings-name').addEventListener('input', function() {
+    formModified = true;
+    var v = this.value.trim();
+    if (!v) markInvalid('settings-name', 'settings-name-error', 'Name is required');
+    else if (v.length < 2) markInvalid('settings-name', 'settings-name-error', 'At least 2 characters');
+    else markValid('settings-name', 'settings-name-error');
+  });
+
+  document.getElementById('settings-location').addEventListener('input', function() {
+    formModified = true;
+    var v = this.value.trim();
+    if (v && v.length < 3) markInvalid('settings-location', 'settings-location-error', 'Enter city, state (e.g. Bangalore, Karnataka)');
+    else markValid('settings-location', 'settings-location-error');
+  });
+
+  document.getElementById('settings-name').addEventListener('focus', function() {
+    this.classList.remove('field-invalid', 'field-valid');
+    setError('settings-name-error', '');
+  });
+  document.getElementById('settings-location').addEventListener('focus', function() {
+    this.classList.remove('field-invalid', 'field-valid');
+    setError('settings-location-error', '');
+  });
+
+  document.getElementById('save-profile-btn').addEventListener('click', function() {
+    if (!validateForm()) return;
+    if (!formModified) { showBanner('No changes to save.'); return; }
+
+    var btn = this;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">sync</span> Saving...';
+
+    var name = document.getElementById('settings-name').value.trim();
+    var location = document.getElementById('settings-location').value.trim();
+    var user = getCurrentUser();
+
+    // Preserve existing picture from profile
+    var currentProfile = getProfile();
+    var picture = currentProfile ? currentProfile.picture : (user ? user.picture : null);
+
+    var updatedProfile = {
+      name: name,
+      email: user ? user.email : '',
+      given_name: name.split(' ')[0],
+      location: location,
+      picture: picture
+    };
+
+    // Save to localStorage
+    saveProfile(updatedProfile);
+
+    // Update session in AUTH_KEY
+    if (user) {
+      user.name = name;
+      user.given_name = name.split(' ')[0];
+      user.picture = picture;
+      try { localStorage.setItem(AUTH_KEY, JSON.stringify(user)); } catch(e) {}
+    }
+
+    // Update Firebase displayName
+    if (typeof firebase !== 'undefined' && firebase.auth) {
+      var currentUser = firebase.auth().currentUser;
+      var self = this;
+      if (currentUser) {
+        currentUser.updateProfile({ displayName: name }).catch(function() {});
+      }
+    }
+
+    // Update page UI
+    updateAvatar(updatedProfile);
+    document.getElementById('page-name').textContent = name;
+    formModified = false;
+
+    btn.disabled = false;
+    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">save</span> Save Changes';
+
+    showBanner('Profile updated successfully!');
+    if (typeof updateUserNav === 'function') updateUserNav();
+  });
+
+  // Redirect if not logged in
+  var user = getCurrentUser();
+  if (!user) {
+    window.location.href = 'create-account.html';
+  } else {
+    loadProfile();
+  }
+})();
+</script>
+</body>
+</html>
+

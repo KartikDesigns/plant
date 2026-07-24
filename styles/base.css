@@ -1,0 +1,539 @@
+/* ====================================================================
+   ANKURAM — EARTHY & ORGANIC DESIGN SYSTEM
+   ==================================================================== */
+
+:root {
+  /* ================================================================
+     MERCURY ♂ + VENUS ♀ — Astrological Color Palette
+     
+     Mercury (Budha) governs intellect, communication, and growth.
+     Its energy is channeled through vibrant, nurturing greens.
+     
+     Venus (Shukra) governs love, beauty, harmony, and art.
+     Her energy flows through warm creams, pure whites, and soft rose.
+     
+     Together they create an aesthetic balance of mind + heart,
+     intellect + beauty, growth + grace.
+     ================================================================ */
+
+  /* Mercury Green — Intellect, Communication, Vitality */
+  --c-primary: #3D7A4F;
+  --c-primary-rgb: 61, 122, 79;
+  --c-primary-dark: #296335;
+  --c-primary-light: #E6F4E8;
+  --c-primary-container: #357347;
+  --c-primary-soft: rgba(61, 122, 79, 0.08);
+  
+  /* Venus Rose — Love, Beauty, Harmony */
+  --c-venus: #D4A0A0;
+  --c-venus-rgb: 212, 160, 160;
+  --c-venus-light: #F5E8E8;
+  --c-venus-soft: rgba(212, 160, 160, 0.1);
+  
+  /* Secondary — Warm Terracotta (Earth element grounding) */
+  --c-secondary: #B85A3A;
+  --c-secondary-light: #F5E0D4;
+  
+  /* Tertiary — Warm Gold (Jupiter's wisdom, balanced by Venus) */
+  --c-tertiary: #C49A44;
+  --c-tertiary-rgb: 196, 154, 68;
+  --c-tertiary-light: #F8F0DC;
+  
+  /* Venus Cream Surfaces — Warmth, Nurturing, Beauty */
+  --c-background: #FFF8F0;
+  --c-surface: #FFFFFF;
+  --c-surface-container-low: #FFF4EB;
+  --c-surface-container: #F5EDE4;
+  --c-surface-container-high: #EDE4D8;
+  --c-surface-container-lowest: #FFFFFF;
+  --c-surface-bright: #FFFCF7;
+  --c-surface-dim: #D8D0C8;
+  
+  /* On-colors — Readability with softness */
+  --c-on-primary: #FFFFFF;
+  --c-on-secondary: #FFFFFF;
+  --c-on-tertiary: #FFFFFF;
+  --c-on-background: #2A2A2A;
+  --c-on-surface: #2A2A2A;
+  --c-on-surface-variant: #5C5C5C;
+  --c-on-primary-container: #CBFFC2;
+  --c-on-secondary-container: #361400;
+  --c-on-venus: #FFFFFF;
+  
+  /* Outlines — Soft, warm boundaries */
+  --c-outline: #9E9E9E;
+  --c-outline-variant: #D4CBC0;
+  
+  /* Error — Clear but not jarring */
+  --c-error: #BA4A4A;
+  --c-error-container: #FFDAD6;
+  --c-on-error: #FFFFFF;
+  --c-on-error-container: #93000A;
+  
+  /* Inverse */
+  --c-inverse-surface: #2A2A2A;
+  --c-inverse-on-surface: #F5F0E8;
+  --c-inverse-primary: #A8D5B0;
+
+  /* Spacing */
+  --section-gap: 100px;
+  --margin-desktop: 48px;
+  --gutter: 24px;
+  
+  /* Shadows — tinted with Mercury green for organic depth */
+  --shadow-sm: 0 2px 8px rgba(61, 122, 79, 0.08);
+  --shadow-md: 0 4px 16px rgba(61, 122, 79, 0.1);
+  --shadow-lg: 0 8px 32px rgba(61, 122, 79, 0.12);
+  --shadow-primary: 0 4px 20px rgba(61, 122, 79, 0.25);
+  --shadow-venus: 0 4px 20px rgba(212, 160, 160, 0.2);
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--c-background);
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(212, 160, 160, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(61, 122, 79, 0.06) 0%, transparent 50%);
+  color: var(--c-on-background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.9375rem, 1vw, 1rem);
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+img, picture, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--c-primary-light);
+  color: var(--c-primary-dark);
+}
+
+main {
+  min-height: 100vh;
+}
+
+/* ===== Focus Visible for Accessibility ===== */
+:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 2px;
+}
+
+/* ===== Utility: Hardcoded color variable ===== */
+.bg-primary-soft { background-color: var(--c-primary-soft) !important; }
+.bg-venus-soft { background-color: var(--c-venus-soft) !important; }
+.bg-tertiary-soft { background-color: rgba(196, 154, 68, 0.1) !important; }
+.text-primary-dark { color: var(--c-primary-dark) !important; }
+.text-venus { color: var(--c-venus) !important; }
+.bg-venus { background-color: var(--c-venus) !important; }
+.bg-venus-light { background-color: var(--c-venus-light) !important; }
+.border-venus { border-color: var(--c-venus) !important; }
+.shadow-venus { box-shadow: var(--shadow-venus) !important; }
+.text-on-venus { color: var(--c-on-venus) !important; }
+
+
+/* ===== Container ===== */
+.container-custom {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--margin-desktop);
+  padding-right: var(--margin-desktop);
+  width: 100%;
+}
+
+/* ===== Bootstrap Overrides ===== */
+.bg-primary { background-color: var(--c-primary) !important; }
+.text-primary { color: var(--c-primary) !important; }
+.btn-primary {
+  --bs-btn-bg: var(--c-primary);
+  --bs-btn-border-color: var(--c-primary);
+  --bs-btn-hover-bg: var(--c-primary-dark);
+  --bs-btn-hover-border-color: var(--c-primary-dark);
+  --bs-btn-active-bg: var(--c-primary-dark);
+  --bs-btn-disabled-bg: var(--c-outline-variant);
+  --bs-btn-disabled-border-color: var(--c-outline-variant);
+}
+
+/* ===== Color Utilities ===== */
+.bg-surface { background-color: var(--c-surface) !important; }
+.bg-surface-container-low { background-color: var(--c-surface-container-low) !important; }
+.bg-surface-container { background-color: var(--c-surface-container) !important; }
+.bg-surface-container-high { background-color: var(--c-surface-container-high) !important; }
+.bg-surface-container-lowest { background-color: var(--c-surface-container-lowest) !important; }
+.bg-primary-light { background-color: var(--c-primary-light) !important; }
+.bg-secondary-light { background-color: var(--c-secondary-light) !important; }
+.bg-tertiary-light { background-color: var(--c-tertiary-light) !important; }
+.bg-venus-light { background-color: var(--c-venus-light) !important; }
+
+.text-on-primary { color: var(--c-on-primary) !important; }
+.text-on-surface { color: var(--c-on-surface) !important; }
+.text-on-surface-variant { color: var(--c-on-surface-variant) !important; }
+.text-secondary { color: var(--c-secondary) !important; }
+.text-tertiary { color: var(--c-tertiary) !important; }
+
+.border-primary { border-color: var(--c-primary) !important; }
+.border-outline-variant { border-color: var(--c-outline-variant) !important; }
+.border-secondary { border-color: var(--c-secondary) !important; }
+
+/* ===== Text Visibility ===== */
+.opacity-70 { opacity: 0.8; }
+.opacity-60 { opacity: 0.75; }
+.opacity-50 { opacity: 0.7; }
+.text-on-surface-variant.opacity-70,
+.text-on-surface-variant.opacity-60,
+.text-on-surface-variant.opacity-50 {
+  opacity: 0.85 !important;
+}
+
+/* ===== Hover States ===== */
+.hover-text-primary:hover { color: var(--c-primary) !important; }
+.hover-text-danger:hover { color: var(--c-error) !important; }
+.hover-text-venus:hover { color: var(--c-venus) !important; }
+.hover-text-white:hover { color: #FFFFFF !important; }
+.hover-bg-primary:hover { background-color: var(--c-primary) !important; }
+.hover-bg-primary-dark:hover { background-color: var(--c-primary-dark) !important; }
+.hover-bg-venus:hover { background-color: var(--c-venus) !important; }
+.hover-bg-white:hover { background-color: #FFFFFF !important; }
+.hover-border-primary:hover { border-color: var(--c-primary) !important; }
+.hover-border-venus:hover { border-color: var(--c-venus) !important; }
+.hover-scale-105:hover { transform: scale(1.05); }
+.hover-scale-110:hover { transform: scale(1.1); }
+.hover-shadow-md:hover { box-shadow: var(--shadow-md) !important; }
+.hover-shadow-lg:hover { box-shadow: var(--shadow-lg) !important; }
+.hover-lift-sm:hover { transform: translateY(-2px); }
+.hover-lift-md:hover { transform: translateY(-4px); }
+.hover-bg-primary-soft:hover { background-color: var(--c-primary-soft) !important; }
+.hover-border-primary-soft:hover { border-color: rgba(61, 122, 79, 0.3) !important; }
+.hover-shadow-sm:hover { box-shadow: var(--shadow-sm) !important; }
+
+/* Validation — soft orange */
+.bg-validation-soft { background-color: #FDF3ED !important; }
+.hover-bg-validation-soft:hover { background-color: #FDF3ED !important; }
+.border-validation-soft { border-color: #F0C8B0 !important; }
+.text-validation-soft { color: #E8A87C !important; }
+
+/* Newsletter button hover */
+.bg-primary.text-on-primary.rounded-end:hover {
+  background-color: var(--c-primary-dark) !important;
+  transform: translateY(-1px);
+}
+
+/* Social icon hover — background + text color + lift */
+.social-icon-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.social-icon-hover:hover {
+  background-color: var(--c-primary) !important;
+  color: white !important;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 4px 12px rgba(61, 122, 79, 0.3);
+}
+.social-icon-hover:hover .text-on-surface-variant {
+  color: white !important;
+}
+
+/* ===== Typography Sizes ===== */
+
+/* Fraunces optical size (opsz) defaults:
+   - Desktop headings: opsz 72–144 (refined, elegant strokes at large sizes)
+   - Mobile headings:  opsz 36–60  (bolder, more legible at small sizes)
+   Overridden per breakpoint in responsive.css */
+.text-display-lg {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-variation-settings: 'opsz' 96;
+}
+
+.text-headline-lg {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.25;
+  font-weight: 600;
+  font-variation-settings: 'opsz' 72;
+}
+
+.text-headline-md {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.3;
+  font-weight: 600;
+  font-variation-settings: 'opsz' 48;
+}
+
+.text-body-lg {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9375rem, 1.2vw, 1.125rem);
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--c-on-surface-variant);
+}
+
+.text-body-md {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  line-height: 1.65;
+  font-weight: 400;
+  color: var(--c-on-surface-variant);
+}
+
+.text-label-md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+.text-label-sm {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+
+
+/* ===== Shadow Utilities ===== */
+.shadow-primary {
+  box-shadow: var(--shadow-primary);
+}
+.shadow-venus {
+  box-shadow: var(--shadow-venus);
+}
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Backdrop blur utility */
+.blur-3xl {
+  backdrop-filter: blur(48px);
+  -webkit-backdrop-filter: blur(48px);
+}
+
+/* ===== Text Utility Sizes ===== */
+.text-label-xs {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+/* ===== Spacing Utilities ===== */
+.py-section-gap { padding-top: var(--section-gap); padding-bottom: var(--section-gap); }
+.pt-section-gap { padding-top: var(--section-gap); }
+.pb-section-gap { padding-bottom: var(--section-gap); }
+.px-margin-desktop { padding-left: var(--margin-desktop); padding-right: var(--margin-desktop); }
+.gap-gutter { gap: var(--gutter) !important; }
+
+/* ===== Custom Scrollbar — Mercury Green x Venus Cream ===== */
+/* WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--c-surface-container-low);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: var(--c-surface-container);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--c-primary-rgb), 0.4);
+  border-radius: 10px;
+  border: 2px solid var(--c-surface-container-low);
+  transition: background var(--transition-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-primary);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--c-primary-dark);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--c-surface-container-low);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--c-primary-rgb), 0.4) var(--c-surface-container-low);
+}
+
+/* ===== Z-index ===== */
+.z-1 { z-index: 1; }
+.z-10 { z-index: 10; }
+.z--10 { z-index: -1; }
+
+/* ===== Misc ===== */
+.transition-base { transition: all var(--transition-base); }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.cursor-pointer { cursor: pointer; }
+.object-fit-cover { object-fit: cover; }
+.aspect-square { aspect-ratio: 1; }
+.aspect-4-5 { aspect-ratio: 4/5; }
+
+/* ===== Flexbox utilities for text truncation ===== */
+/* Prevents flex items from overflowing their container —
+   needed when text inside a flex child should truncate with ellipsis */
+.min-width-0 { min-width: 0; }
+
+/* Truncate single-line text with ellipsis inside a flex container.
+   Note: white-space/ellipsis must be on the text element itself.
+   This container just allows flex shrinking + hides overflow. */
+.text-truncate-block {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* ===== Material Symbols mobile rendering ===== */
+.material-symbols-outlined {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* ===== Skip to Content (Accessibility) ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 10000;
+  background: var(--c-primary-dark);
+  color: var(--c-on-primary);
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ===== Mobile touch & scroll optimizations ===== */
+@media (hover: none) and (pointer: coarse) {
+  body {
+  }
+  .offcanvas.offcanvas-end {
+    -webkit-overflow-scrolling: touch;
+  }
+  .category-pills {
+    -webkit-overflow-scrolling: touch;
+  }
+  .desktop-search-panel input {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+  }
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ===== GPU layer creation for scrolling containers ===== */
+.category-pills {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== Performance: contain heavy sections that don't change ===== */
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
+}
+
+/* ===== Lazy render sections below the fold ===== */
+@media (min-width: 768px) {
+  footer,
+  .pb-section-gap + footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+  }
+}

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../styles/base.css" rel="stylesheet"/>
+<link href="../styles/typography.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
+<link href="../styles/navigation-desktop.css" rel="stylesheet"/>
+<link href="../styles/animations.css" rel="stylesheet"/>
+<link href="../styles/responsive.css" rel="stylesheet"/>
+<link href="../styles/navigation-mobile.css" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<meta name="description" content="Take our interactive plant quiz to discover which plant is perfect for your home and lifestyle. Answer a few questions and get your perfect match!"/>
+<meta property="og:title" content="Plant Quiz — Find Your Perfect Plant | Ankuram"/>
+<meta property="og:description" content="Take our interactive plant quiz to discover which plant is perfect for your home and lifestyle."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content="../assets/white_background_202607131940.jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>Plant Quiz — Ankuram</title>
+<style>
+  .quiz-option {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--c-outline-variant);
+    padding: 20px;
+    border-radius: 16px;
+    background: white;
+    text-align: center;
+  }
+  .quiz-option:hover {
+    border-color: var(--c-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(74, 124, 89, 0.12);
+  }
+  .quiz-option.selected {
+    border-color: var(--c-primary);
+    background: var(--c-primary-light);
+    box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.15);
+  }
+  .quiz-option .icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .quiz-progress {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--c-surface-container-high);
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .quiz-progress-bar {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--c-primary), var(--c-primary-dark));
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .quiz-result-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+  }
+  .quiz-result-card.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .btn-next {
+    background: var(--c-primary);
+    color: white;
+    padding: 14px 48px;
+    border-radius: 9999px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .btn-next:hover {
+    background: var(--c-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(74, 124, 89, 0.25);
+  }
+  .btn-next:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  @keyframes confettiDrop {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100px) rotate(360deg); opacity: 0; }
+  }
+  .confetti-piece {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiDrop 2s ease-in forwards;
+  }
+</style>
+</head>
+<body>
+<div id="page-loader" class="page-loader" role="status" aria-label="Loading">
+  <div class="loader-content">
+    <div class="loader-icon">
+      <span class="material-symbols-outlined loader-leaf">eco</span>
+    </div>
+    <h2 class="loader-brand">Ankuram</h2>
+    <p class="loader-tagline">Growing something beautiful...</p>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+</div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="bg-primary py-2 text-center overflow-hidden announcement-scroll" role="status" aria-live="polite">
+<div class="announcement-scroll-inner">
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">🌿 100% Organic &amp; Nursery Certified Plants</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">✨ New Tulsi Varieties Added — Shop Now!</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+</div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom py-3 site-navbar" aria-label="Main navigation">
+  <div class="container-custom px-margin-desktop">
+    <a class="navbar-brand text-headline-md fw-bold text-primary text-decoration-none flex-shrink-0" href="../index.html">Ankuram</a>
+    <button class="navbar-toggler border-0 bg-transparent flex-shrink-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+    </button>
+    <div class="offcanvas offcanvas-lg offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+      <div class="offcanvas-header d-lg-none">
+        <div class="offcanvas-title" id="navbarOffcanvasLabel">
+          <div class="nav-brand">Ankuram<small>Menu</small></div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1 gap-1 d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="indoor.html">Indoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="outdoor.html">Outdoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="succulent.html">Succulents</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <button class="d-none d-lg-flex align-items-center justify-content-center site-navbar-icon desktop-search-trigger me-2" id="desktop-search-trigger" type="button" aria-label="Toggle search" title="Search">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <ul class="navbar-nav align-items-center gap-2 ms-lg-auto flex-row mt-3 mt-lg-0">
+          <li class="nav-item d-none d-lg-flex">
+            <a class="nav-link site-navbar-icon position-relative" id="wishlist-btn" href="wishlist.html" aria-label="Wishlist"><span class="material-symbols-outlined" aria-hidden="true">favorite</span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary text-on-primary d-none" id="wishlist-badge" style="font-size:0.6rem;min-width:18px;height:18px;line-height:18px;padding:0 4px">0</span></a>
+          </li>
+
+          <li class="nav-item d-none d-lg-flex" id="user-menu-item">
+            <div id="user-menu-container">
+              <a class="nav-link site-navbar-icon" href="create-account.html" aria-label="Account" title="Create Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></a>
+            </div>
+          </li>
+        </ul>
+        <div class="d-lg-none px-0 pt-2 pb-3">
+        <!-- Mobile search bar - premium redesign -->
+        <div class="d-lg-none px-0 pt-2 pb-3 mobile-search-section">
+          <div class="mobile-search-header">
+            <span class="material-symbols-outlined header-icon">eco</span>
+            Find Your Plant
+          </div>
+          <div class="mobile-search-bar">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input placeholder="Search plants, varieties..." type="text" id="mobile-search-input"/>
+            <button class="mobile-search-clear" id="mobile-search-clear" aria-label="Clear search">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+        </div>
+        </div>
+        <div class="d-lg-none mt-2 pt-2 border-top border-outline-variant">
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="../index.html"><span class="material-symbols-outlined me-2">home</span>Home</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="shop.html"><span class="material-symbols-outlined me-2">store</span>Shop</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="indoor.html"><span class="material-symbols-outlined me-2">cottage</span>Indoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="outdoor.html"><span class="material-symbols-outlined me-2">park</span>Outdoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="succulent.html"><span class="material-symbols-outlined me-2">local_florist</span>Succulents</a></li>
+          </ul>
+          <hr class="border-outline-variant my-2"/>
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="tulsi.html"><span class="material-symbols-outlined me-2">spa</span>Tulsi</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="most-wishlisted.html"><span class="material-symbols-outlined me-2">trending_up</span>Most Wishlisted</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="about.html"><span class="material-symbols-outlined me-2">info</span>About</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="contact.html"><span class="material-symbols-outlined me-2">mail</span>Contact</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link active" aria-current="page" href="care-guide.html"><span class="material-symbols-outlined me-2">menu_book</span>Care Guide</a></li>
+            
+            <li class="nav-item mobile-nav-item d-none" id="mobile-user-menu-item">
+              <div id="mobile-user-menu-container">
+                <a class="nav-link" href="create-account.html"><span class="material-symbols-outlined me-2">person_add</span>Create Account</a>
+              </div>
+            </li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="privacy-policy.html"><span class="material-symbols-outlined me-2">shield</span>Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="desktop-search-panel" id="desktop-search-panel">
+    <div class="container-custom px-margin-desktop">
+      <div class="d-flex align-items-center gap-3 py-2">
+        <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0" style="font-size:24px">search</span>
+        <input id="search-input" class="flex-grow-1 bg-transparent border-0" type="text" placeholder="Search plants, varieties, care tips..." autocomplete="off" style="outline:none;font-size:1rem;min-width:0" />
+
+        <button type="button" class="desktop-search-close-btn" id="desktop-search-close" aria-label="Close search">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<section class="container-custom px-margin-desktop pt-5 pb-section-gap">
+  <div class="text-center mb-5 reveal-fade-down" id="quiz-header">
+    <span class="badge bg-primary text-on-primary px-4 py-2 rounded-5 text-label-sm mb-3">🌱 Interactive Quiz</span>
+    <h1 class="text-headline-lg text-on-surface mb-2">What Plant Should I Get?</h1>
+    <p class="text-body-md text-on-surface-variant mb-0">Answer a few questions and we'll recommend the perfect plant for your space.</p>
+  </div>
+
+  <!-- Quiz Progress -->
+  <div class="quiz-progress" id="quiz-progress">
+    <div class="quiz-progress-bar" id="quiz-progress-bar" style="width:0%"></div>
+  </div>
+
+  <!-- Quiz Content -->
+  <div class="row justify-content-center" id="quiz-container">
+    <div class="col-lg-8">
+      <!-- Question area -->
+      <div id="question-area" class="text-center">
+        <h3 class="text-headline-md text-on-surface mb-2" id="question-text">Loading...</h3>
+        <p class="text-body-md text-on-surface-variant mb-4" id="question-sub">Choose the best option for you</p>
+        <div class="row g-3" id="options-container"></div>
+        <div class="mt-4">
+          <button class="btn-next" id="btn-next" disabled>Next →</button>
+        </div>
+      </div>
+
+      <!-- Result area -->
+      <div id="result-area" class="d-none text-center quiz-result-card">
+        <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary mb-3" style="width:80px;height:80px">
+          <span class="material-symbols-outlined text-on-primary" style="font-size:40px">eco</span>
+        </div>
+        <h2 class="text-headline-lg text-on-surface mb-2">Your Perfect Plant Match!</h2>
+        <p class="text-body-md text-on-surface-variant mb-4" id="result-description"></p>
+        <div class="bg-white rounded-4 p-4 shadow-sm border border-outline-variant/10 mb-4" id="result-card">
+          <div class="row align-items-center g-4">
+            <div class="col-md-5">
+              <div class="rounded-3 overflow-hidden bg-surface-container-low">
+                <img class="w-100" style="aspect-ratio:4/5;object-fit:cover" id="result-image" src="" alt="Recommended plant"/>
+              </div>
+            </div>
+            <div class="col-md-7 text-start">
+              <span class="badge bg-primary-light text-primary px-3 py-1 rounded-5 text-label-sm mb-2" id="result-badge"></span>
+              <h3 class="text-headline-md text-on-surface mb-2" id="result-name"></h3>
+              <p class="text-body-md text-on-surface-variant mb-1" id="result-care"></p>
+              <p class="fw-bold text-primary text-headline-sm mb-3" id="result-price"></p>
+              <div class="d-flex gap-3">
+                <a class="bg-primary text-on-primary px-4 py-2 rounded-3 text-label-md text-decoration-none d-inline-flex align-items-center gap-2 hover-bg-primary-container transition-standard" id="result-shop-link" href="shop.html">
+                  <span class="material-symbols-outlined">add_shopping_cart</span> Shop Now
+                </a>
+                <button class="border border-primary text-primary px-4 py-2 rounded-3 text-label-md bg-transparent hover-bg-primary transition-standard" id="result-retake">
+                  Retake Quiz
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-surface-container-lowest border-top border-outline-variant/20 pt-section-gap pb-5">
+<div class="container-custom px-margin-desktop">
+<div class="row row-cols-1 row-cols-md-4 g-3 mb-5">
+<div class="col d-flex flex-column gap-4">
+<a class="text-headline-md fw-bold text-primary text-decoration-none" href="../index.html">Ankuram</a>
+<p class="text-body-md text-on-surface-variant mb-0">
+Curating the finest botanical specimens for the modern home. Sustainable, premium, and delivered with care.
+</p>
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mb-2 tracking-wider">Follow Us</p>
+<div class="d-flex gap-2">
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Instagram"><span class="fw-bold text-label-sm text-on-surface-variant">IG</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Facebook"><span class="fw-bold text-label-sm text-on-surface-variant">FB</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="X"><span class="fw-bold text-label-sm text-on-surface-variant">X</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="YouTube"><span class="fw-bold text-label-sm text-on-surface-variant">YT</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Pinterest"><span class="fw-bold text-label-sm text-on-surface-variant">Pin</span></a>
+</div>
+<!-- Newsletter section commented out
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mt-3 mb-2 tracking-wider">Newsletter</p>
+<p class="text-body-md text-on-surface-variant mb-2">Get 10% off your first order.</p>
+<div class="d-flex">
+<input class="form-control border-outline-variant text-label-md rounded-0 rounded-start" placeholder="your@email.com" type="email" style="outline:none"/>
+<button class="bg-primary text-on-primary px-3 text-label-md border-0 rounded-0 rounded-end transition-standard active-scale-95" type="submit">Join</button>
+</div>
+-->
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Shop</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="shop.html">All Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="indoor.html">Indoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="outdoor.html">Outdoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="tulsi.html">Tulsi (Holy Basil)</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="most-wishlisted.html">Most Wishlisted</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="wishlist.html">Wishlist</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="create-account.html">Create Account</a></li>
+          </ul>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Company</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="about.html">Our Story</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html">Contact</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Support</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#shipping-info">Shipping Info</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#returns-policy">Returns Policy</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="care-guide.html">Plant Care Guide</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#faq">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="border-top border-outline-variant/20 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+<p class="text-label-sm text-on-surface-variant mb-0">© 2026 Ankuram. All rights reserved.</p>
+<div class="d-flex gap-4">
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Terms</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+</footer>
+
+<div id="toast-container"></div>
+<button class="back-to-top" id="back-to-top" title="Back to top">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+</button>
+
+<div class="lightbox-overlay" id="lightbox-overlay">
+  <button class="lightbox-close" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+  <div class="lightbox-image-wrap">
+    <img src="../images/placeholder.svg" alt="Enlarged view"/>
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+  <div class="lightbox-hint"><kbd>←</kbd> <kbd>→</kbd> navigate &middot; <kbd>Esc</kbd> close</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/pages/cart.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="../config/firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="../config/firestore-sync.js"></script>
+<script src="../js/modules/script.js"></script>
+<script>
+(function initPlantQuiz() {
+  const questions = [
+    {
+      q: "How much sunlight does your space get?",
+      sub: "This is the most important factor for plant health.",
+      options: [
+        { icon: "☀️", label: "Bright, direct sun", value: "sunny", desc: "South-facing window or balcony" },
+        { icon: "⛅", label: "Bright, indirect light", value: "bright", desc: "Near a window but not direct" },
+        { icon: "🌤️", label: "Low light", value: "low", desc: "North-facing or away from windows" },
+        { icon: "💡", label: "Artificial light only", value: "artificial", desc: "Office or room without windows" }
+      ]
+    },
+    {
+      q: "How often can you water your plant?",
+      sub: "Be honest — this determines which plants will thrive with you.",
+      options: [
+        { icon: "💧", label: "Daily or every other day", value: "frequent", desc: "I love tending to my plants" },
+        { icon: "📅", label: "Once a week", value: "weekly", desc: "I can stick to a schedule" },
+        { icon: "⏰", label: "Every 2-3 weeks", value: "rarely", desc: "I sometimes forget" },
+        { icon: "🏜️", label: "Once a month or less", value: "never", desc: "I want a low-maintenance plant" }
+      ]
+    },
+    {
+      q: "What size plant are you looking for?",
+      sub: "Think about where you want to place it.",
+      options: [
+        { icon: "🪴", label: "Small (desktop)", value: "small", desc: "Sits on a desk or shelf" },
+        { icon: "🌿", label: "Medium (floor)", value: "medium", desc: "Floor plant, 2-4 feet tall" },
+        { icon: "🌴", label: "Large (statement)", value: "large", desc: "Makes a bold impression" },
+        { icon: "🪢", label: "Hanging / Trailing", value: "hanging", desc: "Hangs from ceiling or shelf" }
+      ]
+    },
+    {
+      q: "Do you have pets at home?",
+      sub: "Some plants can be toxic to cats and dogs.",
+      options: [
+        { icon: "🐱", label: "Yes, I have pets", value: "pets", desc: "Need pet-safe plants only" },
+        { icon: "🐶", label: "No pets", value: "nopets", desc: "Any plant is fine" }
+      ]
+    },
+    {
+      q: "What's your experience level?",
+      sub: "Everyone starts somewhere!",
+      options: [
+        { icon: "🌱", label: "Complete beginner", value: "beginner", desc: "Never kept a plant alive" },
+        { icon: "🌻", label: "Some experience", value: "intermediate", desc: "I've kept plants before" },
+        { icon: "🌳", label: "Green thumb", value: "expert", desc: "Plants thrive under my care" }
+      ]
+    }
+  ];
+
+  const plants = [
+    { name: "Snake Plant", price: "₹22.00", category: "Indoor Plant", badge: "Bestseller",
+      image: "../assets/white_background_202607131940.jpeg",
+      care: "Low to bright indirect light, water every 2-3 weeks",
+      link: "shop.html",
+      match: function(answers) {
+        return (answers[0] === 'low' || answers[0] === 'artificial') &&
+               (answers[1] === 'rarely' || answers[1] === 'never');
+      }},
+    { name: "Spider Plant", price: "₹20.00", category: "Indoor Plant", badge: "Pet Friendly",
+      image: "../assets/Spider_Plant_white_background_202607131940.jpeg",
+      care: "Bright indirect light, water weekly",
+      link: "shop.html",
+      match: function(answers) {
+        return answers[3] === 'pets' &&
+               answers[4] === 'beginner';
+      }},
+    { name: "Syngonium", price: "₹18.00", category: "Indoor Plant", badge: "Trending",
+      image: "../assets/Syngonium_white_background_202607131940.jpeg",
+      care: "Low to bright indirect light, water when dry",
+      link: "shop.html",
+      match: function(answers) {
+        return (answers[0] === 'bright' || answers[0] === 'low') &&
+               answers[2] === 'hanging';
+      }},
+    { name: "ZZ Plant", price: "₹35.00", category: "Indoor Plant", badge: "Nearly Unkillable",
+      image: "../assets/ZZ_Plant_white_background_202607131940.jpeg",
+      care: "Thrives in low light, water every 3-4 weeks",
+      link: "shop.html",
+      match: function(answers) {
+        return (answers[0] === 'low' || answers[0] === 'artificial') &&
+               (answers[1] === 'rarely' || answers[1] === 'never') &&
+               answers[3] === 'nopets';
+      }},
+    { name: "Peace Lily", price: "₹28.00", category: "Indoor Plant", badge: "Premium",
+      image: "../assets/Peace_Lily_white_background_202607131940.jpeg",
+      care: "Low to medium indirect light, water weekly",
+      link: "shop.html",
+      match: function(answers) {
+        return answers[0] === 'bright' &&
+               answers[2] === 'medium' &&
+               (answers[4] === 'intermediate' || answers[4] === 'expert');
+      }},
+    { name: "Jade Plant", price: "₹25.00", category: "Succulent", badge: "Popular",
+      image: "../assets/Jade_Plant_white_background_202607131940.jpeg",
+      care: "Bright indirect to direct sun, water every 2-3 weeks",
+      link: "shop.html",
+      match: function(answers) {
+        return answers[0] === 'sunny' &&
+               (answers[1] === 'weekly' || answers[1] === 'rarely') &&
+               answers[2] === 'small';
+      }},
+    { name: "Haworthia", price: "₹20.00", category: "Succulent", badge: "Trending",
+      image: "../assets/Haworthia_white_background_202607131940.jpeg",
+      care: "Bright indirect light, water every 3 weeks",
+      link: "shop.html",
+      match: function(answers) {
+        return answers[0] === 'bright' &&
+               answers[1] === 'rarely' &&
+               answers[2] === 'small';
+      }},
+    { name: "Kalanchoe", price: "₹22.00", category: "Succulent", badge: "Popular",
+      image: "../assets/Kalanchoe_white_background_202607131940.jpeg",
+      care: "Bright direct to indirect sun, water every 2 weeks",
+      link: "shop.html",
+      match: function(answers) {
+        return answers[0] === 'sunny' &&
+               answers[1] === 'weekly' &&
+               answers[4] === 'beginner';
+      }},
+    { name: "Adenium", price: "₹35.00", category: "Succulent", badge: "Premium",
+      image: "../assets/Adenium_white_background_202607131940.jpeg",
+      care: "Full sun, water weekly in summer",
+      link: "shop.html",
+      match: function(answers) {
+        return answers[0] === 'sunny' &&
+               answers[1] === 'frequent' &&
+               (answers[4] === 'intermediate' || answers[4] === 'expert');
+      }},
+    { name: "Portulaca", price: "₹15.00", category: "Succulent", badge: "Bestseller",
+      image: "../assets/Portulaca_white_background_202607131940.jpeg",
+      care: "Full sun, water every 2-3 days",
+      link: "shop.html",
+      match: function(answers) {
+        return answers[0] === 'sunny' &&
+               answers[1] === 'frequent' &&
+               answers[4] === 'beginner';
+      }}
+  ];
+
+  let currentStep = 0;
+  let answers = {};
+
+  const questionText = document.getElementById('question-text');
+  const questionSub = document.getElementById('question-sub');
+  const optionsContainer = document.getElementById('options-container');
+  const btnNext = document.getElementById('btn-next');
+  const progressBar = document.getElementById('quiz-progress-bar');
+  const questionArea = document.getElementById('question-area');
+  const resultArea = document.getElementById('result-area');
+
+  function renderQuestion() {
+    const q = questions[currentStep];
+    questionText.textContent = q.q;
+    questionSub.textContent = q.sub;
+    btnNext.disabled = true;
+
+    optionsContainer.innerHTML = q.options.map((opt, i) => `
+      <div class="col-md-6 col-12">
+        <div class="quiz-option" data-value="${opt.value}" data-index="${i}">
+          <span class="icon">${opt.icon}</span>
+          <div class="text-label-md fw-bold text-on-surface mb-1">${opt.label}</div>
+          <div class="text-label-sm text-on-surface-variant">${opt.desc}</div>
+        </div>
+      </div>
+    `).join('');
+
+    optionsContainer.querySelectorAll('.quiz-option').forEach(el => {
+      el.addEventListener('click', function() {
+        optionsContainer.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+        this.classList.add('selected');
+        answers[currentStep] = this.dataset.value;
+        btnNext.disabled = false;
+      });
+    });
+
+    const pct = ((currentStep) / questions.length) * 100;
+    progressBar.style.width = pct + '%';
+  }
+
+  function showResult() {
+    questionArea.classList.add('d-none');
+    resultArea.classList.remove('d-none');
+    progressBar.style.width = '100%';
+
+    // Find best matching plant
+    let bestPlant = null;
+    let bestScore = -1;
+
+    plants.forEach(plant => {
+      try {
+        if (plant.match(answers)) {
+          const score = Math.floor(Math.random() * 5) + 3; // give matched plants a score
+          if (score > bestScore) {
+            bestScore = score;
+            bestPlant = plant;
+          }
+        }
+      } catch(e) {}
+    });
+
+    // Fallback if no match found
+    if (!bestPlant) {
+      bestPlant = plants[0]; // Pothos as default (first available plant)
+    }
+
+    // Fill result
+    document.getElementById('result-image').src = bestPlant.image;
+    document.getElementById('result-image').alt = bestPlant.name;
+    document.getElementById('result-name').textContent = bestPlant.name;
+    document.getElementById('result-badge').textContent = bestPlant.badge;
+    document.getElementById('result-price').textContent = bestPlant.price;
+    document.getElementById('result-care').textContent = bestPlant.care;
+    document.getElementById('result-description').innerHTML = 
+      `Based on your answers, we recommend the <strong>${bestPlant.name}</strong>!`;
+    document.getElementById('result-shop-link').href = bestPlant.link;
+
+    // Show with animation
+    setTimeout(() => resultArea.classList.add('show'), 100);
+
+    // Confetti effect
+    const colors = ['#4A7C59', '#D4A24C', '#C1623B', '#2D5A3E', '#A8D5B0'];
+    for (let i = 0; i < 30; i++) {
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      piece.style.left = Math.random() * 100 + 'vw';
+      piece.style.top = '40%';
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.width = (4 + Math.random() * 8) + 'px';
+      piece.style.height = (4 + Math.random() * 8) + 'px';
+      piece.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+      piece.style.animationDelay = (Math.random() * 1.5) + 's';
+      document.body.appendChild(piece);
+      setTimeout(() => piece.remove(), 4000);
+    }
+  }
+
+  btnNext.addEventListener('click', function() {
+    if (currentStep < questions.length - 1) {
+      currentStep++;
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  });
+
+  document.getElementById('result-retake').addEventListener('click', function() {
+    currentStep = 0;
+    answers = {};
+    resultArea.classList.remove('show', 'd-none');
+    questionArea.classList.remove('d-none');
+    resultArea.classList.add('d-none');
+    renderQuestion();
+  });
+
+  // Start
+  renderQuestion();
+})();
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../styles/base.css" rel="stylesheet"/>
+<link href="../styles/typography.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
+<link href="../styles/navigation-desktop.css" rel="stylesheet"/>
+<link href="../styles/animations.css" rel="stylesheet"/>
+<link href="../styles/responsive.css" rel="stylesheet"/>
+<link href="../styles/navigation-mobile.css" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<meta name="description" content="Shop deluxe succulents, cacti, and air plants at Ankuram. Drought-hardy, low-maintenance beauties for every home."/>
+<meta property="og:title" content="Succulents — Ankuram"/>
+<meta property="og:description" content="Shop deluxe succulents, cacti, and air plants. Drought-hardy, low-maintenance beauties."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content="../assets/white_background_202607131940.jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>Succulents — Ankuram</title>
+</head>
+<body>
+<div id="page-loader" class="page-loader" role="status" aria-label="Loading">
+  <div class="loader-content">
+    <div class="loader-icon">
+      <span class="material-symbols-outlined loader-leaf">eco</span>
+    </div>
+    <h2 class="loader-brand">Ankuram</h2>
+    <p class="loader-tagline">Growing something beautiful...</p>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+</div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="bg-primary py-2 text-center overflow-hidden announcement-scroll" role="status" aria-live="polite">
+<div class="announcement-scroll-inner">
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">🌿 100% Organic &amp; Nursery Certified Plants</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">✨ New succulent varieties curated for every home.</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+</div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom py-3 site-navbar" aria-label="Main navigation">
+  <div class="container-custom px-margin-desktop">
+    <a class="navbar-brand text-headline-md fw-bold text-primary text-decoration-none flex-shrink-0" href="../index.html">Ankuram</a>
+    <button class="navbar-toggler border-0 bg-transparent flex-shrink-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+    </button>
+    <div class="offcanvas offcanvas-lg offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+      <div class="offcanvas-header d-lg-none">
+        <div class="offcanvas-title" id="navbarOffcanvasLabel">
+          <div class="nav-brand">Ankuram<small>Menu</small></div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1 gap-1 d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="indoor.html">Indoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="outdoor.html">Outdoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="succulent.html">Succulents</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <!-- Desktop Search Trigger -->
+        <button class="d-none d-lg-flex align-items-center justify-content-center site-navbar-icon desktop-search-trigger me-2" id="desktop-search-trigger" type="button" aria-label="Toggle search" title="Search">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <ul class="navbar-nav align-items-center gap-2 ms-lg-auto flex-row mt-3 mt-lg-0">
+          <li class="nav-item d-none d-lg-flex">
+            <a class="nav-link site-navbar-icon position-relative" id="wishlist-btn" href="wishlist.html" aria-label="Wishlist"><span class="material-symbols-outlined" aria-hidden="true">favorite</span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary text-on-primary d-none" id="wishlist-badge" style="font-size:0.6rem;min-width:18px;height:18px;line-height:18px;padding:0 4px">0</span></a>
+          </li>
+
+          <li class="nav-item d-none d-lg-flex" id="user-menu-item">
+            <div id="user-menu-container">
+              <a class="nav-link site-navbar-icon" href="create-account.html" aria-label="Account" title="Create Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></a>
+            </div>
+          </li>
+        </ul>
+        <!-- Mobile search bar -->
+        <div class="d-lg-none px-0 pt-2 pb-3">
+        <!-- Mobile search bar - premium redesign -->
+        <div class="d-lg-none px-0 pt-2 pb-3 mobile-search-section">
+          <div class="mobile-search-header">
+            <span class="material-symbols-outlined header-icon">eco</span>
+            Find Your Plant
+          </div>
+          <div class="mobile-search-bar">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input placeholder="Search plants, varieties..." type="text" id="mobile-search-input"/>
+            <button class="mobile-search-clear" id="mobile-search-clear" aria-label="Clear search">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+        </div>
+        </div>
+        <!-- Mobile navigation links -->
+        <div class="d-lg-none mt-2 pt-2 border-top border-outline-variant">
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="../index.html"><span class="material-symbols-outlined me-2">home</span>Home</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="shop.html"><span class="material-symbols-outlined me-2">store</span>Shop</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="indoor.html"><span class="material-symbols-outlined me-2">cottage</span>Indoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="outdoor.html"><span class="material-symbols-outlined me-2">park</span>Outdoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link active" aria-current="page" href="succulent.html"><span class="material-symbols-outlined me-2">local_florist</span>Succulents</a></li>
+          </ul>
+          <hr class="border-outline-variant my-2"/>
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="tulsi.html"><span class="material-symbols-outlined me-2">spa</span>Tulsi</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="most-wishlisted.html"><span class="material-symbols-outlined me-2">trending_up</span>Most Wishlisted</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="about.html"><span class="material-symbols-outlined me-2">info</span>About</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="contact.html"><span class="material-symbols-outlined me-2">mail</span>Contact</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="care-guide.html"><span class="material-symbols-outlined me-2">menu_book</span>Care Guide</a></li>
+            
+            <li class="nav-item mobile-nav-item d-none" id="mobile-user-menu-item">
+              <div id="mobile-user-menu-container">
+                <a class="nav-link" href="create-account.html"><span class="material-symbols-outlined me-2">person_add</span>Create Account</a>
+              </div>
+            </li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="privacy-policy.html"><span class="material-symbols-outlined me-2">shield</span>Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop Search Panel (slides down on trigger click) -->
+  <div class="desktop-search-panel" id="desktop-search-panel">
+    <div class="container-custom px-margin-desktop">
+      <div class="d-flex align-items-center gap-3 py-2">
+        <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0" style="font-size:24px">search</span>
+        <input id="search-input" class="flex-grow-1 bg-transparent border-0" type="text" placeholder="Search plants, varieties, care tips..." autocomplete="off" style="outline:none;font-size:1rem;min-width:0" />
+
+        <button type="button" class="desktop-search-close-btn" id="desktop-search-close" aria-label="Close search">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<main id="main-content">
+
+<!-- ======================== HERO ======================== -->
+<section class="category-hero">
+<div class="container-custom px-margin-desktop">
+<div class="text-center reveal-fade-down">
+<div class="category-hero-icon">
+<span class="material-symbols-outlined" aria-hidden="true">local_florist</span>
+</div>
+<h1 class="text-headline-lg text-on-surface mb-2">Deluxe Succulents</h1>
+<p class="text-body-md text-on-surface-variant mb-0" style="max-width: 540px; margin: 0 auto;">Drought-hardy, low-maintenance succulents that bring texture and calm to every home.</p>
+</div>
+</div>
+</section>
+
+<!-- ======================== MOBILE FILTER TOGGLE ======================== -->
+<div class="d-lg-none px-margin-desktop" style="padding-top: 12px;">
+<button class="filter-toggle-btn" id="mobile-filter-toggle" type="button" aria-expanded="false" aria-controls="filter-sidebar" title="Open filters">
+<span class="material-symbols-outlined" aria-hidden="true">tune</span>
+Filters &amp; Categories
+<span class="filter-count-badge d-none" id="filter-count-badge">0</span>
+</button>
+</div>
+
+<!-- ======================== MAIN CONTENT ======================== -->
+<section class="pb-section-gap">
+<div class="container-custom px-margin-desktop">
+
+<!-- Quick category pills (horizontal scroll) -->
+<div class="category-pills d-lg-none reveal-fade-down delay-100" id="category-pills">
+<a class="category-pill active" href="#" data-filter="all"><span class="pill-icon">🌵</span> All Succulents <span class="pill-count">5</span></a>
+<a class="category-pill" href="#" data-filter="succulents"><span class="pill-icon">🌱</span> Succulents</a>
+<a class="category-pill" href="#" data-filter="cacti"><span class="pill-icon">🌵</span> Cacti</a>
+<a class="category-pill" href="#" data-filter="airplants"><span class="pill-icon">🍃</span> Air Plants</a>
+</div>
+
+<div class="row g-4">
+
+<!-- ======================== SIDEBAR FILTERS ======================== -->
+<div class="col-lg-3">
+<div class="filter-sidebar d-lg-block" id="filter-sidebar">
+<!-- Mobile bottom sheet header (visible only on mobile when open) -->
+<div class="filter-sheet-header">
+<h5><span class="material-symbols-outlined" style="font-size:20px;color:var(--c-primary)">tune</span> Filters</h5>
+<button type="button" class="btn-close" id="filter-sheet-close" aria-label="Close filters">
+<span class="material-symbols-outlined" style="font-size:18px">close</span>
+</button>
+</div>
+<div class="filter-section-title">
+<span class="material-symbols-outlined" aria-hidden="true">category</span>
+Categories
+</div>
+<ul class="list-unstyled d-flex flex-column gap-1 mb-0" id="category-filter">
+<li><a class="filter-link active" href="#" data-filter="all"><span class="filter-dot"></span>All</a></li>
+<li><a class="filter-link" href="#" data-filter="succulents"><span class="filter-dot"></span>Succulents</a></li>
+<li><a class="filter-link" href="#" data-filter="cacti"><span class="filter-dot"></span>Cacti</a></li>
+<li><a class="filter-link" href="#" data-filter="airplants"><span class="filter-dot"></span>Air Plants</a></li>
+</ul>
+<div class="filter-section-title mt-4">
+<span class="material-symbols-outlined" aria-hidden="true">sell</span>
+Price Range
+</div>
+<div class="d-flex flex-column gap-1" id="price-filter">
+<label class="price-check"><input type="checkbox" data-price-range="0-25"/><span class="price-label">Under ₹25</span></label>
+<label class="price-check"><input type="checkbox" data-price-range="25-50"/><span class="price-label">₹25 – ₹50</span></label>
+<label class="price-check"><input type="checkbox" data-price-range="50-100"/><span class="price-label">₹50 – ₹100</span></label>
+<label class="price-check"><input type="checkbox" data-price-range="100-999"/><span class="price-label">Over ₹100</span></label>
+</div>
+<button class="filter-apply-btn" id="mobile-filter-apply" type="button">
+<span class="material-symbols-outlined" aria-hidden="true" style="font-size:18px">check</span>
+Apply Filters
+</button>
+</div>
+</div>
+
+<!-- ======================== PRODUCTS ======================== -->
+<div class="col-lg-9">
+
+<div class="active-filters d-none" id="active-filter-chips"></div>
+
+<div class="results-bar">
+<p class="results-count" id="result-count"><strong>5</strong> plants found</p>
+<div class="sort-pills" id="sort-pills" role="radiogroup" aria-label="Sort options">
+<button class="sort-pill active" data-sort="popularity" role="radio" aria-checked="true" type="button">
+<span class="material-symbols-outlined sort-pill-icon">trending_up</span>
+<span class="sort-pill-text">Popular</span>
+</button>
+<button class="sort-pill" data-sort="price-asc" role="radio" aria-checked="false" type="button">
+<span class="material-symbols-outlined sort-pill-icon">arrow_upward</span>
+<span class="sort-pill-text">Price Low</span>
+</button>
+<button class="sort-pill" data-sort="price-desc" role="radio" aria-checked="false" type="button">
+<span class="material-symbols-outlined sort-pill-icon">arrow_downward</span>
+<span class="sort-pill-text">Price High</span>
+</button>
+<button class="sort-pill" data-sort="name" role="radio" aria-checked="false" type="button">
+<span class="material-symbols-outlined sort-pill-icon">sort_by_alpha</span>
+<span class="sort-pill-text">Name</span>
+</button>
+</div>
+</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 stagger-children reveal-fade-up" id="product-grid">
+
+<div class="col" data-category="succulents" data-price="25">
+<a class="text-decoration-none" href="product.html?name=Jade%20Plant">
+<div class="product-card-modern">
+<div class="card-image-wrap">
+<span class="card-badge popular">Popular</span>
+<span class="card-stock in-stock"><span class="stock-dot"></span> In Stock</span>
+<div class="card-actions">
+<button class="card-action-btn btn-toggle-wishlist" data-product='{"name":"Jade Plant","price":25,"category":"Succulent","image":"../assets/Jade_Plant_white_background_202607131940.jpeg"}' onclick="event.stopPropagation()" aria-label="Add to wishlist">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<img alt="Jade Plant" src="../assets/Jade_Plant_white_background_202607131940.jpeg" loading="lazy"/>
+</div>
+<div class="card-info">
+<h3 class="card-name">Jade Plant</h3>
+<p class="card-tags">Succulent • Easy Care</p>
+<div class="card-footer">
+<span class="card-price">₹25.00</span>
+<a class="card-add-btn btn-whatsapp" href="https://wa.me/916393394554?text=Hi!%20I'd%20like%20to%20order%20Jade%20Plant%20-%20%E2%82%B925" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Buy on WhatsApp">
+<span class="material-symbols-outlined">chat</span>
+</a>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+<div class="col" data-category="succulents" data-price="20">
+<a class="text-decoration-none" href="product.html?name=Haworthia">
+<div class="product-card-modern">
+<div class="card-image-wrap">
+<span class="card-badge trending">Trending</span>
+<span class="card-stock in-stock"><span class="stock-dot"></span> In Stock</span>
+<div class="card-actions">
+<button class="card-action-btn btn-toggle-wishlist" data-product='{"name":"Haworthia","price":20,"category":"Succulent","image":"../assets/Haworthia_white_background_202607131940.jpeg"}' onclick="event.stopPropagation()" aria-label="Add to wishlist">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<img alt="Haworthia" src="../assets/Haworthia_white_background_202607131940.jpeg" loading="lazy"/>
+</div>
+<div class="card-info">
+<h3 class="card-name">Haworthia</h3>
+<p class="card-tags">Succulent • Small</p>
+<div class="card-footer">
+<span class="card-price">₹20.00</span>
+<a class="card-add-btn btn-whatsapp" href="https://wa.me/916393394554?text=Hi!%20I'd%20like%20to%20order%20Haworthia%20-%20%E2%82%B920" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Buy on WhatsApp">
+<span class="material-symbols-outlined">chat</span>
+</a>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+<div class="col" data-category="succulents cacti" data-price="22">
+<a class="text-decoration-none" href="product.html?name=Kalanchoe">
+<div class="product-card-modern">
+<div class="card-image-wrap">
+<span class="card-badge popular">Popular</span>
+<span class="card-stock in-stock"><span class="stock-dot"></span> In Stock</span>
+<div class="card-actions">
+<button class="card-action-btn btn-toggle-wishlist" data-product='{"name":"Kalanchoe","price":22,"category":"Succulent","image":"../assets/Kalanchoe_white_background_202607131940.jpeg"}' onclick="event.stopPropagation()" aria-label="Add to wishlist">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<img alt="Kalanchoe" src="../assets/Kalanchoe_white_background_202607131940.jpeg" loading="lazy"/>
+</div>
+<div class="card-info">
+<h3 class="card-name">Kalanchoe</h3>
+<p class="card-tags">Succulent • Flowering</p>
+<div class="card-footer">
+<span class="card-price">₹22.00</span>
+<a class="card-add-btn btn-whatsapp" href="https://wa.me/916393394554?text=Hi!%20I'd%20like%20to%20order%20Kalanchoe%20-%20%E2%82%B922" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Buy on WhatsApp">
+<span class="material-symbols-outlined">chat</span>
+</a>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+<div class="col" data-category="succulents cacti" data-price="35">
+<a class="text-decoration-none" href="product.html?name=Adenium">
+<div class="product-card-modern">
+<div class="card-image-wrap">
+<span class="card-badge premium">Premium</span>
+<span class="card-stock in-stock"><span class="stock-dot"></span> In Stock</span>
+<div class="card-actions">
+<button class="card-action-btn btn-toggle-wishlist" data-product='{"name":"Adenium","price":35,"category":"Succulent","image":"../assets/Adenium_white_background_202607131940.jpeg"}' onclick="event.stopPropagation()" aria-label="Add to wishlist">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<img alt="Adenium" src="../assets/Adenium_white_background_202607131940.jpeg" loading="lazy"/>
+</div>
+<div class="card-info">
+<h3 class="card-name">Adenium</h3>
+<p class="card-tags">Succulent • Desert Rose</p>
+<div class="card-footer">
+<span class="card-price">₹35.00</span>
+<a class="card-add-btn btn-whatsapp" href="https://wa.me/916393394554?text=Hi!%20I'd%20like%20to%20order%20Adenium%20-%20%E2%82%B935" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Buy on WhatsApp">
+<span class="material-symbols-outlined">chat</span>
+</a>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+<div class="col" data-category="succulents airplants" data-price="15">
+<a class="text-decoration-none" href="product.html?name=Portulaca">
+<div class="product-card-modern">
+<div class="card-image-wrap">
+<span class="card-badge bestseller">Bestseller</span>
+<span class="card-stock in-stock"><span class="stock-dot"></span> In Stock</span>
+<div class="card-actions">
+<button class="card-action-btn btn-toggle-wishlist" data-product='{"name":"Portulaca","price":15,"category":"Succulent","image":"../assets/Portulaca_white_background_202607131940.jpeg"}' onclick="event.stopPropagation()" aria-label="Add to wishlist">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<img alt="Portulaca" src="../assets/Portulaca_white_background_202607131940.jpeg" loading="lazy"/>
+</div>
+<div class="card-info">
+<h3 class="card-name">Portulaca</h3>
+<p class="card-tags">Succulent • Sun Lover</p>
+<div class="card-footer">
+<span class="card-price">₹15.00</span>
+<a class="card-add-btn btn-whatsapp" href="https://wa.me/916393394554?text=Hi!%20I'd%20like%20to%20order%20Portulaca%20-%20%E2%82%B915" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Buy on WhatsApp">
+<span class="material-symbols-outlined">chat</span>
+</a>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+</div>
+
+<nav class="d-flex justify-content-center mt-5" id="pagination-nav">
+<ul class="pagination" id="pagination-list">
+<li class="page-item active"><a class="page-link pagination-active fw-bold" href="#" data-page="1">1</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ======================== CARE INSTRUCTIONS ======================== -->
+<section class="py-section-gap">
+<div class="container-custom px-margin-desktop">
+<div class="text-center mb-5 reveal-fade-down">
+<h2 class="text-headline-lg text-on-surface mb-2">🌱 Succulent Care Guide</h2>
+<p class="text-body-md text-on-surface-variant mb-0">Everything you need to keep your succulents thriving.</p>
+</div>
+<div class="row g-3 justify-content-center">
+<div class="col-md-4 col-6">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+<span class="material-symbols-outlined text-primary">water_drop</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Watering</h4>
+<p class="text-body-md text-on-surface-variant mb-0">Every 2-3 weeks — drought tolerant</p>
+</div>
+</div>
+<div class="col-md-4 col-6">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+<span class="material-symbols-outlined text-primary">light_mode</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Light</h4>
+<p class="text-body-md text-on-surface-variant mb-0">Low to bright indirect</p>
+</div>
+</div>
+<div class="col-md-4 col-6">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+<span class="material-symbols-outlined text-primary">thermostat</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Temperature</h4>
+<p class="text-body-md text-on-surface-variant mb-0">Keep between 15–30°C.</p>
+</div>
+</div>
+<div class="col-md-4 col-6">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+<span class="material-symbols-outlined text-primary">nutrition</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Fertilizer</h4>
+<p class="text-body-md text-on-surface-variant mb-0">Every 3 months</p>
+</div>
+</div>
+<div class="col-md-4 col-6">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(232,168,124,0.15)!important;width:48px;height:48px">
+<span class="material-symbols-outlined" style="color:var(--c-validation-soft)">ac_unit</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Winter Care</h4>
+<p class="text-body-md text-on-surface-variant mb-0">Keep above 5°C; water sparingly</p>
+</div>
+</div>
+<div class="col-md-4 col-6">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(232,168,124,0.15)!important;width:48px;height:48px">
+<span class="material-symbols-outlined" style="color:var(--c-validation-soft)">timer</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Survival Time</h4>
+<p class="text-body-md text-on-surface-variant mb-0">3-6 weeks without water</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="bg-surface-container-lowest border-top border-outline-variant/20 pt-section-gap pb-5">
+<div class="container-custom px-margin-desktop">
+<div class="row row-cols-1 row-cols-md-4 g-3 mb-5">
+<div class="col d-flex flex-column gap-4">
+<a class="text-headline-md fw-bold text-primary text-decoration-none" href="../index.html">Ankuram</a>
+<p class="text-body-md text-on-surface-variant mb-0">
+Curating the finest botanical specimens for the modern home. Sustainable, premium, and delivered with care.
+</p>
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mb-2 tracking-wider">Follow Us</p>
+<div class="d-flex gap-2">
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Instagram"><span class="fw-bold text-label-sm text-on-surface-variant">IG</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Facebook"><span class="fw-bold text-label-sm text-on-surface-variant">FB</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="X"><span class="fw-bold text-label-sm text-on-surface-variant">X</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="YouTube"><span class="fw-bold text-label-sm text-on-surface-variant">YT</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Pinterest"><span class="fw-bold text-label-sm text-on-surface-variant">Pin</span></a>
+</div>
+<!-- Newsletter section commented out
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mt-3 mb-2 tracking-wider">Newsletter</p>
+<p class="text-body-md text-on-surface-variant mb-2">Get 10% off your first order.</p>
+<div class="d-flex">
+<input class="form-control border-outline-variant text-label-md rounded-0 rounded-start" placeholder="your@email.com" type="email" style="outline:none"/>
+<button class="bg-primary text-on-primary px-3 text-label-md border-0 rounded-0 rounded-end transition-standard active-scale-95" type="submit">Join</button>
+</div>
+-->
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Shop</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="shop.html">All Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="indoor.html">Indoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="outdoor.html">Outdoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="tulsi.html">Tulsi (Holy Basil)</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="most-wishlisted.html">Most Wishlisted</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="wishlist.html">Wishlist</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="create-account.html">Create Account</a></li>
+          </ul>
+            <div class="nav-footer">
+    <p>Quick access to shop, categories, and support.</p>
+  </div>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Company</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="about.html">Our Story</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html">Contact</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Support</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#shipping-info">Shipping Info</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#returns-policy">Returns Policy</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="care-guide.html">Plant Care Guide</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#faq">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="border-top border-outline-variant/20 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+<p class="text-label-sm text-on-surface-variant mb-0">© 2026 Ankuram. All rights reserved.</p>
+<div class="d-flex gap-4">
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Terms</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<div id="toast-container"></div>
+<button class="back-to-top" id="back-to-top" title="Back to top">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+</button>
+
+
+
+<div class="lightbox-overlay" id="lightbox-overlay">
+  <button class="lightbox-close" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+  <div class="lightbox-image-wrap">
+    <img src="../images/placeholder.svg" alt="Enlarged view"/>
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+  <div class="lightbox-hint"><kbd>←</kbd> <kbd>→</kbd> navigate &middot; <kbd>Esc</kbd> close</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/pages/cart.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="../config/firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="../config/firestore-sync.js"></script>
+<script src="../js/modules/script.js"></script>
+</body>
+</html>
+
+

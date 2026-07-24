@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../styles/base.css" rel="stylesheet"/>
+<link href="../styles/typography.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
+<link href="../styles/navigation-desktop.css" rel="stylesheet"/>
+<link href="../styles/animations.css" rel="stylesheet"/>
+<link href="../styles/responsive.css" rel="stylesheet"/>
+<link href="../styles/navigation-mobile.css" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<meta name="description" content="View product details at Ankuram."/>
+<meta property="og:title" content="Product — Ankuram"/>
+<meta property="og:description" content="View product details at Ankuram."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content="../assets/white_background_202607131940.jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>Product — Ankuram</title>
+<style>
+.product-gallery-thumb { cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s ease; }
+.product-gallery-thumb:hover, .product-gallery-thumb.active { border-color: var(--c-primary); }
+.product-detail-enter { animation: productDetailEnter 0.6s ease forwards; }
+@keyframes productDetailEnter { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.care-tip-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.care-tip-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+
+/* ===== Star rating smooth animations ===== */
+.star-input-icon {
+  transition: color 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              font-variation-settings 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.star-input-icon.pop {
+  animation: starPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes starPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+.star-input-icon.filled {
+  animation: starGlow 2s ease-in-out 3 forwards;
+}
+@keyframes starGlow {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.25); }
+}
+</style>
+</head>
+<body>
+<div id="page-loader" class="page-loader" role="status" aria-label="Loading">
+  <div class="loader-content">
+    <div class="loader-icon">
+      <span class="material-symbols-outlined loader-leaf">eco</span>
+    </div>
+    <h2 class="loader-brand">Ankuram</h2>
+    <p class="loader-tagline">Growing something beautiful...</p>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+</div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="bg-primary py-2 text-center overflow-hidden announcement-scroll" role="status" aria-live="polite">
+<div class="announcement-scroll-inner">
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">🌿 100% Organic &amp; Nursery Certified Plants</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">✨ New Tulsi Varieties Added — Shop Now!</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+</div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom py-3 site-navbar" aria-label="Main navigation">
+  <div class="container-custom px-margin-desktop">
+    <a class="navbar-brand text-headline-md fw-bold text-primary text-decoration-none flex-shrink-0" href="../index.html">Ankuram</a>
+    <button class="navbar-toggler border-0 bg-transparent flex-shrink-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+    </button>
+    <div class="offcanvas offcanvas-lg offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+      <div class="offcanvas-header d-lg-none">
+        <div class="offcanvas-title" id="navbarOffcanvasLabel">
+          <div class="nav-brand">Ankuram<small>Menu</small></div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1 gap-1 d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="indoor.html">Indoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="outdoor.html">Outdoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="succulent.html">Succulents</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <button class="d-none d-lg-flex align-items-center justify-content-center site-navbar-icon desktop-search-trigger me-2" id="desktop-search-trigger" type="button" aria-label="Toggle search" title="Search">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <ul class="navbar-nav align-items-center gap-2 ms-lg-auto flex-row mt-3 mt-lg-0">
+          <li class="nav-item d-none d-lg-flex">
+            <a class="nav-link site-navbar-icon position-relative" id="wishlist-btn" href="wishlist.html" aria-label="Wishlist"><span class="material-symbols-outlined" aria-hidden="true">favorite</span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary text-on-primary d-none" id="wishlist-badge" style="font-size:0.6rem;min-width:18px;height:18px;line-height:18px;padding:0 4px">0</span></a>
+          </li>
+
+          <li class="nav-item d-none d-lg-flex" id="user-menu-item">
+            <div id="user-menu-container">
+              <a class="nav-link site-navbar-icon" href="create-account.html" aria-label="Account" title="Create Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></a>
+            </div>
+          </li>
+        </ul>
+        <div class="d-lg-none px-0 pt-2 pb-3">
+        <!-- Mobile search bar - premium redesign -->
+        <div class="d-lg-none px-0 pt-2 pb-3 mobile-search-section">
+          <div class="mobile-search-header">
+            <span class="material-symbols-outlined header-icon">eco</span>
+            Find Your Plant
+          </div>
+          <div class="mobile-search-bar">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input placeholder="Search plants, varieties..." type="text" id="mobile-search-input"/>
+            <button class="mobile-search-clear" id="mobile-search-clear" aria-label="Clear search">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+        </div>
+        </div>
+        <div class="d-lg-none mt-2 pt-2 border-top border-outline-variant">
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="../index.html"><span class="material-symbols-outlined me-2">home</span>Home</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="shop.html"><span class="material-symbols-outlined me-2">store</span>Shop</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="indoor.html"><span class="material-symbols-outlined me-2">cottage</span>Indoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="outdoor.html"><span class="material-symbols-outlined me-2">park</span>Outdoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="succulent.html"><span class="material-symbols-outlined me-2">local_florist</span>Succulents</a></li>
+          </ul>
+          <hr class="border-outline-variant my-2"/>
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="tulsi.html"><span class="material-symbols-outlined me-2">spa</span>Tulsi</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="most-wishlisted.html"><span class="material-symbols-outlined me-2">trending_up</span>Most Wishlisted</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="about.html"><span class="material-symbols-outlined me-2">info</span>About</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="contact.html"><span class="material-symbols-outlined me-2">mail</span>Contact</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="care-guide.html"><span class="material-symbols-outlined me-2">menu_book</span>Care Guide</a></li>
+            
+            <li class="nav-item mobile-nav-item d-none" id="mobile-user-menu-item">
+              <div id="mobile-user-menu-container">
+                <a class="nav-link" href="create-account.html"><span class="material-symbols-outlined me-2">person_add</span>Create Account</a>
+              </div>
+            </li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="privacy-policy.html"><span class="material-symbols-outlined me-2">shield</span>Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="desktop-search-panel" id="desktop-search-panel">
+    <div class="container-custom px-margin-desktop">
+      <div class="d-flex align-items-center gap-3 py-2">
+        <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0" style="font-size:24px">search</span>
+        <input id="search-input" class="flex-grow-1 bg-transparent border-0" type="text" placeholder="Search plants, varieties, care tips..." autocomplete="off" style="outline:none;font-size:1rem;min-width:0" />
+
+        <button type="button" class="desktop-search-close-btn" id="desktop-search-close" aria-label="Close search">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- Product Detail Section -->
+<section class="container-custom px-margin-desktop py-section-gap" id="product-detail">
+<div class="text-center py-5 d-none" id="product-error">
+<span class="material-symbols-outlined text-on-surface-variant" aria-hidden="true" style="font-size:80px">error_outline</span>
+<h3 class="text-headline-md text-on-surface mt-4 mb-2">Product Not Found</h3>
+<p class="text-body-md text-on-surface-variant mb-4">The product you're looking for could not be loaded.</p>
+<a class="bg-primary text-on-primary px-5 py-3 rounded-3 text-label-md border-0 shadow-primary hover-bg-primary-container transition-standard active-scale-98 text-decoration-none d-inline-block" href="shop.html">Browse Plants</a>
+</div>
+
+<div id="product-content" class="d-none">
+<nav aria-label="Breadcrumb" class="mb-4 reveal active reveal-fade-down">
+<ol class="list-unstyled d-flex align-items-center gap-2 text-label-sm mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="../index.html">Home</a><span class="text-on-surface-variant mx-1">/</span></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" id="breadcrumb-category" href="shop.html">Shop</a><span class="text-on-surface-variant mx-1">/</span></li>
+<li class="text-on-surface-variant" id="breadcrumb-product">Product</li>
+</ol>
+</nav>
+
+<div class="row g-5">
+<!-- Product Image Gallery -->
+<div class="col-lg-6 product-detail-enter">
+<div class="position-relative">
+<div class="rounded-4 overflow-hidden bg-surface-container-low shadow-sm mb-3 position-relative" id="main-image-container" style="aspect-ratio:4/5;cursor:zoom-in">
+<img class="w-100 h-100 object-fit-cover transition-standard" id="product-main-image" src="" alt="" loading="eager"/>
+<div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0 hover-opacity-100 transition-standard" style="background:rgba(0,0,0,0.1)">
+<span class="material-symbols-outlined text-white" style="font-size:48px">zoom_in</span>
+</div>
+</div>
+<div class="d-flex gap-2" id="product-thumbnails"></div>
+<span class="position-absolute top-0 end-0 bg-primary text-on-primary px-3 py-1 rounded-5 text-label-sm z-10 m-3 d-none" id="product-badge">Bestseller</span>
+</div>
+</div>
+
+<!-- Product Info -->
+<div class="col-lg-6 product-detail-enter" style="animation-delay:0.1s">
+<span class="text-label-sm text-primary text-uppercase tracking-wider fw-bold" id="product-category"></span>
+<h1 class="text-headline-lg text-on-surface mt-2 mb-1" id="product-name"></h1>
+<p class="text-label-md text-on-surface-variant fst-italic mb-3" id="product-scientific-name" style="font-family:'Inter',sans-serif;opacity:0.7"></p>
+
+<div class="d-flex align-items-center gap-3 mb-3" id="product-rating-display">
+<div class="d-flex align-items-center">
+<span class="text-label-sm text-on-surface-variant">No reviews yet</span>
+</div>
+</div>
+
+<div class="d-flex align-items-baseline gap-3 mb-4">
+<span class="text-display-sm fw-bold text-primary" id="product-price">₹0</span>
+<span class="text-label-md text-on-surface-variant text-decoration-line-through d-none" id="product-old-price">₹0</span>
+<span class="text-label-sm bg-danger text-white px-2 py-1 rounded-2 d-none" id="product-discount-badge">-20%</span>
+</div>
+
+<div class="bg-surface-container-low rounded-3 p-4 mb-4 border-start border-4 border-primary position-relative" id="description-card">
+<div class="position-absolute top-0 end-0 mt-2 me-2 d-flex align-items-center gap-1 text-label-xs text-on-surface-variant opacity-50">
+<span class="material-symbols-outlined" style="font-size:14px">psychiatry</span>
+</div>
+<div class="d-flex gap-3">
+<div class="flex-shrink-0 d-none d-sm-block">
+<div class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width:40px;height:40px;background:rgba(13,99,27,0.08);">
+<span class="material-symbols-outlined text-primary" style="font-size:22px">eco</span>
+</div>
+</div>
+<div>
+<p class="text-body-md text-on-surface-variant mb-0 lh-lg" id="product-description">
+Bring nature into your home with this beautiful plant. Easy to care for and perfect for beginners.
+</p>
+</div>
+</div>
+</div>
+
+<div class="d-flex flex-wrap gap-4 mb-4">
+<div class="d-flex align-items-center gap-2">
+<span class="material-symbols-outlined text-primary">water_drop</span>
+<div>
+<p class="text-label-sm text-on-surface-variant mb-0">Water</p>
+<p class="text-label-md fw-bold text-on-surface mb-0" id="product-water-needs">Moderate</p>
+</div>
+</div>
+<div class="d-flex align-items-center gap-2">
+<span class="material-symbols-outlined text-primary">light_mode</span>
+<div>
+<p class="text-label-sm text-on-surface-variant mb-0">Light</p>
+<p class="text-label-md fw-bold text-on-surface mb-0" id="product-light-needs">Indirect</p>
+</div>
+</div>
+<div class="d-flex align-items-center gap-2">
+<span class="material-symbols-outlined text-primary">thermostat</span>
+<div>
+<p class="text-label-sm text-on-surface-variant mb-0">Temp</p>
+<p class="text-label-md fw-bold text-on-surface mb-0" id="product-temp-range">18–27°C</p>
+</div>
+</div>
+<div class="d-flex align-items-center gap-2">
+<span class="material-symbols-outlined text-primary">eco</span>
+<div>
+<p class="text-label-sm text-on-surface-variant mb-0">Pet Safe</p>
+<p class="text-label-md fw-bold text-on-surface mb-0" id="product-pet-safe">Yes</p>
+</div>
+</div>
+</div>
+
+<!-- Stock & Add to Cart -->
+<div class="bg-surface-container-low rounded-3 p-4 mb-4 transition-base hover-lift-sm hover-shadow-sm">
+<div class="d-flex align-items-center justify-content-between mb-3">
+<span class="stock-indicator stock-in-stock" id="product-stock-indicator"><span class="dot"></span> <span id="product-stock-text">In Stock</span></span>
+</div>
+<div class="d-flex gap-2">
+<a class="flex-grow-1 bg-success text-white py-3 rounded-3 text-label-md border-0 shadow-sm transition-standard active-scale-98 d-flex align-items-center justify-content-center gap-2 text-decoration-none" id="product-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" style="background-color:#25D366">
+<span class="material-symbols-outlined" style="font-size:20px">chat</span> Buy on WhatsApp
+</a>
+<button class="btn-toggle-wishlist-detail bg-white border border-outline-variant p-3 rounded-3 hover-bg-primary hover-text-white transition-standard active-scale-95 d-flex align-items-center justify-content-center" id="product-wishlist-btn" style="width:52px;height:52px" aria-label="Toggle wishlist">
+<span class="material-symbols-outlined" style="font-size:24px">favorite</span>
+</button>
+</div>
+</div>
+
+<!-- Quick Info -->
+<div class="d-flex flex-wrap gap-3">
+<div class="d-flex align-items-center gap-2 text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" style="font-size:18px">local_shipping</span> Free shipping over ₹150
+</div>
+<div class="d-flex align-items-center gap-2 text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" style="font-size:18px">verified</span> Nursery certified
+</div>
+<div class="d-flex align-items-center gap-2 text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" style="font-size:18px">currency_rupee</span> 100% buyback guarantee
+</div>
+<div class="d-flex align-items-center gap-2 text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" style="font-size:18px">repeat</span> Easy returns within 7 days
+</div>
+</div>
+</div>
+</div>
+
+<!-- Care Guide Section -->
+<div class="mt-5 pt-5 border-top border-outline-variant/20">
+<h2 class="text-headline-lg text-on-surface mb-4 text-center">🌱 Care Instructions</h2>
+<div class="row g-3">
+<div class="col-md-4">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+<span class="material-symbols-outlined text-primary">water_drop</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Watering</h4>
+<p class="text-body-md text-on-surface-variant mb-0" id="care-water">Every 2-3 weeks — drought tolerant</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+<span class="material-symbols-outlined text-primary">light_mode</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Light</h4>
+<p class="text-body-md text-on-surface-variant mb-0" id="care-light">Low to bright indirect</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+<span class="material-symbols-outlined text-primary">thermostat</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Temperature</h4>
+<p class="text-body-md text-on-surface-variant mb-0" id="care-temp">Keep between 15–30°C.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(13,99,27,0.1)!important;width:48px;height:48px">
+<span class="material-symbols-outlined text-primary">nutrition</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Fertilizer</h4>
+<p class="text-body-md text-on-surface-variant mb-0" id="care-fertilizer">Every 3 months</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(232,168,124,0.15)!important;width:48px;height:48px">
+<span class="material-symbols-outlined" style="color:var(--c-validation-soft)">ac_unit</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Winter Care</h4>
+<p class="text-body-md text-on-surface-variant mb-0" id="care-winter">Protect from frost; reduce watering.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="care-tip-card bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100 text-center">
+<div class="bg-primary d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3" style="background-color:rgba(232,168,124,0.15)!important;width:48px;height:48px">
+<span class="material-symbols-outlined" style="color:var(--c-validation-soft)">timer</span>
+</div>
+<h4 class="text-label-md fw-bold text-on-surface mb-2">Survival Time</h4>
+<p class="text-body-md text-on-surface-variant mb-0" id="care-survival">2-3 weeks without water.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Related Products -->
+<section class="mt-5 pt-5 border-top border-outline-variant/20">
+<h2 class="text-headline-lg text-on-surface mb-4 text-center">🌿 You May Also Like</h2>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3" id="related-products"></div>
+</section>
+
+<!-- ============================================================
+     CUSTOMER REVIEWS — Redesigned Premium Section
+     ============================================================ -->
+<section class="mt-5 pt-5 border-top border-outline-variant/20" id="reviews-section">
+<h2 class="text-headline-lg text-on-surface mb-1 text-center">Customer Reviews</h2>
+<p class="text-body-md text-on-surface-variant text-center mb-5" id="reviews-summary">Loading reviews...</p>
+
+<div id="reviews-container" class="mb-5">
+
+  <!-- ===== Rating Summary Card ===== -->
+  <div class="review-summary-card d-none" id="review-summary">
+    <div class="row align-items-center g-4">
+      <div class="col-md-4 text-center">
+        <div class="review-summary-score" id="review-avg-rating">0.0</div>
+        <div class="review-summary-stars" id="review-summary-stars"></div>
+        <div class="text-label-sm text-on-surface-variant mt-1" id="review-summary-count">0 reviews</div>
+      </div>
+      <div class="col-md-8">
+        <div class="review-breakdown" id="review-breakdown">
+          <div class="review-bar-row" data-rating="5">
+            <span class="review-bar-label">5★</span>
+            <div class="review-bar-track"><div class="review-bar-fill" style="width:0%"></div></div>
+            <span class="review-bar-count">0</span>
+          </div>
+          <div class="review-bar-row" data-rating="4">
+            <span class="review-bar-label">4★</span>
+            <div class="review-bar-track"><div class="review-bar-fill" style="width:0%"></div></div>
+            <span class="review-bar-count">0</span>
+          </div>
+          <div class="review-bar-row" data-rating="3">
+            <span class="review-bar-label">3★</span>
+            <div class="review-bar-track"><div class="review-bar-fill" style="width:0%"></div></div>
+            <span class="review-bar-count">0</span>
+          </div>
+          <div class="review-bar-row" data-rating="2">
+            <span class="review-bar-label">2★</span>
+            <div class="review-bar-track"><div class="review-bar-fill" style="width:0%"></div></div>
+            <span class="review-bar-count">0</span>
+          </div>
+          <div class="review-bar-row" data-rating="1">
+            <span class="review-bar-label">1★</span>
+            <div class="review-bar-track"><div class="review-bar-fill" style="width:0%"></div></div>
+            <span class="review-bar-count">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Empty State ===== -->
+  <div class="text-center py-5" id="reviews-empty">
+    <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary-light mb-3" style="width:72px;height:72px">
+      <span class="material-symbols-outlined text-primary" style="font-size:36px">rate_review</span>
+    </div>
+    <h3 class="text-headline-md text-on-surface mb-2">No reviews yet</h3>
+    <p class="text-body-md text-on-surface-variant mb-0">Be the first to share your experience with this plant! 🌱</p>
+  </div>
+
+  <!-- ===== Toolbar (Sort + Count) ===== -->
+  <div class="d-none mb-4" id="reviews-toolbar">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 py-2 px-3 bg-surface-container-low rounded-3">
+      <div class="d-flex align-items-center gap-2">
+        <span class="material-symbols-outlined text-on-surface-variant" style="font-size:18px">sort</span>
+        <select class="form-select border-0 bg-transparent text-label-sm text-on-surface fw-medium py-1 px-0" id="review-sort" style="width:auto;min-width:120px;outline:none;cursor:pointer">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="highest">Highest Rated</option>
+          <option value="lowest">Lowest Rated</option>
+        </select>
+      </div>
+      <span class="text-label-sm text-on-surface-variant fw-medium" id="reviews-count"></span>
+    </div>
+  </div>
+
+  <!-- ===== Reviews List ===== -->
+  <div class="d-flex flex-column gap-3" id="reviews-list"></div>
+
+</div>
+
+<!-- ===== Login Required (shown when not logged in) ===== -->
+<div class="review-form-card d-none" id="review-login-prompt" style="background:#ffffff;border:1.5px solid #d4cbc0;box-shadow:0 2px 12px rgba(0,0,0,0.04);border-radius:16px;padding:28px;text-align:center">
+  <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width:64px;height:64px;background:rgba(61,122,79,0.1)">
+    <span class="material-symbols-outlined" style="font-size:32px;color:#3D7A4F">lock</span>
+  </div>
+  <h3 class="text-headline-md fw-bold" style="color:#1a1a1a;margin:0 0 8px 0">Sign in to Share Your Experience</h3>
+  <p style="margin:0 0 20px 0;font-size:0.9375rem;line-height:1.5;color:#4a4a4a;max-width:400px;margin-left:auto;margin-right:auto">
+    Create an account or sign in to write a review, rate this plant, and help other plant lovers make informed choices! 🌱
+  </p>
+  <a href="create-account.html" class="d-inline-flex align-items-center gap-2" style="padding:14px 28px;border:none;border-radius:12px;background:#3D7A4F;color:#fff;font-size:0.9375rem;font-weight:600;text-decoration:none;cursor:pointer;box-shadow:0 4px 16px rgba(61,122,79,0.25)">
+    <span class="material-symbols-outlined" style="font-size:20px">person_add</span>
+    <span>Sign In / Create Account</span>
+  </a>
+  <p style="margin:16px 0 0 0;font-size:0.8125rem;color:#888">
+    Your review will be linked to your account and saved securely online.
+  </p>
+</div>
+
+<!-- ===== Review Form (shown when logged in) ===== -->
+<div class="review-form-card d-none" id="review-form-section" style="background:#ffffff;border:1.5px solid #d4cbc0;box-shadow:0 2px 12px rgba(0,0,0,0.04);border-radius:16px;padding:28px">
+  <div class="d-flex align-items-start gap-3 mb-4" style="padding-bottom:16px;border-bottom:1.5px solid #ede4d8">
+    <div class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width:44px;height:44px;background:rgba(61,122,79,0.1);flex-shrink:0">
+      <span class="material-symbols-outlined" style="font-size:22px;color:#3D7A4F">edit_note</span>
+    </div>
+    <div style="min-width:0">
+      <h3 class="text-headline-md fw-bold" style="color:#1a1a1a;margin:0 0 4px 0">Share Your Experience</h3>
+      <p style="margin:0;font-size:0.9375rem;line-height:1.5;color:#4a4a4a">Tell us how the plant looked, felt, and what you loved most.</p>
+    </div>
+  </div>
+
+  <!-- Star Rating -->
+  <div class="mb-4">
+    <p style="margin:0 0 10px 0;font-size:0.8125rem;font-weight:600;color:#1a1a1a">Your Rating <span style="color:#d32f2f">*</span></p>
+    <div class="d-flex align-items-center" id="star-rating-input" role="radiogroup" aria-label="Star rating">
+      <button class="star-input-btn" data-value="1" aria-label="1 star" type="button" style="border:none;background:none;padding:2px;cursor:pointer">
+        <span class="material-symbols-outlined star-input-icon" style="font-size:32px;color:#ccc">star</span>
+      </button>
+      <button class="star-input-btn" data-value="2" aria-label="2 stars" type="button" style="border:none;background:none;padding:2px;cursor:pointer">
+        <span class="material-symbols-outlined star-input-icon" style="font-size:32px;color:#ccc">star</span>
+      </button>
+      <button class="star-input-btn" data-value="3" aria-label="3 stars" type="button" style="border:none;background:none;padding:2px;cursor:pointer">
+        <span class="material-symbols-outlined star-input-icon" style="font-size:32px;color:#ccc">star</span>
+      </button>
+      <button class="star-input-btn" data-value="4" aria-label="4 stars" type="button" style="border:none;background:none;padding:2px;cursor:pointer">
+        <span class="material-symbols-outlined star-input-icon" style="font-size:32px;color:#ccc">star</span>
+      </button>
+      <button class="star-input-btn" data-value="5" aria-label="5 stars" type="button" style="border:none;background:none;padding:2px;cursor:pointer">
+        <span class="material-symbols-outlined star-input-icon" style="font-size:32px;color:#ccc">star</span>
+      </button>
+      <span style="font-size:0.8125rem;color:#888;margin-left:8px" id="star-input-label">Click to rate</span>
+    </div>
+  </div>
+
+  <!-- Name input -->
+  <div style="margin-bottom:16px">
+    <label for="review-name" style="display:block;margin-bottom:6px;font-size:0.8125rem;font-weight:600;color:#1a1a1a">Your Name <span style="color:#888;font-weight:400;opacity:0.7">(optional)</span></label>
+    <input id="review-name" type="text" placeholder="Enter your name" autocomplete="name" style="width:100%;padding:12px 14px;border:1.5px solid #d4cbc0;border-radius:10px;font-size:0.9375rem;color:#1a1a1a;background:#fff;outline:none;box-sizing:border-box"/>
+  </div>
+
+  <!-- Comment textarea -->
+  <div style="margin-bottom:16px">
+    <label for="review-comment" style="display:block;margin-bottom:6px;font-size:0.8125rem;font-weight:600;color:#1a1a1a">Your Review <span style="color:#888;font-weight:400;opacity:0.7">(optional)</span></label>
+    <textarea id="review-comment" rows="3" maxlength="1000" placeholder="Tell us about your experience..." style="width:100%;padding:12px 14px;border:1.5px solid #d4cbc0;border-radius:10px;font-size:0.9375rem;color:#1a1a1a;background:#fff;outline:none;resize:vertical;min-height:100px;line-height:1.6;box-sizing:border-box;font-family:inherit"></textarea>
+    <div style="display:flex;justify-content:flex-end;margin-top:4px">
+      <span style="font-size:0.75rem;color:#888" id="char-count">0 / 1000</span>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="d-flex align-items-center gap-3" style="margin-top:20px">
+    <button id="submit-review-btn" type="button" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border:none;border-radius:12px;background:#3D7A4F;color:#fff;font-size:0.9375rem;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(61,122,79,0.25);position:relative;overflow:hidden">
+      <span class="material-symbols-outlined review-submit-icon" style="font-size:20px">rate_review</span>
+      <span class="review-submit-text">Submit Review</span>
+      <div class="review-submit-spinner d-none"><div class="spinner"></div></div>
+    </button>
+    <button class="d-none" id="cancel-edit-btn" type="button" style="border:none;background:none;font-size:0.8125rem;color:#888;cursor:pointer;padding:8px 12px">Cancel</button>
+  </div>
+</div>
+
+</section>
+
+</div>
+</section>
+
+</main>
+
+<footer class="bg-surface-container-lowest border-top border-outline-variant/20 pt-section-gap pb-5">
+<div class="container-custom px-margin-desktop">
+<div class="row row-cols-1 row-cols-md-4 g-3 mb-5">
+<div class="col d-flex flex-column gap-4">
+<a class="text-headline-md fw-bold text-primary text-decoration-none" href="../index.html">Ankuram</a>
+<p class="text-body-md text-on-surface-variant mb-0">Curating the finest botanical specimens for the modern home. Sustainable, premium, and delivered with care.</p>
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mb-2 tracking-wider">Follow Us</p>
+<div class="d-flex gap-2">
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Instagram"><span class="fw-bold text-label-sm text-on-surface-variant">IG</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Facebook"><span class="fw-bold text-label-sm text-on-surface-variant">FB</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="X"><span class="fw-bold text-label-sm text-on-surface-variant">X</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="YouTube"><span class="fw-bold text-label-sm text-on-surface-variant">YT</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Pinterest"><span class="fw-bold text-label-sm text-on-surface-variant">Pin</span></a>
+</div>
+<!-- Newsletter section commented out
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mt-3 mb-2 tracking-wider">Newsletter</p>
+<p class="text-body-md text-on-surface-variant mb-2">Get 10% off your first order.</p>
+<div class="d-flex">
+<input class="form-control border-outline-variant text-label-md rounded-0 rounded-start" placeholder="your@email.com" type="email" style="outline:none"/>
+<button class="bg-primary text-on-primary px-3 text-label-md border-0 rounded-0 rounded-end transition-standard active-scale-95" type="submit">Join</button>
+</div>
+-->
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Shop</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="shop.html">All Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="indoor.html">Indoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="outdoor.html">Outdoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="tulsi.html">Tulsi (Holy Basil)</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="most-wishlisted.html">Most Wishlisted</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="wishlist.html">Wishlist</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="create-account.html">Create Account</a></li>
+          </ul>
+  <div class="nav-footer"><p>Quick access to shop, categories, and support.</p></div>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Company</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="about.html">Our Story</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html">Contact</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Support</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#shipping-info">Shipping Info</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#returns-policy">Returns Policy</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="care-guide.html">Plant Care Guide</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#faq">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="border-top border-outline-variant/20 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+<p class="text-label-sm text-on-surface-variant mb-0">© 2026 Ankuram. All rights reserved.</p>
+<div class="d-flex gap-4">
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Terms</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+</footer>
+
+<div id="toast-container"></div>
+<button class="back-to-top" id="back-to-top" title="Back to top">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+</button>
+
+<div class="lightbox-overlay" id="lightbox-overlay">
+  <button class="lightbox-close" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+  <div class="lightbox-image-wrap">
+    <img src="" alt="Zoomed product"/>
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+  <div class="lightbox-hint"><kbd>←</kbd> <kbd>→</kbd> navigate &middot; <kbd>Esc</kbd> close</div>
+</div>
+
+<!-- ===== Confirm Modal ===== -->
+<div class="position-fixed top-0 start-0 w-100 h-100" id="confirm-modal" style="display:none;background:rgba(0,0,0,0.45);z-index:99999;align-items:center;justify-content:center;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)">
+<div style="background:#fff;border-radius:16px;padding:32px;max-width:400px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.2);text-align:center">
+<div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width:56px;height:56px;background:rgba(186,74,74,0.1)">
+<span class="material-symbols-outlined" style="font-size:28px;color:#BA4A4A">delete_outline</span>
+</div>
+<h3 style="margin:0 0 8px 0;font-size:1.25rem;font-weight:600;color:#1a1a1a">Delete Review</h3>
+<p style="margin:0 0 24px 0;font-size:0.9375rem;color:#666;line-height:1.5">Are you sure you want to delete this review? This action cannot be undone.</p>
+<div class="d-flex gap-3 justify-content-center">
+<button id="modal-cancel" type="button" style="padding:12px 24px;border:1.5px solid #d4cbc0;border-radius:10px;background:#fff;color:#444;font-size:0.875rem;font-weight:600;cursor:pointer">Cancel</button>
+<button id="modal-confirm" type="button" style="padding:12px 24px;border:none;border-radius:10px;background:#BA4A4A;color:#fff;font-size:0.875rem;font-weight:600;cursor:pointer">Delete</button>
+</div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../config/supabase.js"></script>
+<script src="../config/supabase-reviews.js"></script>
+<script src="../config/supabase-history.js"></script>
+<script src="../js/pages/cart.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="../config/firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="../config/firestore-sync.js"></script>
+<script src="../config/products-data.js"></script>
+<script src="../js/pages/product-page.js"></script>
+<script src="../js/modules/script.js"></script>
+<script>
+// ====================================================================
+// PRODUCT REVIEW SYSTEM (only — product loading handled by product-page.js)
+// ====================================================================
+
+(function() {
+    var params = new URLSearchParams(window.location.search);
+    var productName = params.get('name') || '';
+    
+    // ====================================================================
+    // HTML ESCAPE — Safe output rendering (preserves emojis, prevents XSS)
+    // ====================================================================
+    function escHtml(str) {
+        if (!str) return '';
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+    
+    // ====================================================================
+    // REAL-TIME INPUT SANITIZATION — Strip HTML from textarea on input/paste
+    // ====================================================================
+    function stripHtmlFromInput(input) {
+        if (!input) return;
+        
+        function sanitizeValue(el) {
+            var raw = el.value;
+            // Check if it contains any HTML-like content (<...>)
+            if (/<[^>]*>/g.test(raw)) {
+                var cleaned = raw.replace(/<[^>]*>/g, '');
+                el.value = cleaned;
+                // Show a friendly toast (but not too often — once per 4 seconds)
+                if (!el.dataset._sanitizeWarned) {
+                    if (typeof showToast === 'function') {
+                        showToast('HTML tags removed. Only text and emojis allowed. 🌿', 'info');
+                    }
+                    el.dataset._sanitizeWarned = 'true';
+                    setTimeout(function() { delete el.dataset._sanitizeWarned; }, 4000);
+                }
+            }
+        }
+        
+        input.addEventListener('input', function() {
+            sanitizeValue(this);
+            if (typeof updateCharCount === 'function') updateCharCount();
+        });
+        
+        // Also sanitize on paste (with slight delay so pasted content is captured)
+        input.addEventListener('paste', function() {
+            var self = this;
+            setTimeout(function() { sanitizeValue(self); }, 10);
+        });
+    }
+    
+    // ====================================================================
+    // REVIEW SYSTEM — Premium Redesign
+    // ====================================================================
+    
+    var selectedRating = 0;
+    var currentSort = 'newest';
+    
+    function getInitials(name) {
+        return name.split(' ').map(function(w) { return w.charAt(0); }).join('').toUpperCase().slice(0, 2);
+    }
+
+    function getCurrentUserEmail() {
+        try {
+            var u = JSON.parse(localStorage.getItem('leafUser'));
+            return u ? u.email : null;
+        } catch(e) { return null; }
+    }
+
+    function formatDate(iso) {
+        var d = new Date(iso);
+        return d.toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    function sortReviews(reviews, sort) {
+        var sorted = reviews.slice();
+        if (sort === 'newest') sorted.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+        else if (sort === 'oldest') sorted.sort(function(a, b) { return new Date(a.date) - new Date(b.date); });
+        else if (sort === 'highest') sorted.sort(function(a, b) { return b.rating - a.rating; });
+        else if (sort === 'lowest') sorted.sort(function(a, b) { return a.rating - b.rating; });
+        return sorted;
+    }
+
+    // Labels used by helper functions in cart.js (window.getStarLabel / window.getStarEmoji)
+
+    // --- Render rating summary card (with breakdown bars) ---
+    function renderRatingSummary(reviews) {
+        var summaryCard = document.getElementById('review-summary');
+        var avgEl = document.getElementById('review-avg-rating');
+        var starsEl = document.getElementById('review-summary-stars');
+        var countEl = document.getElementById('review-summary-count');
+
+        if (!reviews.length) {
+            if (summaryCard) summaryCard.classList.add('d-none');
+            return;
+        }
+
+        var avg = reviews.reduce(function(s, r) { return s + r.rating; }, 0) / reviews.length;
+        var avgRounded = Math.round(avg * 10) / 10;
+
+        if (avgEl) avgEl.textContent = avgRounded.toFixed(1);
+        if (starsEl) starsEl.innerHTML = window.renderStars(avgRounded, 22);
+        if (countEl) countEl.textContent = reviews.length + ' ' + (reviews.length === 1 ? 'review' : 'reviews');
+
+        // Breakdown bars
+        var breakdownRows = document.querySelectorAll('#review-breakdown .review-bar-row');
+        breakdownRows.forEach(function(row) {
+            var rating = parseInt(row.dataset.rating);
+            var count = reviews.filter(function(r) { return Math.round(r.rating) === rating; }).length;
+            var pct = (count / reviews.length) * 100;
+            var fill = row.querySelector('.review-bar-fill');
+            var countLabel = row.querySelector('.review-bar-count');
+            if (fill) fill.style.width = pct + '%';
+            if (countLabel) countLabel.textContent = count;
+        });
+
+        if (summaryCard) summaryCard.classList.remove('d-none');
+    }
+
+    function renderReviews() {
+        var reviews = window.getProductReviews(productName) || [];
+        var container = document.getElementById('reviews-list');
+        var empty = document.getElementById('reviews-empty');
+        var summary = document.getElementById('reviews-summary');
+        var ratingDisplay = document.getElementById('product-rating-display');
+        var toolbar = document.getElementById('reviews-toolbar');
+        var countEl = document.getElementById('reviews-count');
+        var userEmail = getCurrentUserEmail();
+
+        // Render summary card with breakdown
+        renderRatingSummary(reviews);
+        
+        if (reviews.length === 0) {
+            if (empty) empty.classList.remove('d-none');
+            if (toolbar) toolbar.classList.add('d-none');
+            if (container) container.innerHTML = '';
+            if (summary) summary.textContent = 'No reviews yet. Be the first!';
+            if (ratingDisplay) {
+                ratingDisplay.innerHTML = '<div class="d-flex align-items-center"><span class="text-label-sm text-on-surface-variant">No reviews yet</span></div>';
+            }
+            return;
+        }
+        
+        if (empty) empty.classList.add('d-none');
+        if (toolbar) toolbar.classList.remove('d-none');
+        
+        var avg = reviews.reduce(function(s, r) { return s + r.rating; }, 0) / reviews.length;
+        var avgRounded = Math.round(avg * 10) / 10;
+        
+        if (ratingDisplay) {
+            ratingDisplay.innerHTML = '<div class="d-flex align-items-center flex-wrap gap-2">' + window.renderStars(avgRounded, 20) + ' <span class="fw-bold text-on-surface">' + avgRounded + '</span> <span class="text-label-sm text-on-surface-variant">(' + reviews.length + ' ' + (reviews.length === 1 ? 'review' : 'reviews') + ')</span></div>';
+        }
+        
+        if (summary) {
+            summary.innerHTML = window.renderStars(avgRounded, 18) + ' <span class="fw-bold text-on-surface">' + avgRounded + '</span> &middot; ' + reviews.length + ' ' + (reviews.length === 1 ? 'review' : 'reviews');
+        }
+        
+        if (countEl) countEl.textContent = reviews.length + ' ' + (reviews.length === 1 ? 'review' : 'reviews');
+
+        var sorted = sortReviews(reviews, currentSort);
+        
+        if (container) {
+            container.innerHTML = sorted.map(function(r, idx) {
+                var initials = getInitials(r.author);
+                var isOwner = userEmail && r.email === userEmail;
+                var hasEdit = r.edited;
+                var dateLabel = formatDate(r.date) + (hasEdit ? ' (edited)' : '');
+                var helpfulCount = window.getHelpfulCount ? window.getHelpfulCount(r.id) : 0;
+
+                // === SANITIZE output: escHTML to prevent XSS ===
+                var safeAuthor = escHtml(r.author || '');
+                var safeComment = escHtml(r.comment || '');
+                
+                return '<div class="review-card-modern" data-review-id="' + r.id + '">' +
+                    '<div class="review-card-top">' +
+                        '<div class="review-card-author">' +
+                            '<div class="review-card-avatar">' + initials + '</div>' +
+                            '<div>' +
+                                '<div class="review-card-name-row">' +
+                                    '<span class="review-card-name">' + safeAuthor + '</span>' +
+                                    (isOwner ? '<span class="review-owner-badge">You</span>' : '') +
+                                '</div>' +
+                                '<div class="review-card-meta">' +
+                                    window.renderStars(r.rating, 14, true) +
+                                    '<span class="review-card-date">' + dateLabel + '</span>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                        (isOwner ? '<div class="review-card-actions">' +
+                            '<button class="review-action-btn" data-id="' + r.id + '" title="Edit" type="button"><span class="material-symbols-outlined">edit</span></button>' +
+                            '<button class="review-action-btn review-action-delete" data-id="' + r.id + '" title="Delete" type="button"><span class="material-symbols-outlined">delete</span></button>' +
+                        '</div>' : '') +
+                    '</div>' +
+                    (r.comment ? '<div class="review-card-body">' +
+                        '<p class="review-card-comment">' + safeComment + '</p>' +
+                    '</div>' : '') +
+                    '<div class="review-card-footer">' +
+                        '<button class="review-helpful-btn" data-id="' + r.id + '" type="button">' +
+                            '<span class="material-symbols-outlined">thumb_up</span>' +
+                            '<span>Helpful (' + helpfulCount + ')</span>' +
+                        '</button>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        }
+
+        // Attach edit handlers
+        container.querySelectorAll('.review-action-btn:not(.review-action-delete)').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var id = this.dataset.id;
+                var review = reviews.find(function(r) { return r.id === id; });
+                if (!review) return;
+                document.getElementById('review-comment').value = review.comment || '';
+                selectedRating = review.rating;
+                document.getElementById('review-comment').focus();
+                updateCharCount();
+                document.getElementById('submit-review-btn').dataset.editId = id;
+                var submitText = document.getElementById('submit-review-btn').querySelector('.review-submit-text');
+                var submitIcon = document.getElementById('submit-review-btn').querySelector('.review-submit-icon');
+                if (submitText) submitText.textContent = 'Update Review';
+                if (submitIcon) submitIcon.textContent = 'save';
+                document.getElementById('cancel-edit-btn').classList.remove('d-none');
+                // Scroll to form
+                document.getElementById('review-form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Re-highlight stars
+                updateStarDisplay(selectedRating);
+            });
+        });
+
+        // Attach delete handlers — uses custom modal
+        container.querySelectorAll('.review-action-delete').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var id = this.dataset.id;
+                var modal = document.getElementById('confirm-modal');
+                var confirmBtn = document.getElementById('modal-confirm');
+                var cancelBtn = document.getElementById('modal-cancel');
+                
+                modal.style.display = 'flex';
+                
+                var ac = new AbortController();
+                
+                function cleanup() {
+                    modal.style.display = 'none';
+                    ac.abort();
+                }
+                
+                function onConfirm() {
+                    window.deleteReview(id);
+                    showToast('Review deleted.');
+                    renderReviews();
+                    cleanup();
+                }
+                
+                function onCancel() {
+                    cleanup();
+                }
+                
+                confirmBtn.addEventListener('click', onConfirm, { signal: ac.signal });
+                cancelBtn.addEventListener('click', onCancel, { signal: ac.signal });
+                
+                // Close on backdrop click
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) cleanup();
+                }, { signal: ac.signal });
+            });
+        });
+
+        // Attach helpful handlers
+        container.querySelectorAll('.review-helpful-btn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var reviewCard = this.closest('.review-card-modern');
+                var reviewId = reviewCard ? reviewCard.dataset.reviewId : null;
+                if (!reviewId) return;
+                window.toggleHelpful(reviewId);
+                var icon = this.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.style.fontVariationSettings = "'FILL' 1";
+                }
+                var span = this.querySelector('span:last-child');
+                var count = window.getHelpfulCount(reviewId);
+                span.textContent = 'Helpful (' + count + ')';
+                showToast('Thanks for your feedback!');
+            });
+        });
+    }
+    
+    // Helper: update star display to a given rating (colorful per-position)
+    function updateStarDisplay(rating) {
+        starInputBtns.forEach(function(b) {
+            var icon = b.querySelector('.star-input-icon');
+            var bVal = parseInt(b.dataset.value);
+            if (bVal <= rating) {
+                icon.style.fontVariationSettings = "'FILL' 1";
+                icon.style.color = window.getStarColor(bVal);
+                icon.classList.add('filled');
+            } else {
+                icon.style.fontVariationSettings = "'FILL' 0";
+                icon.style.color = '#ccc';
+                icon.classList.remove('filled');
+            }
+        });
+        var label = document.getElementById('star-input-label');
+        if (label) {
+            label.textContent = rating > 0 ? window.getStarEmoji(rating) + ' ' + window.getStarLabel(rating) + ' (' + rating + '/5)' : 'Click to rate';
+        }
+    }
+    
+    // Star rating click — smooth transitions with pop animation
+    var starInputBtns = document.querySelectorAll('.star-input-btn');
+    starInputBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            selectedRating = parseInt(this.dataset.value);
+            starInputBtns.forEach(function(b) {
+                var icon = b.querySelector('.star-input-icon');
+                var bVal = parseInt(b.dataset.value);
+                if (bVal <= selectedRating) {
+                    icon.style.fontVariationSettings = "'FILL' 1";
+                    icon.style.color = window.getStarColor(bVal);
+                    // Add pop animation on the clicked star
+                    if (bVal === selectedRating) {
+                        icon.classList.remove('pop');
+                        void icon.offsetWidth; // force reflow
+                        icon.classList.add('pop');
+                    }
+                } else {
+                    icon.style.fontVariationSettings = "'FILL' 0";
+                    icon.style.color = '#ccc';
+                }
+            });
+            var label = document.getElementById('star-input-label');
+            if (label) label.textContent = selectedRating > 0 ? window.getStarEmoji(selectedRating) + ' ' + window.getStarLabel(selectedRating) + ' (' + selectedRating + '/5)' : 'Click to rate';
+        });
+    });
+    
+    // Char count
+    var commentInput = document.getElementById('review-comment');
+    var nameInput = document.getElementById('review-name');
+    
+    function updateCharCount() {
+        var el = document.getElementById('char-count');
+        if (el) el.textContent = commentInput.value.length + ' / 1000';
+    }
+    commentInput.addEventListener('input', updateCharCount);
+    
+    // === REAL-TIME SANITIZATION: textarea + name input ===
+    stripHtmlFromInput(commentInput);
+    if (nameInput) stripHtmlFromInput(nameInput);
+    
+    // Sort handler
+    document.getElementById('review-sort').addEventListener('change', function() {
+        currentSort = this.value;
+        renderReviews();
+    });
+    
+    // Cancel edit button
+    var cancelEditBtn = document.getElementById('cancel-edit-btn');
+    if (cancelEditBtn) {
+        cancelEditBtn.addEventListener('click', function() {
+            delete document.getElementById('submit-review-btn').dataset.editId;
+            var submitText = document.getElementById('submit-review-btn').querySelector('.review-submit-text');
+            var submitIcon = document.getElementById('submit-review-btn').querySelector('.review-submit-icon');
+            if (submitText) submitText.textContent = 'Submit Review';
+            if (submitIcon) submitIcon.textContent = 'rate_review';
+            cancelEditBtn.classList.add('d-none');
+            resetForm();
+        });
+    }
+    
+    // Submit review
+    var submitBtn = document.getElementById('submit-review-btn');
+    submitBtn.addEventListener('click', function() {
+        if (selectedRating === 0) {
+            showToast('Please select a star rating.');
+            return;
+        }
+        
+        if (submitBtn.disabled) return;
+        submitBtn.disabled = true;
+        var spinner = submitBtn.querySelector('.review-submit-spinner');
+        var submitText = submitBtn.querySelector('.review-submit-text');
+        var submitIcon = submitBtn.querySelector('.review-submit-icon');
+        if (spinner) spinner.classList.remove('d-none');
+        if (submitText) submitText.textContent = 'Submitting...';
+        if (submitIcon) submitIcon.classList.add('d-none');
+        
+        var editId = submitBtn.dataset.editId;
+        var nameRaw = document.getElementById('review-name').value.trim() || 'Anonymous';
+        var commentRaw = document.getElementById('review-comment').value.trim();
+        
+        // === FINAL SANITIZATION: Strip any lingering HTML before submitting ===
+        var name = nameRaw.replace(/<[^>]*>/g, '').trim();
+        if (!name) name = 'Anonymous';
+        if (name.length > 50) name = name.substring(0, 50);
+        var comment = commentRaw.replace(/<[^>]*>/g, '').trim();
+        if (comment.length > 1000) comment = comment.substring(0, 1000);
+        
+        function submitDone() {
+            submitBtn.disabled = false;
+            if (spinner) spinner.classList.add('d-none');
+            if (submitIcon) submitIcon.classList.remove('d-none');
+            if (!submitBtn.dataset.editId) {
+                if (submitText) submitText.textContent = 'Submit Review';
+                if (submitIcon) submitIcon.textContent = 'rate_review';
+            }
+        }
+        
+        if (editId) {
+            var success = window.editReview(editId, selectedRating, comment);
+            if (success) {
+                showToast('Review updated!');
+                delete submitBtn.dataset.editId;
+                if (submitText) submitText.textContent = 'Submit Review';
+                if (submitIcon) submitIcon.textContent = 'rate_review';
+                if (cancelEditBtn) cancelEditBtn.classList.add('d-none');
+                resetForm();
+                renderReviews();
+            }
+            submitDone();
+        } else {
+            var user = getCurrentUser();
+            var userEmail = user ? user.email : null;
+            var userId = user ? user.sub : null;
+            // Pass email + user_id to submitReview so it syncs to Supabase with tracking
+            var success = window.submitReview(productName, selectedRating, comment, name, userEmail, userId);
+            if (success) {
+                showToast('Review submitted! Thank you for your feedback.');
+                resetForm();
+                renderReviews();
+            }
+            submitDone();
+        }
+    });
+    
+    function resetForm() {
+        selectedRating = 0;
+        document.getElementById('review-comment').value = '';
+        document.getElementById('review-name').value = '';
+        updateCharCount();
+        updateStarDisplay(0);
+    }
+    
+    // ============================================================
+    // SHOW REVIEW FORM OR LOGIN PROMPT BASED ON LOGIN STATUS
+    // ============================================================
+    (function showReviewForm() {
+        var loginPrompt = document.getElementById('review-login-prompt');
+        var reviewForm = document.getElementById('review-form-section');
+        if (!loginPrompt || !reviewForm) return;
+        
+        try {
+            var leafUser = JSON.parse(localStorage.getItem('leafUser'));
+            if (leafUser && leafUser.email) {
+                // User logged in — show review form
+                reviewForm.classList.remove('d-none');
+                loginPrompt.classList.add('d-none');
+                // Pre-fill user name
+                var nameInput = document.getElementById('review-name');
+                if (nameInput && leafUser.name) {
+                    nameInput.value = leafUser.name;
+                }
+            } else {
+                // Guest — show login prompt
+                loginPrompt.classList.remove('d-none');
+                reviewForm.classList.add('d-none');
+            }
+        } catch(e) {
+            loginPrompt.classList.remove('d-none');
+            reviewForm.classList.add('d-none');
+        }
+    })();
+
+    // Initial render
+    renderReviews();
+})();
+</script>
+</body>
+</html>
+
+

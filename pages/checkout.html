@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../styles/base.css" rel="stylesheet"/>
+<link href="../styles/typography.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
+<link href="../styles/navigation-desktop.css" rel="stylesheet"/>
+<link href="../styles/animations.css" rel="stylesheet"/>
+<link href="../styles/responsive.css" rel="stylesheet"/>
+<link href="../styles/navigation-mobile.css" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<meta name="description" content="Order premium plants at Ankuram. Share your cart on WhatsApp for easy ordering. Fast delivery across India."/>
+<meta property="og:title" content="Checkout — Ankuram"/>
+<meta property="og:description" content="Order premium plants at Ankuram. Share your cart on WhatsApp for easy ordering."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content="../assets/white_background_202607131940.jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>Checkout — Ankuram</title>
+<style>
+/* ===== Form validation for form-organic inputs & selects ===== */
+.form-organic.is-invalid {
+  border-color: var(--c-error) !important;
+  box-shadow: 0 0 0 3px rgba(186, 74, 74, 0.15) !important;
+}
+.form-organic.is-valid {
+  border-color: var(--c-primary) !important;
+}
+
+/* ===== Floating label JS helper for select elements ===== */
+/* The .value-selected class (added by JS) triggers the floating label.
+   Base floating label styles live in components.css */
+
+/* ===== Checkout-specific styles ===== */
+.checkout-step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 40px;
+    padding: 0 16px;
+}
+.checkout-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+.checkout-step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+.checkout-step.completed .checkout-step-circle {
+    background: var(--c-primary);
+    color: var(--c-on-primary);
+}
+.checkout-step.active .checkout-step-circle {
+    background: var(--c-primary);
+    color: var(--c-on-primary);
+    box-shadow: 0 0 0 4px rgba(61, 122, 79, 0.15);
+}
+.checkout-step.pending .checkout-step-circle {
+    background: var(--c-surface-container-high);
+    color: var(--c-on-surface-variant);
+}
+.checkout-step-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--c-on-surface-variant);
+    white-space: nowrap;
+}
+.checkout-step.completed .checkout-step-label,
+.checkout-step.active .checkout-step-label {
+    color: var(--c-on-surface);
+}
+.checkout-step-connector {
+    width: 48px;
+    height: 2px;
+    background: var(--c-outline-variant);
+    margin: 0 8px;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+}
+.checkout-step-connector.done {
+    background: var(--c-primary);
+}
+
+@media (max-width: 576px) {
+    .checkout-step-label { display: none; }
+    .checkout-step-circle { width: 32px; height: 32px; font-size: 13px; }
+    .checkout-step-connector { width: 24px; margin: 0 4px; }
+}
+
+/* Order summary item */
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--c-outline-variant);
+}
+.order-item:last-child {
+    border-bottom: none;
+}
+.order-item-img {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--c-surface-container-low);
+    flex-shrink: 0;
+}
+.order-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.order-item-info {
+    flex: 1;
+    min-width: 0;
+}
+.order-item-info .name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--c-on-surface);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.order-item-info .qty {
+    font-size: 0.75rem;
+    color: var(--c-on-surface-variant);
+    margin: 2px 0 0 0;
+}
+.order-item-price {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--c-on-surface);
+    white-space: nowrap;
+}
+
+</style>
+</head>
+<body>
+<div id="page-loader" class="page-loader" role="status" aria-label="Loading">
+  <div class="loader-content">
+    <div class="loader-icon">
+      <span class="material-symbols-outlined loader-leaf">eco</span>
+    </div>
+    <h2 class="loader-brand">Ankuram</h2>
+    <p class="loader-tagline">Growing something beautiful...</p>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+</div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="bg-primary py-2 text-center overflow-hidden announcement-scroll" role="status" aria-live="polite">
+<div class="announcement-scroll-inner">
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Premium delivery across India. Shipping ₹60 – ₹120 based on order value.</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">🌿 100% Organic &amp; Nursery Certified Plants</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">✨ New Tulsi Varieties Added — Shop Now!</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Premium delivery across India. Shipping ₹60 – ₹120 based on order value.</p>
+</div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom py-3 site-navbar" aria-label="Main navigation">
+  <div class="container-custom px-margin-desktop">
+    <a class="navbar-brand text-headline-md fw-bold text-primary text-decoration-none flex-shrink-0" href="../index.html">Ankuram</a>
+    <button class="navbar-toggler border-0 bg-transparent flex-shrink-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+    </button>
+    <div class="offcanvas offcanvas-lg offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+      <div class="offcanvas-header d-lg-none">
+        <div class="offcanvas-title" id="navbarOffcanvasLabel">
+          <div class="nav-brand">Ankuram<small>Menu</small></div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1 gap-1 d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="indoor.html">Indoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="outdoor.html">Outdoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="succulent.html">Succulents</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <button class="d-none d-lg-flex align-items-center justify-content-center site-navbar-icon desktop-search-trigger me-2" id="desktop-search-trigger" type="button" aria-label="Toggle search" title="Search">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <ul class="navbar-nav align-items-center gap-2 ms-lg-auto flex-row mt-3 mt-lg-0">
+          <li class="nav-item d-none d-lg-flex">
+            <a class="nav-link site-navbar-icon position-relative" id="wishlist-btn" href="wishlist.html" aria-label="Wishlist"><span class="material-symbols-outlined" aria-hidden="true">favorite</span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary text-on-primary d-none" id="wishlist-badge" style="font-size:0.6rem;min-width:18px;height:18px;line-height:18px;padding:0 4px">0</span></a>
+          </li>
+
+          <li class="nav-item d-none d-lg-flex" id="user-menu-item">
+            <div id="user-menu-container">
+              <a class="nav-link site-navbar-icon" href="create-account.html" aria-label="Account" title="Create Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></a>
+            </div>
+          </li>
+        </ul>
+        <div class="d-lg-none px-0 pt-2 pb-3">
+        <!-- Mobile search bar - premium redesign -->
+        <div class="d-lg-none px-0 pt-2 pb-3 mobile-search-section">
+          <div class="mobile-search-header">
+            <span class="material-symbols-outlined header-icon">eco</span>
+            Find Your Plant
+          </div>
+          <div class="mobile-search-bar">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input placeholder="Search plants, varieties..." type="text" id="mobile-search-input"/>
+            <button class="mobile-search-clear" id="mobile-search-clear" aria-label="Clear search">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+        </div>
+        </div>
+        <div class="d-lg-none mt-2 pt-2 border-top border-outline-variant">
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="../index.html"><span class="material-symbols-outlined me-2">home</span>Home</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="shop.html"><span class="material-symbols-outlined me-2">store</span>Shop</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="indoor.html"><span class="material-symbols-outlined me-2">cottage</span>Indoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="outdoor.html"><span class="material-symbols-outlined me-2">park</span>Outdoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="succulent.html"><span class="material-symbols-outlined me-2">local_florist</span>Succulents</a></li>
+          </ul>
+          <hr class="border-outline-variant my-2"/>
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="tulsi.html"><span class="material-symbols-outlined me-2">spa</span>Tulsi</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="most-wishlisted.html"><span class="material-symbols-outlined me-2">trending_up</span>Most Wishlisted</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="about.html"><span class="material-symbols-outlined me-2">info</span>About</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="contact.html"><span class="material-symbols-outlined me-2">mail</span>Contact</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="care-guide.html"><span class="material-symbols-outlined me-2">menu_book</span>Care Guide</a></li>
+            
+            <li class="nav-item mobile-nav-item d-none" id="mobile-user-menu-item">
+              <div id="mobile-user-menu-container">
+                <a class="nav-link" href="create-account.html"><span class="material-symbols-outlined me-2">person_add</span>Create Account</a>
+              </div>
+            </li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="privacy-policy.html"><span class="material-symbols-outlined me-2">shield</span>Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="desktop-search-panel" id="desktop-search-panel">
+    <div class="container-custom px-margin-desktop">
+      <div class="d-flex align-items-center gap-3 py-2">
+        <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0" style="font-size:24px">search</span>
+        <input id="search-input" class="flex-grow-1 bg-transparent border-0" type="text" placeholder="Search plants, varieties, care tips..." autocomplete="off" style="outline:none;font-size:1rem;min-width:0" />
+
+        <button type="button" class="desktop-search-close-btn" id="desktop-search-close" aria-label="Close search">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<section class="container-custom px-margin-desktop pt-4 pb-section-gap">
+  <!-- Step Indicator -->
+  <div class="checkout-step-indicator reveal-fade-down active">
+    <div class="checkout-step completed">
+      <div class="checkout-step-circle"><span class="material-symbols-outlined" style="font-size:18px">check</span></div>
+      <span class="checkout-step-label">Cart</span>
+    </div>
+    <div class="checkout-step-connector done"></div>
+    <div class="checkout-step active">
+      <div class="checkout-step-circle">2</div>
+      <span class="checkout-step-label">Checkout</span>
+    </div>
+    <div class="checkout-step-connector"></div>
+    <div class="checkout-step pending">
+      <div class="checkout-step-circle">3</div>
+      <span class="checkout-step-label">Confirmation</span>
+    </div>
+  </div>
+
+  <!-- Checkout Header -->
+  <div class="text-center mb-4 reveal-fade-down active">
+    <h1 class="text-headline-lg text-on-surface mb-1">Checkout</h1>
+    <p class="text-body-md text-on-surface-variant mb-0">You're just a few steps away from greener spaces 🌿</p>
+  </div>
+
+  <!-- Empty State -->
+  <div id="checkout-empty" class="text-center py-5 d-none">
+    <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary-light mb-4" style="width:88px;height:88px">
+      <span class="material-symbols-outlined text-primary" style="font-size:44px">shopping_cart</span>
+    </div>
+    <h3 class="text-headline-md text-on-surface mb-2">Your cart is empty</h3>
+    <p class="text-body-md text-on-surface-variant mb-4">Add some plants to your cart before checking out.</p>
+    <a class="bg-primary text-on-primary px-5 py-3 rounded-3 text-label-md border-0 shadow-primary text-decoration-none d-inline-block" href="shop.html">Browse Plants</a>
+  </div>
+
+  <!-- Checkout Content -->
+  <div id="checkout-content">
+    <div class="row g-4">
+      <!-- LEFT COLUMN: Form -->
+      <div class="col-lg-7">
+        <div class="card-organic-elevated p-4 p-md-5">
+          <h5 class="text-label-md fw-bold text-on-surface text-uppercase mb-4 d-flex align-items-center gap-2">
+            <span class="material-symbols-outlined text-primary" style="font-size:20px">location_on</span>
+            Shipping Details
+          </h5>
+          <form id="checkout-form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="floating-label-group">
+                  <input class="form-organic" id="ch-name" type="text" placeholder=" " autocomplete="name"/>
+                  <label for="ch-name">Full Name <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="floating-label-group">
+                  <input class="form-organic" id="ch-email" type="email" placeholder=" " autocomplete="email"/>
+                  <label for="ch-email">Email <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="floating-label-group">
+                  <input class="form-organic" id="ch-phone" type="tel" placeholder=" " autocomplete="tel"/>
+                  <label for="ch-phone">Phone <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback">Please enter your phone number.</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="floating-label-group">
+                  <input class="form-organic" id="ch-pincode" type="text" placeholder=" " autocomplete="postal-code" maxlength="6"/>
+                  <label for="ch-pincode">Pincode <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback">Please enter your pincode.</div>
+                </div>
+                <div class="d-flex align-items-center gap-2 mt-1">
+                  <button class="text-label-xs text-primary bg-transparent border-0 fw-medium p-0 text-decoration-underline" id="pincode-check-btn" type="button" style="cursor:pointer">🔍 Check delivery availability</button>
+                </div>
+                <div class="text-label-xs mt-1 d-none" id="pincode-result"></div>
+              </div>
+              <div class="col-12">
+                <div class="floating-label-group">
+                  <input class="form-organic" id="ch-address" type="text" placeholder=" " autocomplete="street-address"/>
+                  <label for="ch-address">Address <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback">Please enter your delivery address.</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="floating-label-group">
+                  <input class="form-organic" id="ch-city" type="text" placeholder=" " autocomplete="address-level2"/>
+                  <label for="ch-city">City <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback">Please enter your city.</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="floating-label-group">
+                  <select class="form-organic has-placeholder" id="ch-state">
+                    <option value="" disabled selected>Select your state</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <label for="ch-state">State <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback">Please select your state.</div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+      </div>
+
+      <!-- RIGHT COLUMN: Order Summary -->
+      <div class="col-lg-5">
+        <div class="card-organic-elevated p-4 p-md-5 position-sticky" style="top:100px">
+          <h5 class="text-label-md fw-bold text-on-surface text-uppercase mb-3 d-flex align-items-center gap-2">
+            <span class="material-symbols-outlined text-primary" style="font-size:20px">receipt_long</span>
+            Order Summary
+          </h5>
+          
+          <div id="checkout-items" class="mb-3"></div>
+          
+          <div class="border-top border-outline-variant/20 pt-3 mt-2">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-body-md text-on-surface-variant">Subtotal</span>
+              <span class="text-body-md fw-bold text-on-surface" id="ch-subtotal">₹0.00</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-body-md text-on-surface-variant">Shipping</span>
+              <span class="text-body-md text-on-surface-variant" id="ch-shipping">₹--</span>
+            </div>
+
+            <div class="border-top border-outline-variant/20 pt-3 d-flex justify-content-between align-items-center mb-4">
+              <span class="text-headline-md text-on-surface">Total</span>
+              <span class="text-headline-md fw-bold text-primary" id="ch-total">₹0.00</span>
+            </div>
+            
+            <a class="w-100 d-inline-flex align-items-center justify-content-center gap-2 bg-success text-white py-3 rounded-3 text-label-md border-0 text-decoration-none transition-standard active-scale-98" 
+               href="https://wa.me/916393394554?text=Hi!%20I'd%20like%20to%20place%20an%20order%20for%20plants" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               style="font-size:1rem;font-weight:600;background-color:#25D366!important"
+               id="place-order-btn">
+              <span class="material-symbols-outlined" style="font-size:20px">chat</span>
+              Order on WhatsApp
+            </a>
+            
+            <div class="d-flex align-items-center justify-content-center gap-3 mt-3 flex-wrap">
+              <span class="text-label-xs text-on-surface-variant d-flex align-items-center gap-1">
+                <span class="material-symbols-outlined" style="font-size:14px">chat</span> Contact us on WhatsApp
+              </span>
+              <span class="text-label-xs text-on-surface-variant d-flex align-items-center gap-1">
+                <span class="material-symbols-outlined" style="font-size:14px">local_shipping</span> Shipping ₹60 – ₹120
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+
+<footer class="bg-surface-container-lowest border-top border-outline-variant/20 pt-section-gap pb-5">
+<div class="container-custom px-margin-desktop">
+<div class="row row-cols-1 row-cols-md-4 g-3 mb-5">
+<div class="col d-flex flex-column gap-4">
+<a class="text-headline-md fw-bold text-primary text-decoration-none" href="../index.html">Ankuram</a>
+<p class="text-body-md text-on-surface-variant mb-0">Curating the finest botanical specimens for the modern home. Sustainable, premium, and delivered with care.</p>
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mb-2 tracking-wider">Follow Us</p>
+<div class="d-flex gap-2">
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Instagram"><span class="fw-bold text-label-sm text-on-surface-variant">IG</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Facebook"><span class="fw-bold text-label-sm text-on-surface-variant">FB</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="X"><span class="fw-bold text-label-sm text-on-surface-variant">X</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="YouTube"><span class="fw-bold text-label-sm text-on-surface-variant">YT</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Pinterest"><span class="fw-bold text-label-sm text-on-surface-variant">Pin</span></a>
+</div>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Shop</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="shop.html">All Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="indoor.html">Indoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="outdoor.html">Outdoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="tulsi.html">Tulsi (Holy Basil)</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="most-wishlisted.html">Most Wishlisted</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="wishlist.html">Wishlist</a></li><li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="create-account.html">Create Account</a></li>
+          </ul>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Company</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="about.html">Our Story</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html">Contact</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Support</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#shipping-info">Shipping Info</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#returns-policy">Returns Policy</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="care-guide.html">Plant Care Guide</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#faq">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="border-top border-outline-variant/20 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+<p class="text-label-sm text-on-surface-variant mb-0">© 2026 Ankuram. All rights reserved.</p>
+<div class="d-flex gap-4">
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Terms</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+</footer>
+
+<div id="toast-container"></div>
+<button class="back-to-top" id="back-to-top" title="Back to top">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+</button>
+
+<div class="lightbox-overlay" id="lightbox-overlay">
+  <button class="lightbox-close" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+  <div class="lightbox-image-wrap">
+    <img src="../images/placeholder.svg" alt="Enlarged view"/>
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+  <div class="lightbox-hint"><kbd>←</kbd> <kbd>→</kbd> navigate &middot; <kbd>Esc</kbd> close</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function() {
+    emailjs.init({
+        publicKey: 'YOUR_EMAILJS_PUBLIC_KEY' // Replace with your EmailJS public key from https://www.emailjs.com
+    });
+})();
+
+
+</script>
+<script src="../js/pages/cart.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="../config/firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="../config/firestore-sync.js"></script>
+<script src="../js/modules/script.js"></script>
+</body>
+</html>
+
+

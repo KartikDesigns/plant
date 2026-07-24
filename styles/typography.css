@@ -1,0 +1,44 @@
+/* ====================================================================
+   TYPOGRAPHY — Ankuram
+   ==================================================================== */
+
+/* Default alignment */
+body, main, section { text-align: left; }
+
+/* Emotional quote / pullout style */
+.text-quote {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--c-primary-dark);
+}
+
+/* Decorative separator */
+.divider-organic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: none;
+  margin: 24px 0;
+}
+.divider-organic::before,
+.divider-organic::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--c-primary), transparent);
+}
+.divider-organic .icon {
+  color: var(--c-tertiary);
+  font-size: 20px;
+}
+
+/* Mobile-centered text — only for full-width section headings, not all text */
+@media (max-width: 768px) {
+  .text-center-mobile { text-align: center !important; }
+  .text-left-desktop { text-align: left !important; }
+  .text-left-mobile { text-align: left !important; }
+}

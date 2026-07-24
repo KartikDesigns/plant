@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../styles/base.css" rel="stylesheet"/>
+<link href="../styles/typography.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
+<link href="../styles/navigation-desktop.css" rel="stylesheet"/>
+<link href="../styles/animations.css" rel="stylesheet"/>
+<link href="../styles/responsive.css" rel="stylesheet"/>
+<link href="../styles/navigation-mobile.css" rel="stylesheet"/>
+<link href="../styles/history.css" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<meta name="description" content="Complete plant care guide for Indian climate — Tulsi care, indoor plants, outdoor plants, seasonal care, natural pest control, propagation, and more. Expert tips from Ankuram."/>
+<meta property="og:title" content="Plant Care Guide — Ankuram"/>
+<meta property="og:description" content="Complete plant care guide for Indian climate. Expert tips on watering, sunlight, pruning, pest control, seasonal care, and more."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content="../assets/white_background_202607131940.jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>Plant Care Guide — Ankuram</title>
+<style>
+  .care-card-image { aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius-md) var(--radius-md) 0 0; }
+  .care-table th { background: var(--c-primary-light); color: var(--c-primary-dark); font-weight: 600; }
+  .care-table td, .care-table th { padding: 12px 16px; border: 1px solid var(--c-outline-variant); }
+  .recipe-card { background: var(--c-surface-container-low); border-left: 4px solid var(--c-primary); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+  .step-number { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--c-primary); color: var(--c-on-primary); font-weight: 700; font-size: 0.875rem; flex-shrink: 0; }
+  .season-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; }
+  .season-summer { background: #FFF3E0; color: #E65100; }
+  .season-monsoon { background: #E3F2FD; color: #1565C0; }
+  .season-winter { background: #F3E5F5; color: #6A1B9A; }
+  .plant-icon-wrap { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-md); background: var(--c-primary-soft); color: var(--c-primary); flex-shrink: 0; }
+  .toc-link { transition: all 0.2s ease; padding: 8px 16px; border-radius: var(--radius-sm); display: block; color: var(--c-on-surface-variant); text-decoration: none; }
+  .toc-link:hover { background: var(--c-primary-soft); color: var(--c-primary); padding-left: 20px; }
+  .toc-link.active { background: var(--c-primary-soft); color: var(--c-primary); font-weight: 600; }
+  .tip-icon { font-size: 1.25rem; }
+  .accordion-organic .accordion-item { border: 1px solid var(--c-outline-variant); border-radius: var(--radius-md); margin-bottom: 8px; overflow: hidden; }
+  .accordion-organic .accordion-button { font-weight: 600; color: var(--c-on-surface); background: var(--c-surface); padding: 16px 20px; }
+  .accordion-organic .accordion-button:not(.collapsed) { background: var(--c-primary-light); color: var(--c-primary-dark); }
+  .accordion-organic .accordion-body { padding: 16px 20px; }
+  .hover-lift-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .plant-grid-card { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--c-outline-variant); background: var(--c-surface); transition: all 0.3s ease; }
+  .plant-grid-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--c-primary); }
+  .season-card { border-radius: var(--radius-lg); padding: 28px; text-align: center; transition: all 0.3s ease; }
+  .season-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+</style>
+</head>
+<body>
+<div id="page-loader" class="page-loader" role="status" aria-label="Loading">
+  <div class="loader-content">
+    <div class="loader-icon">
+      <span class="material-symbols-outlined loader-leaf">eco</span>
+    </div>
+    <h2 class="loader-brand">Ankuram</h2>
+    <p class="loader-tagline">Growing something beautiful...</p>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+</div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="bg-primary py-2 text-center overflow-hidden announcement-scroll" role="status" aria-live="polite">
+<div class="announcement-scroll-inner">
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">🌿 100% Organic &amp; Nursery Certified Plants</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">✨ New Tulsi Varieties Added — Shop Now!</p>
+<p class="text-on-primary text-label-sm d-inline-block mx-4">Free premium shipping on orders over ₹150. Experience botanical luxury.</p>
+</div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom py-3 site-navbar" aria-label="Main navigation">
+  <div class="container-custom px-margin-desktop">
+    <a class="navbar-brand text-headline-md fw-bold text-primary text-decoration-none flex-shrink-0" href="../index.html">Ankuram</a>
+    <button class="navbar-toggler border-0 bg-transparent flex-shrink-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+    </button>
+    <div class="offcanvas offcanvas-lg offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+      <div class="offcanvas-header d-lg-none">
+        <div class="offcanvas-title" id="navbarOffcanvasLabel">
+          <div class="nav-brand">Ankuram<small>Menu</small></div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1 gap-1 d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="indoor.html">Indoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="outdoor.html">Outdoor Plants</a></li>
+          <li class="nav-item"><a class="nav-link" href="succulent.html">Succulents</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <!-- Desktop Search Trigger -->
+        <button class="d-none d-lg-flex align-items-center justify-content-center site-navbar-icon desktop-search-trigger me-2" id="desktop-search-trigger" type="button" aria-label="Toggle search" title="Search">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <ul class="navbar-nav align-items-center gap-2 ms-lg-auto flex-row mt-3 mt-lg-0">
+          <li class="nav-item d-none d-lg-flex">
+            <a class="nav-link site-navbar-icon position-relative" id="wishlist-btn" href="wishlist.html" aria-label="Wishlist"><span class="material-symbols-outlined" aria-hidden="true">favorite</span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary text-on-primary d-none" id="wishlist-badge" style="font-size:0.6rem;min-width:18px;height:18px;line-height:18px;padding:0 4px">0</span></a>
+          </li>
+
+          <li class="nav-item d-none d-lg-flex" id="user-menu-item">
+            <div id="user-menu-container">
+              <a class="nav-link site-navbar-icon" href="create-account.html" aria-label="Account" title="Create Account"><span class="material-symbols-outlined" aria-hidden="true">person</span></a>
+            </div>
+          </li>
+        </ul>
+        <!-- Mobile search bar -->
+        <div class="d-lg-none px-0 pt-2 pb-3 mobile-search-section">
+          <div class="mobile-search-header">
+            <span class="material-symbols-outlined header-icon">eco</span>
+            Find Your Plant
+          </div>
+          <div class="mobile-search-bar">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input placeholder="Search plants, varieties..." type="text" id="mobile-search-input"/>
+            <button class="mobile-search-clear" id="mobile-search-clear" aria-label="Clear search">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+        </div>
+        </div>
+        <div class="d-lg-none mt-2 pt-2 border-top border-outline-variant">
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="../index.html"><span class="material-symbols-outlined me-2">home</span>Home</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="shop.html"><span class="material-symbols-outlined me-2">store</span>Shop</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="indoor.html"><span class="material-symbols-outlined me-2">cottage</span>Indoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="outdoor.html"><span class="material-symbols-outlined me-2">park</span>Outdoor Plants</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="succulent.html"><span class="material-symbols-outlined me-2">local_florist</span>Succulents</a></li>
+          </ul>
+          <hr class="border-outline-variant my-2"/>
+          <ul class="navbar-nav">
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="tulsi.html"><span class="material-symbols-outlined me-2">spa</span>Tulsi</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="most-wishlisted.html"><span class="material-symbols-outlined me-2">trending_up</span>Most Wishlisted</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="about.html"><span class="material-symbols-outlined me-2">info</span>About</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="contact.html"><span class="material-symbols-outlined me-2">mail</span>Contact</a></li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link active" aria-current="page" href="care-guide.html"><span class="material-symbols-outlined me-2">menu_book</span>Care Guide</a></li>
+            
+            <li class="nav-item mobile-nav-item d-none" id="mobile-user-menu-item">
+              <div id="mobile-user-menu-container">
+                <a class="nav-link" href="create-account.html"><span class="material-symbols-outlined me-2">person_add</span>Create Account</a>
+              </div>
+            </li>
+            <li class="nav-item mobile-nav-item"><a class="nav-link" href="privacy-policy.html"><span class="material-symbols-outlined me-2">shield</span>Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop Search Panel -->
+  <div class="desktop-search-panel" id="desktop-search-panel">
+    <div class="container-custom px-margin-desktop">
+      <div class="d-flex align-items-center gap-3 py-2">
+        <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0" style="font-size:24px">search</span>
+        <input id="search-input" class="flex-grow-1 bg-transparent border-0" type="text" placeholder="Search plants, varieties, care tips..." autocomplete="off" style="outline:none;font-size:1rem;min-width:0" />
+
+        <button type="button" class="desktop-search-close-btn" id="desktop-search-close" aria-label="Close search">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- ===== HERO ===== -->
+<section class="container-custom px-margin-desktop pt-5 pb-section-gap">
+<div class="text-center mb-5 reveal active reveal-fade-down">
+  <span class="material-symbols-outlined text-primary d-block mb-3" style="font-size:48px">menu_book</span>
+  <h1 class="text-headline-lg text-on-surface mb-2">Complete Plant Care Guide</h1>
+  <p class="text-body-md text-on-surface-variant mx-auto" style="max-width:600px">Research-backed advice to help every plant in your home thrive — from Tulsi to succulents, through every Indian season.</p>
+</div>
+
+<!-- ===== JUMP NAV ===== -->
+<div class="row justify-content-center mb-5 reveal active reveal-fade-up">
+  <div class="col-lg-10">
+    <div class="bg-surface-container-low rounded-3 p-3 d-flex flex-wrap justify-content-center gap-2">
+      <a href="#basics" class="btn-organic btn-organic-sm btn-organic-ghost">Basics</a>
+      <a href="#plant-specific" class="btn-organic btn-organic-sm btn-organic-ghost">By Plant</a>
+      <a href="#seasonal" class="btn-organic btn-organic-sm btn-organic-ghost">Seasonal Care</a>
+      <a href="#pest-control" class="btn-organic btn-organic-sm btn-organic-ghost">Pest Control</a>
+      <a href="#propagation" class="btn-organic btn-organic-sm btn-organic-ghost">Propagation</a>
+      <a href="#issues" class="btn-organic btn-organic-sm btn-organic-ghost">Common Issues</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 1: CARE BASICS (Enhanced) ===== -->
+<div id="basics">
+<div class="row g-4 stagger-children reveal-fade-up">
+
+<div class="col-lg-4 reveal active">
+<div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100">
+<div class="d-flex align-items-center gap-3 mb-3">
+  <div class="plant-icon-wrap">
+    <span class="material-symbols-outlined">water_drop</span>
+  </div>
+  <h3 class="text-headline-md mb-0">Watering</h3>
+</div>
+<p class="text-body-md text-on-surface-variant">Most indoor plants prefer their soil to dry out slightly between waterings. Stick your finger <strong>2–3 inches (5 cm)</strong> into the soil — if it feels dry, it's time to water.</p>
+<div class="bg-surface-container-low rounded-3 p-3 mt-3">
+  <p class="text-label-sm fw-bold text-primary mb-2"><span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">lightbulb</span> Pro Tips</p>
+  <ul class="text-body-md text-on-surface-variant mb-0 ps-3">
+    <li>Over-watering is the #1 killer of houseplants</li>
+    <li>Always use pots with drainage holes</li>
+    <li>Water early morning for best absorption</li>
+    <li>Reduce watering frequency in monsoon &amp; winter</li>
+  </ul>
+</div>
+<div class="mt-3">
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Indoor</span>
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Succulents</span>
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Tropical</span>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 reveal active" style="transition-delay:0.1s">
+<div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100">
+<div class="d-flex align-items-center gap-3 mb-3">
+  <div class="plant-icon-wrap">
+    <span class="material-symbols-outlined">light_mode</span>
+  </div>
+  <h3 class="text-headline-md mb-0">Light</h3>
+</div>
+<p class="text-body-md text-on-surface-variant"><strong>Bright, indirect light</strong> works best for most foliage plants. South or east-facing windows are ideal in India. Avoid direct afternoon sun which can scorch leaves — especially during Indian summers.</p>
+<div class="bg-surface-container-low rounded-3 p-3 mt-3">
+  <p class="text-label-sm fw-bold text-primary mb-2"><span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">lightbulb</span> Indian Light Guide</p>
+  <ul class="text-body-md text-on-surface-variant mb-0 ps-3">
+    <li><strong>North window:</strong> Low light — ZZ, Snake Plant</li>
+    <li><strong>East window:</strong> Gentle morning sun — Pothos, Ferns</li>
+    <li><strong>West window:</strong> Harsh afternoon — diffuse with curtains</li>
+    <li><strong>South window:</strong> Bright all day — succulents, Tulsi</li>
+  </ul>
+</div>
+<div class="mt-3">
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Low Light</span>
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Bright Indirect</span>
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Direct Sun</span>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 reveal active" style="transition-delay:0.2s">
+<div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100">
+<div class="d-flex align-items-center gap-3 mb-3">
+  <div class="plant-icon-wrap">
+    <span class="material-symbols-outlined">thermostat</span>
+  </div>
+  <h3 class="text-headline-md mb-0">Temperature</h3>
+</div>
+<p class="text-body-md text-on-surface-variant">Most houseplants thrive between <strong>18–30°C</strong>, which suits most Indian homes perfectly. Keep plants away from AC vents, drafty windows, and direct heater exposure.</p>
+<div class="bg-surface-container-low rounded-3 p-3 mt-3">
+  <p class="text-label-sm fw-bold text-primary mb-2"><span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">lightbulb</span> Key Points</p>
+  <ul class="text-body-md text-on-surface-variant mb-0 ps-3">
+    <li>Sudden temperature drops below 10°C can harm Tulsi</li>
+    <li>Move plants away from AC vents in summer</li>
+    <li>Group plants together in winter for warmth</li>
+  </ul>
+</div>
+<div class="mt-3">
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">18–30°C</span>
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Avoid Drafts</span>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 reveal active" style="transition-delay:0.3s">
+<div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100">
+<div class="d-flex align-items-center gap-3 mb-3">
+  <div class="plant-icon-wrap">
+    <span class="material-symbols-outlined">opacity</span>
+  </div>
+  <h3 class="text-headline-md mb-0">Humidity</h3>
+</div>
+<p class="text-body-md text-on-surface-variant">Many indoor plants, especially tropical varieties, love humidity. During dry months or in AC rooms, increase moisture by misting leaves, using a pebble tray, or grouping plants together.</p>
+<div class="bg-surface-container-low rounded-3 p-3 mt-3">
+  <p class="text-label-sm fw-bold text-primary mb-2"><span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">lightbulb</span> For Indian Homes</p>
+  <ul class="text-body-md text-on-surface-variant mb-0 ps-3">
+    <li>Monsoon = natural humidity boost (no misting needed)</li>
+    <li>AC rooms dry the air — mist frequently in summer</li>
+    <li>Bathrooms &amp; kitchens are naturally more humid</li>
+  </ul>
+</div>
+<div class="mt-3">
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Tropical Plants</span>
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Misting</span>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 reveal active" style="transition-delay:0.4s">
+<div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100">
+<div class="d-flex align-items-center gap-3 mb-3">
+  <div class="plant-icon-wrap">
+    <span class="material-symbols-outlined">pot</span>
+  </div>
+  <h3 class="text-headline-md mb-0">Soil &amp; Potting</h3>
+</div>
+<p class="text-body-md text-on-surface-variant">Use well-draining potting mix tailored to your plant type. Cacti and succulents need <strong>sandy, fast-draining soil</strong>, while ferns and tropicals prefer moisture-retentive mixes with organic matter.</p>
+<div class="bg-surface-container-low rounded-3 p-3 mt-3">
+  <p class="text-label-sm fw-bold text-primary mb-2"><span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">lightbulb</span> DIY Mix Guide</p>
+  <ul class="text-body-md text-on-surface-variant mb-0 ps-3">
+    <li><strong>Succulents:</strong> 2 parts soil + 1 part sand + 1 part perlite</li>
+    <li><strong>Indoor foliage:</strong> 3 parts soil + 1 part coco peat + 1 part compost</li>
+    <li>Repot every 12–18 months to refresh nutrients</li>
+    <li>Always use pots with drainage holes</li>
+  </ul>
+</div>
+<div class="mt-3">
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Well-draining</span>
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Repotting</span>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 reveal active" style="transition-delay:0.5s">
+<div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 transition-base hover-lift-sm hover-border-primary-soft h-100">
+<div class="d-flex align-items-center gap-3 mb-3">
+  <div class="plant-icon-wrap">
+    <span class="material-symbols-outlined">nutrition</span>
+  </div>
+  <h3 class="text-headline-md mb-0">Fertilizing</h3>
+</div>
+<p class="text-body-md text-on-surface-variant">Feed plants with a balanced liquid fertilizer every 2–4 weeks during the growing season (spring &amp; summer). Reduce to once every 6–8 weeks in fall and winter. Always follow package instructions — <strong>more is not better</strong>.</p>
+<div class="bg-surface-container-low rounded-3 p-3 mt-3">
+  <p class="text-label-sm fw-bold text-primary mb-2"><span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">lightbulb</span> Organic Options</p>
+  <ul class="text-body-md text-on-surface-variant mb-0 ps-3">
+    <li><strong>Banana peel water:</strong> Soak peels 48 hrs, dilute 1:5 — rich in potassium</li>
+    <li><strong>Vermicompost:</strong> Top-dress every 4–6 weeks in growing season</li>
+    <li><strong>Well-decomposed cow dung:</strong> Classic Indian organic fertilizer</li>
+    <li>Avoid fertilizing during monsoon &amp; winter dormancy</li>
+  </ul>
+</div>
+<div class="mt-3">
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Spring–Summer</span>
+  <span class="bg-surface-container-high text-label-sm px-3 py-1 rounded-5 d-inline-block me-2 mb-2">Organic NPK</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 2: PLANT-SPECIFIC CARE ===== -->
+<section class="bg-surface-container-low py-section-gap" id="plant-specific">
+<div class="container-custom px-margin-desktop">
+<div class="text-center mb-5 reveal active reveal-fade-down">
+  <h2 class="text-headline-lg text-on-surface mb-2">Plant-by-Plant Care Guide</h2>
+  <p class="text-body-md text-on-surface-variant">Detailed care instructions for our most popular plants.</p>
+</div>
+
+<div class="row g-4 stagger-children reveal-fade-up">
+
+<!-- Tulsi -->
+<div class="col-md-6 col-lg-4 reveal active">
+  <div class="plant-grid-card h-100">
+    <div class="p-4 pb-0 text-center">
+      <span class="material-symbols-outlined text-primary" style="font-size:48px">spa</span>
+      <h3 class="text-headline-md mt-2 mb-1">Tulsi (Holy Basil)</h3>
+      <span class="badge-organic badge-primary">India's Sacred Herb</span>
+    </div>
+    <div class="p-4">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">light_mode</span>
+        <span class="text-body-md mb-0"><strong>Sunlight:</strong> 4–6 hrs direct sun daily</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">water_drop</span>
+        <span class="text-body-md mb-0"><strong>Water:</strong> When top 1 inch is dry; every 2–3 days in summer</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">content_cut</span>
+        <span class="text-body-md mb-0"><strong>Prune:</strong> Top 2–3 inches above leaf node for bushiness</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">ac_unit</span>
+        <span class="text-body-md mb-0"><strong>Temp:</strong> Sensitive below 10°C — bring indoors in winter</span>
+      </div>
+      <div class="bg-tertiary-soft rounded-3 p-3">
+        <p class="text-label-sm fw-bold text-tertiary mb-1"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:middle">stars</span> Key Tip</p>
+        <p class="text-body-md text-on-surface-variant mb-0">Pinch off flower buds as soon as they appear to redirect energy to leaf growth and keep your Tulsi bushy.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pothos / Money Plant -->
+<div class="col-md-6 col-lg-4 reveal active" style="transition-delay:0.1s">
+  <div class="plant-grid-card h-100">
+    <div class="p-4 pb-0 text-center">
+      <span class="material-symbols-outlined text-primary" style="font-size:48px">currency_rupee</span>
+      <h3 class="text-headline-md mt-2 mb-1">Money Plant (Pothos)</h3>
+      <span class="badge-organic badge-secondary">Air-Purifying &amp; Easy</span>
+    </div>
+    <div class="p-4">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">light_mode</span>
+        <span class="text-body-md mb-0"><strong>Light:</strong> Bright indirect; variegation fades in low light</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">water_drop</span>
+        <span class="text-body-md mb-0"><strong>Water:</strong> When top 2 inches dry; leaves droop when thirsty</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">propane_tank</span>
+        <span class="text-body-md mb-0"><strong>Propagation:</strong> Cut stem below node, root in water 1–2 weeks</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">deceased</span>
+        <span class="text-body-md mb-0"><strong>Toxicity:</strong> Mildly toxic to pets — keep out of reach</span>
+      </div>
+      <div class="bg-tertiary-soft rounded-3 p-3">
+        <p class="text-label-sm fw-bold text-tertiary mb-1"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:middle">stars</span> Key Tip</p>
+        <p class="text-body-md text-on-surface-variant mb-0">Grows in both soil and water! Change water weekly if growing hydroponically. Prune trailing vines to encourage fullness.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Snake Plant -->
+<div class="col-md-6 col-lg-4 reveal active" style="transition-delay:0.2s">
+  <div class="plant-grid-card h-100">
+    <div class="p-4 pb-0 text-center">
+      <span class="material-symbols-outlined text-primary" style="font-size:48px">stadia_auto</span>
+      <h3 class="text-headline-md mt-2 mb-1">Snake Plant</h3>
+      <span class="badge-organic badge-new">Almost Unkillable</span>
+    </div>
+    <div class="p-4">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">light_mode</span>
+        <span class="text-body-md mb-0"><strong>Light:</strong> Low to bright indirect — very adaptable</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">water_drop</span>
+        <span class="text-body-md mb-0"><strong>Water:</strong> Every 2–3 weeks in summer; monthly in winter</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">air</span>
+        <span class="text-body-md mb-0"><strong>Oxygen:</strong> Releases oxygen at night — perfect for bedrooms</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">content_cut</span>
+        <span class="text-body-md mb-0"><strong>Propagation:</strong> Leaf cuttings — let callous 2 days before planting</span>
+      </div>
+      <div class="bg-tertiary-soft rounded-3 p-3">
+        <p class="text-label-sm fw-bold text-tertiary mb-1"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:middle">stars</span> Key Tip</p>
+        <p class="text-body-md text-on-surface-variant mb-0">Highly drought-tolerant — it's better to underwater than overwater! Stores water in its thick leaves.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Succulents -->
+<div class="col-md-6 col-lg-4 reveal active" style="transition-delay:0.3s">
+  <div class="plant-grid-card h-100">
+    <div class="p-4 pb-0 text-center">
+      <span class="material-symbols-outlined text-primary" style="font-size:48px">local_florist</span>
+      <h3 class="text-headline-md mt-2 mb-1">Succulents &amp; Cacti</h3>
+      <span class="badge-organic badge-primary">Low Maintenance</span>
+    </div>
+    <div class="p-4">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">light_mode</span>
+        <span class="text-body-md mb-0"><strong>Light:</strong> Bright direct to indirect — at least 4–6 hrs</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">water_drop</span>
+        <span class="text-body-md mb-0"><strong>Water:</strong> Only when soil is completely dry — soak &amp; dry method</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">pot</span>
+        <span class="text-body-md mb-0"><strong>Soil:</strong> Sandy, fast-draining — use cactus mix</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">umbrella</span>
+        <span class="text-body-md mb-0"><strong>Monsoon:</strong> Protect from heavy rain to prevent crown rot</span>
+      </div>
+      <div class="bg-tertiary-soft rounded-3 p-3">
+        <p class="text-label-sm fw-bold text-tertiary mb-1"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:middle">stars</span> Key Tip</p>
+        <p class="text-body-md text-on-surface-variant mb-0">Use the "soak and dry" method — water deeply, then wait until soil is bone dry before watering again. Never let sit in water.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ZZ Plant -->
+<div class="col-md-6 col-lg-4 reveal active" style="transition-delay:0.4s">
+  <div class="plant-grid-card h-100">
+    <div class="p-4 pb-0 text-center">
+      <span class="material-symbols-outlined text-primary" style="font-size:48px">energy_savings_leaf</span>
+      <h3 class="text-headline-md mt-2 mb-1">ZZ Plant</h3>
+      <span class="badge-organic badge-secondary">Low Light Champion</span>
+    </div>
+    <div class="p-4">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">light_mode</span>
+        <span class="text-body-md mb-0"><strong>Light:</strong> Low to bright — tolerates almost any light</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">water_drop</span>
+        <span class="text-body-md mb-0"><strong>Water:</strong> Every 2–3 weeks; can go months without water</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">store</span>
+        <span class="text-body-md mb-0"><strong>Storage:</strong> Stores water in rhizomes — very drought-tolerant</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">deceased</span>
+        <span class="text-body-md mb-0"><strong>Toxicity:</strong> Mildly toxic — keep away from pets &amp; children</span>
+      </div>
+      <div class="bg-tertiary-soft rounded-3 p-3">
+        <p class="text-label-sm fw-bold text-tertiary mb-1"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:middle">stars</span> Key Tip</p>
+        <p class="text-body-md text-on-surface-variant mb-0">Propagate by dividing rhizomes during repotting or rooting single leaflets in soil (takes months)!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Jade Plant -->
+<div class="col-md-6 col-lg-4 reveal active" style="transition-delay:0.5s">
+  <div class="plant-grid-card h-100">
+    <div class="p-4 pb-0 text-center">
+      <span class="material-symbols-outlined text-primary" style="font-size:48px">diamond</span>
+      <h3 class="text-headline-md mt-2 mb-1">Jade Plant</h3>
+      <span class="badge-organic badge-tertiary">Good Luck Plant</span>
+    </div>
+    <div class="p-4">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">light_mode</span>
+        <span class="text-body-md mb-0"><strong>Light:</strong> 4+ hrs bright indirect to direct sun</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">water_drop</span>
+        <span class="text-body-md mb-0"><strong>Water:</strong> Let soil dry completely between waterings</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">content_cut</span>
+        <span class="text-body-md mb-0"><strong>Prune:</strong> Prune back long stems to keep shape bushy</span>
+      </div>
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px">ac_unit</span>
+        <span class="text-body-md mb-0"><strong>Temp:</strong> Prefers 18–24°C; protect from frost</span>
+      </div>
+      <div class="bg-tertiary-soft rounded-3 p-3">
+        <p class="text-label-sm fw-bold text-tertiary mb-1"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:middle">stars</span> Key Tip</p>
+        <p class="text-body-md text-on-surface-variant mb-0">Let leaf/stem cuttings callous for 2 days before planting to prevent rot. Water sparingly until roots establish.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 3: SEASONAL CARE CALENDAR ===== -->
+<section class="py-section-gap" id="seasonal">
+<div class="container-custom px-margin-desktop">
+<div class="text-center mb-5 reveal active reveal-fade-down">
+  <h2 class="text-headline-lg text-on-surface mb-2">Seasonal Care Calendar</h2>
+  <p class="text-body-md text-on-surface-variant">Adjust your plant care routine as the seasons change.</p>
+</div>
+
+<div class="row g-4 stagger-children reveal-fade-up">
+
+<div class="col-md-4 reveal active">
+  <div class="season-card h-100 border" style="border-color:#FFCC80 !important; background: linear-gradient(135deg, #FFF8E1 0%, #FFFFFF 100%);">
+    <span class="season-badge season-summer mb-3 d-inline-flex">
+      <span class="material-symbols-outlined" style="font-size:18px">wb_sunny</span> Summer (Mar–Jun)
+    </span>
+    <ul class="text-body-md text-on-surface-variant text-start ps-3 mb-0">
+      <li class="mb-2"><strong>Water:</strong> Increase frequency; check soil daily</li>
+      <li class="mb-2"><strong>Light:</strong> Provide shade from harsh afternoon sun (12–3 PM)</li>
+      <li class="mb-2"><strong>Humidity:</strong> Mist frequently, especially in AC rooms</li>
+      <li class="mb-2"><strong>Fertilize:</strong> Active growing season — feed every 2 weeks</li>
+      <li class="mb-2"><strong>Position:</strong> Move plants a few feet away from hot windows</li>
+      <li class="mb-0"><strong>Extra:</strong> Group plants to create humidity microclimate</li>
+    </ul>
+  </div>
+</div>
+
+<div class="col-md-4 reveal active" style="transition-delay:0.1s">
+  <div class="season-card h-100 border" style="border-color:#90CAF9 !important; background: linear-gradient(135deg, #E3F2FD 0%, #FFFFFF 100%);">
+    <span class="season-badge season-monsoon mb-3 d-inline-flex">
+      <span class="material-symbols-outlined" style="font-size:18px">thunderstorm</span> Monsoon (Jul–Oct)
+    </span>
+    <ul class="text-body-md text-on-surface-variant text-start ps-3 mb-0">
+      <li class="mb-2"><strong>Water:</strong> Reduce drastically — soil stays wet longer</li>
+      <li class="mb-2"><strong>Drainage:</strong> Ensure pots don't sit in water; elevate on bricks</li>
+      <li class="mb-2"><strong>Airflow:</strong> Prune overcrowded branches to prevent fungus</li>
+      <li class="mb-2"><strong>Fertilize:</strong> Stop fertilizing until post-monsoon</li>
+      <li class="mb-2"><strong>Fungus:</strong> Remove yellow/fallen leaves from soil surface</li>
+      <li class="mb-0"><strong>Pests:</strong> Watch for fungus gnats and mealybugs</li>
+    </ul>
+  </div>
+</div>
+
+<div class="col-md-4 reveal active" style="transition-delay:0.2s">
+  <div class="season-card h-100 border" style="border-color:#CE93D8 !important; background: linear-gradient(135deg, #F3E5F5 0%, #FFFFFF 100%);">
+    <span class="season-badge season-winter mb-3 d-inline-flex">
+      <span class="material-symbols-outlined" style="font-size:18px">ac_unit</span> Winter (Nov–Feb)
+    </span>
+    <ul class="text-body-md text-on-surface-variant text-start ps-3 mb-0">
+      <li class="mb-2"><strong>Water:</strong> Reduce significantly — once a week or less</li>
+      <li class="mb-2"><strong>Light:</strong> Move plants closer to windows for maximum light</li>
+      <li class="mb-2"><strong>Temp:</strong> Bring sensitive plants indoors; protect from <10°C</li>
+      <li class="mb-2"><strong>Grouping:</strong> Place pots together to create warmth microclimate</li>
+      <li class="mb-2"><strong>Fertilize:</strong> Stop fertilizing — plants are dormant</li>
+      <li class="mb-0"><strong>Extra:</strong> Reduce misting; avoid cold drafts from windows</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 4: NATURAL PEST CONTROL ===== -->
+<section class="bg-surface-container-low py-section-gap" id="pest-control">
+<div class="container-custom px-margin-desktop">
+<div class="row align-items-center g-5 stagger-children reveal-fade-up">
+<div class="col-lg-6 reveal-fade-left">
+  <h2 class="text-headline-lg text-on-surface mb-3">Natural Pest Control</h2>
+  <p class="text-body-md text-on-surface-variant mb-4">Fight common plant pests without harsh chemicals. These DIY remedies are safe, effective, and use ingredients available in every Indian kitchen.</p>
+
+  <!-- Neem Oil Recipe -->
+  <div class="recipe-card p-4 mb-3">
+    <div class="d-flex align-items-center gap-3 mb-2">
+      <span class="material-symbols-outlined text-primary" style="font-size:28px">eco</span>
+      <h4 class="text-label-md fw-bold text-on-surface mb-0">🌿 Neem Oil Spray</h4>
+    </div>
+    <p class="text-body-md text-on-surface-variant mb-2"><strong>Best for:</strong> Aphids, mealybugs, spider mites, whiteflies, fungus</p>
+    <div class="bg-white rounded-3 p-3 mb-2">
+      <p class="text-label-sm fw-bold text-primary mb-2">Recipe (1 litre):</p>
+      <ul class="text-body-md text-on-surface-variant mb-0 ps-3">
+        <li>1 litre warm water</li>
+        <li>2 tsp (5 ml) pure neem oil</li>
+        <li>2–3 drops mild liquid soap (emulsifier)</li>
+      </ul>
+    </div>
+    <p class="text-body-md text-on-surface-variant mb-0">Shake well before use. Spray on both sides of leaves every 5–7 days. Use within 8 hours of mixing. Apply early morning or late evening.</p>
+  </div>
+
+  <!-- Soap Spray -->
+  <div class="recipe-card p-4 mb-3">
+    <div class="d-flex align-items-center gap-3 mb-2">
+      <span class="material-symbols-outlined text-primary" style="font-size:28px">soap</span>
+      <h4 class="text-label-md fw-bold text-on-surface mb-0">🧼 Soap &amp; Water Spray</h4>
+    </div>
+    <p class="text-body-md text-on-surface-variant mb-2"><strong>Best for:</strong> Aphids, mealybugs, scale insects (soft-bodied pests)</p>
+    <div class="bg-white rounded-3 p-3 mb-2">
+      <p class="text-label-sm fw-bold text-primary mb-2">Recipe (1 litre):</p>
+      <ul class="text-body-md text-on-surface-variant mb-0 ps-3">
+        <li>1 litre water</li>
+        <li>1 tbsp Castile soap or mild dish soap</li>
+      </ul>
+    </div>
+    <p class="text-body-md text-on-surface-variant mb-0">Suffocates soft-bodied insects on contact. Avoid excessive use as it can remove the plant's natural wax coating. Rinse after 2 hours.</p>
+  </div>
+
+  <!-- Garlic Spray -->
+  <div class="recipe-card p-4">
+    <div class="d-flex align-items-center gap-3 mb-2">
+      <span class="material-symbols-outlined text-primary" style="font-size:28px">garlic</span>
+      <h4 class="text-label-md fw-bold text-on-surface mb-0">🧄 Garlic Repellent Spray</h4>
+    </div>
+    <p class="text-body-md text-on-surface-variant mb-2"><strong>Best for:</strong> Deterring beetles, aphids, and fungal infections</p>
+    <div class="bg-white rounded-3 p-3 mb-2">
+      <p class="text-label-sm fw-bold text-primary mb-2">Recipe (1 litre):</p>
+      <ul class="text-body-md text-on-surface-variant mb-0 ps-3">
+        <li>2 minced garlic cloves</li>
+        <li>1 litre water</li>
+        <li>Strain before use</li>
+      </ul>
+    </div>
+    <p class="text-body-md text-on-surface-variant mb-0">Let steep for 24 hours for maximum potency. Spray weekly as a preventative measure. Works as a natural fungicide too!</p>
+  </div>
+
+  <div class="bg-validation-soft border border-validation-soft rounded-3 p-3 mt-4">
+    <p class="text-label-sm fw-bold text-validation-soft mb-1">⚠️ Important</p>
+    <p class="text-body-md text-on-surface-variant mb-0">Always test any spray on a small leaf first. Apply in early morning or late evening to prevent leaf burn. Never spray plants in direct sunlight.</p>
+  </div>
+</div>
+
+<div class="col-lg-6 reveal-fade-right">
+  <div class="rounded-4 overflow-hidden shadow-lg">
+    <img class="w-100" style="height:480px;object-fit:cover" alt="Natural pest control for plants" src="../assets/white_background_202607131940.jpeg" loading="lazy"/>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 5: PROPAGATION GUIDE ===== -->
+<section class="py-section-gap" id="propagation">
+<div class="container-custom px-margin-desktop">
+<div class="text-center mb-5 reveal active reveal-fade-down">
+  <h2 class="text-headline-lg text-on-surface mb-2">Propagation Guide</h2>
+  <p class="text-body-md text-on-surface-variant">Multiply your plant collection for free with these simple techniques.</p>
+</div>
+
+<div class="row g-4 stagger-children reveal-fade-up">
+
+<div class="col-md-6 col-lg-3 reveal active">
+  <div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 h-100 text-center">
+    <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary-soft mb-3" style="width:56px;height:56px">
+      <span class="material-symbols-outlined text-primary">currency_rupee</span>
+    </div>
+    <h4 class="text-label-md fw-bold mb-2">Money Plant</h4>
+    <p class="text-body-md text-on-surface-variant mb-2">Cut stem below a node, place in water. Roots appear in 1–2 weeks.</p>
+    <span class="badge-organic badge-primary">Easy</span>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-3 reveal active" style="transition-delay:0.1s">
+  <div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 h-100 text-center">
+    <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary-soft mb-3" style="width:56px;height:56px">
+      <span class="material-symbols-outlined text-primary">stadia_auto</span>
+    </div>
+    <h4 class="text-label-md fw-bold mb-2">Snake Plant</h4>
+    <p class="text-body-md text-on-surface-variant mb-2">Cut leaf into 3–4 inch sections, let callous 2 days, plant in soil.</p>
+    <span class="badge-organic badge-primary">Easy</span>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-3 reveal active" style="transition-delay:0.2s">
+  <div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 h-100 text-center">
+    <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary-soft mb-3" style="width:56px;height:56px">
+      <span class="material-symbols-outlined text-primary">diamond</span>
+    </div>
+    <h4 class="text-label-md fw-bold mb-2">Jade Plant</h4>
+    <p class="text-body-md text-on-surface-variant mb-2">Take stem or leaf cutting, let callous 2 days, plant in succulent soil.</p>
+    <span class="badge-organic badge-secondary">Moderate</span>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-3 reveal active" style="transition-delay:0.3s">
+  <div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 h-100 text-center">
+    <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary-soft mb-3" style="width:56px;height:56px">
+      <span class="material-symbols-outlined text-primary">energy_savings_leaf</span>
+    </div>
+    <h4 class="text-label-md fw-bold mb-2">ZZ Plant</h4>
+    <p class="text-body-md text-on-surface-variant mb-2">Divide rhizomes during repotting or root leaflets in soil (slow).</p>
+    <span class="badge-organic badge-tertiary">Slow</span>
+  </div>
+</div>
+
+</div>
+
+<div class="row mt-5 reveal active reveal-fade-up">
+  <div class="col-12">
+    <div class="bg-surface-container-low rounded-3 p-4">
+      <h3 class="text-headline-md text-on-surface mb-3">Propagation Pro Tips</h3>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="d-flex align-items-start gap-3">
+            <span class="step-number">1</span>
+            <div>
+              <p class="text-label-md fw-bold mb-1">Always cut below a node</p>
+              <p class="text-body-md text-on-surface-variant mb-0">Nodes contain the growing cells roots need. Cut at a 45° angle for better water absorption.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-start gap-3">
+            <span class="step-number">2</span>
+            <div>
+              <p class="text-label-md fw-bold mb-1">Let cuttings callous</p>
+              <p class="text-body-md text-on-surface-variant mb-0">For succulents and snake plants, let the cut end dry for 2 days before planting to prevent rot.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-start gap-3">
+            <span class="step-number">3</span>
+            <div>
+              <p class="text-label-md fw-bold mb-1">Change water weekly</p>
+              <p class="text-body-md text-on-surface-variant mb-0">If rooting in water, change the water every week to prevent bacterial growth and rotting.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-start gap-3">
+            <span class="step-number">4</span>
+            <div>
+              <p class="text-label-md fw-bold mb-1">Wait before fertilizing</p>
+              <p class="text-body-md text-on-surface-variant mb-0">New cuttings need no fertilizer for the first 4 weeks. Let roots establish first.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 6: COMMON ISSUES & SOLUTIONS (Enhanced) ===== -->
+<section class="bg-surface-container-low py-section-gap" id="issues">
+<div class="container-custom px-margin-desktop">
+<div class="row align-items-center g-5 stagger-children reveal-fade-up">
+<div class="col-lg-6 reveal-fade-left">
+<h2 class="text-headline-lg text-on-surface mb-3">Common Issues &amp; Solutions</h2>
+<p class="text-body-md text-on-surface-variant mb-4">Don't worry if your plant looks unhappy — most problems are easy to fix with the right diagnosis.</p>
+
+<div class="accordion accordion-organic" id="issuesAccordion">
+
+<div class="accordion-item">
+  <h3 class="accordion-header" id="issue1">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue1Collapse" aria-expanded="false" aria-controls="issue1Collapse">
+      <span class="material-symbols-outlined text-tertiary me-2">warning</span> Yellow Leaves
+    </button>
+  </h3>
+  <div id="issue1Collapse" class="accordion-collapse collapse" aria-labelledby="issue1" data-bs-parent="#issuesAccordion">
+    <div class="accordion-body">
+      <p class="text-body-md text-on-surface-variant"><strong>Most common cause:</strong> Over-watering and poor drainage.</p>
+      <p class="text-body-md text-on-surface-variant mb-0"><strong>Solution:</strong> Let the soil dry out before watering again. Check that your pot has drainage holes. If roots are mushy and black, you may need to repot with fresh soil after trimming rotten roots.</p>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h3 class="accordion-header" id="issue2">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue2Collapse" aria-expanded="false" aria-controls="issue2Collapse">
+      <span class="material-symbols-outlined text-tertiary me-2">style</span> Brown Leaf Tips
+    </button>
+  </h3>
+  <div id="issue2Collapse" class="accordion-collapse collapse" aria-labelledby="issue2" data-bs-parent="#issuesAccordion">
+    <div class="accordion-body">
+      <p class="text-body-md text-on-surface-variant"><strong>Most common cause:</strong> Dry air (low humidity) or inconsistent watering.</p>
+      <p class="text-body-md text-on-surface-variant mb-0"><strong>Solution:</strong> Increase humidity by misting, using a pebble tray, or grouping plants. In AC rooms, place a small water bowl nearby. Trim brown tips with clean scissors at an angle.</p>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h3 class="accordion-header" id="issue3">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue3Collapse" aria-expanded="false" aria-controls="issue3Collapse">
+      <span class="material-symbols-outlined text-tertiary me-2">water_drop</span> Drooping / Wilting
+    </button>
+  </h3>
+  <div id="issue3Collapse" class="accordion-collapse collapse" aria-labelledby="issue3" data-bs-parent="#issuesAccordion">
+    <div class="accordion-body">
+      <p class="text-body-md text-on-surface-variant"><strong>Two possible causes:</strong> Under-watering <em>or</em> over-watering. Check soil moisture to determine which.</p>
+      <p class="text-body-md text-on-surface-variant mb-0"><strong>If dry soil:</strong> Water thoroughly and the plant should perk up within hours. <strong>If wet soil:</strong> Over-watering — stop watering and let soil dry out. Your plant may have root rot.</p>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h3 class="accordion-header" id="issue4">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue4Collapse" aria-expanded="false" aria-controls="issue4Collapse">
+      <span class="material-symbols-outlined text-tertiary me-2">bug_report</span> Pests (Aphids, Mealybugs, Spider Mites)
+    </button>
+  </h3>
+  <div id="issue4Collapse" class="accordion-collapse collapse" aria-labelledby="issue4" data-bs-parent="#issuesAccordion">
+    <div class="accordion-body">
+      <p class="text-body-md text-on-surface-variant"><strong>Signs:</strong> Sticky residue, tiny webs, white cottony masses, or tiny bugs on leaf undersides.</p>
+      <p class="text-body-md text-on-surface-variant mb-2"><strong>Solution:</strong></p>
+      <ol class="text-body-md text-on-surface-variant mb-0">
+        <li>Isolate affected plant immediately</li>
+        <li>Wipe leaves with neem oil solution (recipe above)</li>
+        <li>Remove heavily infested leaves</li>
+        <li>Repeat treatment every 5–7 days for 3 weeks</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h3 class="accordion-header" id="issue5">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue5Collapse" aria-expanded="false" aria-controls="issue5Collapse">
+      <span class="material-symbols-outlined text-tertiary me-2">height</span> Leggy / Stretched Growth
+    </button>
+  </h3>
+  <div id="issue5Collapse" class="accordion-collapse collapse" aria-labelledby="issue5" data-bs-parent="#issuesAccordion">
+    <div class="accordion-body">
+      <p class="text-body-md text-on-surface-variant"><strong>Cause:</strong> Not enough light — the plant is "reaching" for the sun.</p>
+      <p class="text-body-md text-on-surface-variant mb-0"><strong>Solution:</strong> Move to a brighter location (east-facing window ideal). Prune back elongated stems to encourage bushier growth. Rotate the pot weekly for even growth.</p>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h3 class="accordion-header" id="issue6">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue6Collapse" aria-expanded="false" aria-controls="issue6Collapse">
+      <span class="material-symbols-outlined text-tertiary me-2">sick</span> Root Rot (Wilting + Wet Soil)
+    </button>
+  </h3>
+  <div id="issue6Collapse" class="accordion-collapse collapse" aria-labelledby="issue6" data-bs-parent="#issuesAccordion">
+    <div class="accordion-body">
+      <p class="text-body-md text-on-surface-variant"><strong>Signs:</strong> Plant wilting despite wet soil, mushy dark roots, foul smell.</p>
+      <p class="text-body-md text-on-surface-variant mb-2"><strong>Treatment:</strong></p>
+      <ol class="text-body-md text-on-surface-variant mb-0">
+        <li>Remove plant from pot and gently wash roots</li>
+        <li>Trim all mushy, black, smelly roots with sterilized scissors</li>
+        <li>Repot in <strong>fresh, well-draining soil</strong></li>
+        <li>Do NOT fertilize for 4 weeks</li>
+        <li>Water sparingly until you see new growth</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h3 class="accordion-header" id="issue7">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue7Collapse" aria-expanded="false" aria-controls="issue7Collapse">
+      <span class="material-symbols-outlined text-tertiary me-2">local_fire_department</span> Leaf Scorch / Sunburn
+    </button>
+  </h3>
+  <div id="issue7Collapse" class="accordion-collapse collapse" aria-labelledby="issue7" data-bs-parent="#issuesAccordion">
+    <div class="accordion-body">
+      <p class="text-body-md text-on-surface-variant"><strong>Signs:</strong> Brown, crispy patches on leaves facing the window, especially in summer.</p>
+      <p class="text-body-md text-on-surface-variant mb-0"><strong>Solution:</strong> Move plant away from direct afternoon sun. Use sheer curtains to diffuse harsh light. Remove severely damaged leaves. Most plants recover with proper light placement.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Quick Reference Table -->
+<div class="mt-4 bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10">
+  <h3 class="text-label-md fw-bold text-on-surface mb-3">Quick Reference: Symptom → Cause</h3>
+  <div class="table-responsive">
+    <table class="care-table w-100 text-body-md">
+      <thead>
+        <tr>
+          <th>Symptom</th>
+          <th>Likely Cause</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Yellow leaves + wet soil</td>
+          <td>Over-watering</td>
+          <td>Stop watering, improve drainage</td>
+        </tr>
+        <tr>
+          <td>Yellow leaves + dry soil</td>
+          <td>Under-watering</td>
+          <td>Water thoroughly, check weekly</td>
+        </tr>
+        <tr>
+          <td>Brown crispy tips</td>
+          <td>Low humidity</td>
+          <td>Mist leaves, use pebble tray</td>
+        </tr>
+        <tr>
+          <td>Leggy, stretched stems</td>
+          <td>Not enough light</td>
+          <td>Move to brighter spot</td>
+        </tr>
+        <tr>
+          <td>Leaves dropping</td>
+          <td>Temperature shock</td>
+          <td>Move away from drafts/AC</td>
+        </tr>
+        <tr>
+          <td>White cottony spots</td>
+          <td>Mealybugs</td>
+          <td>Neem oil treatment</td>
+        </tr>
+        <tr>
+          <td>Wilting + wet soil</td>
+          <td>Root rot</td>
+          <td>Trim roots, repot fresh soil</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="col-lg-6 reveal-fade-right">
+  <div class="rounded-4 overflow-hidden shadow-lg">
+    <img class="w-100" style="height:600px;object-fit:cover" alt="Plant care troubleshooting" src="../assets/white_background_202607131940.jpeg" loading="lazy"/>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 7: AIR-PURIFYING PLANTS ===== -->
+<section class="py-section-gap" id="air-purifying">
+<div class="container-custom px-margin-desktop">
+<div class="text-center mb-5 reveal active reveal-fade-down">
+  <h2 class="text-headline-lg text-on-surface mb-2">Air-Purifying Plants for Indian Homes</h2>
+  <p class="text-body-md text-on-surface-variant">These plants naturally filter indoor air pollutants and thrive in Indian climate conditions.</p>
+</div>
+
+<div class="row g-4 stagger-children reveal-fade-up">
+
+<div class="col-md-6 col-lg-3 reveal active">
+  <div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 h-100 text-center hover-lift-card transition-base">
+    <div class="text-center mb-3">
+      <span class="material-symbols-outlined text-primary" style="font-size:40px">stadia_auto</span>
+    </div>
+    <h4 class="text-label-md fw-bold mb-2">Snake Plant</h4>
+    <p class="text-body-md text-on-surface-variant mb-2">Filters formaldehyde, benzene &amp; xylene. Releases oxygen at night.</p>
+    <span class="badge-organic badge-primary">Low Light</span>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-3 reveal active" style="transition-delay:0.1s">
+  <div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 h-100 text-center hover-lift-card transition-base">
+    <div class="text-center mb-3">
+      <span class="material-symbols-outlined text-primary" style="font-size:40px">currency_rupee</span>
+    </div>
+    <h4 class="text-label-md fw-bold mb-2">Money Plant</h4>
+    <p class="text-body-md text-on-surface-variant mb-2">Excellent for removing formaldehyde. Grows in water or soil.</p>
+    <span class="badge-organic badge-primary">Easy</span>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-3 reveal active" style="transition-delay:0.2s">
+  <div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 h-100 text-center hover-lift-card transition-base">
+    <div class="text-center mb-3">
+      <span class="material-symbols-outlined text-primary" style="font-size:40px">peace</span>
+    </div>
+    <h4 class="text-label-md fw-bold mb-2">Peace Lily</h4>
+    <p class="text-body-md text-on-surface-variant mb-2">Filters ammonia, benzene &amp; formaldehyde. Prefers shade and moisture.</p>
+    <span class="badge-organic badge-secondary">Shade-loving</span>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-3 reveal active" style="transition-delay:0.3s">
+  <div class="bg-white rounded-3 p-4 shadow-sm border border-outline-variant/10 h-100 text-center hover-lift-card transition-base">
+    <div class="text-center mb-3">
+      <span class="material-symbols-outlined text-primary" style="font-size:40px">palm</span>
+    </div>
+    <h4 class="text-label-md fw-bold mb-2">Areca Palm</h4>
+    <p class="text-body-md text-on-surface-variant mb-2">Excellent humidifier. Filters indoor air pollutants. Needs bright indirect light.</p>
+    <span class="badge-organic badge-tertiary">Humidifier</span>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-section-gap container-custom px-margin-desktop text-center reveal active reveal-fade-down">
+<h2 class="text-headline-lg text-on-surface mb-3">Need Personal Help?</h2>
+<p class="text-body-md text-on-surface-variant mb-5">Our expert team is just a message away. Share a photo of your plant and we'll help diagnose any issue.</p>
+<a class="bg-primary text-on-primary px-5 py-3 rounded-3 text-label-md text-decoration-none d-inline-block shadow-primary hover-bg-primary-container transition-standard active-scale-98" href="contact.html">Contact Our Experts</a>
+</section>
+
+</main>
+
+<footer class="bg-surface-container-lowest border-top border-outline-variant/20 pt-section-gap pb-5">
+<div class="container-custom px-margin-desktop">
+<div class="row row-cols-1 row-cols-md-4 g-3 mb-5">
+<div class="col d-flex flex-column gap-4">
+<a class="text-headline-md fw-bold text-primary text-decoration-none" href="../index.html">Ankuram</a>
+<p class="text-body-md text-on-surface-variant mb-0">
+Curating the finest botanical specimens for the modern home. Sustainable, premium, and delivered with care.
+</p>
+<p class="text-label-sm fw-bold text-uppercase text-on-surface mb-2 tracking-wider">Follow Us</p>
+<div class="d-flex gap-2">
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Instagram"><span class="fw-bold text-label-sm text-on-surface-variant">IG</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Facebook"><span class="fw-bold text-label-sm text-on-surface-variant">FB</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="X"><span class="fw-bold text-label-sm text-on-surface-variant">X</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="YouTube"><span class="fw-bold text-label-sm text-on-surface-variant">YT</span></a>
+<a class="d-inline-flex align-items-center justify-content-center rounded-circle bg-surface-container-high social-icon-hover text-decoration-none" href="#" style="width:36px;height:36px" title="Pinterest"><span class="fw-bold text-label-sm text-on-surface-variant">Pin</span></a>
+</div>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Shop</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="shop.html">All Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="indoor.html">Indoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="outdoor.html">Outdoor Plants</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="tulsi.html">Tulsi (Holy Basil)</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="most-wishlisted.html">Most Wishlisted</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="wishlist.html">Wishlist</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="create-account.html">Create Account</a></li>
+          </ul>
+            <div class="nav-footer">
+    <p>Quick access to shop, categories, and support.</p>
+  </div>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Company</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="about.html">Our Story</a></li>
+
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html">Contact</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col d-flex flex-column gap-4">
+<h4 class="text-label-md fw-bold text-uppercase text-on-surface mb-0">Support</h4>
+<ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#shipping-info">Shipping Info</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#returns-policy">Returns Policy</a></li>
+<li><a class="text-primary text-decoration-none fw-bold" href="care-guide.html">Plant Care Guide</a></li>
+<li><a class="text-on-surface-variant text-decoration-none hover-text-primary" href="contact.html#faq">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="border-top border-outline-variant/20 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+<p class="text-label-sm text-on-surface-variant mb-0">© 2026 Ankuram. All rights reserved.</p>
+<div class="d-flex gap-4">
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="privacy-policy.html">Privacy</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Terms</a>
+<a class="text-label-sm text-on-surface-variant text-decoration-none hover-text-primary" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<div id="toast-container"></div>
+<button class="back-to-top" id="back-to-top" title="Back to top">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+</button>
+
+
+
+<div class="lightbox-overlay" id="lightbox-overlay">
+  <button class="lightbox-close" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+  <div class="lightbox-image-wrap">
+    <img src="../images/placeholder.svg" alt="Enlarged view"/>
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+  <div class="lightbox-hint"><kbd>←</kbd> <kbd>→</kbd> navigate &middot; <kbd>Esc</kbd> close</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/pages/cart.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="../config/firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="../config/firestore-sync.js"></script>
+<script src="../js/modules/script.js"></script>
+</body>
+</html>

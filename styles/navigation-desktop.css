@@ -1,0 +1,556 @@
+/* ====================================================================
+   DESKTOP NAVIGATION — Ankuram (Earthy & Organic)
+   ==================================================================== */
+
+.site-navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 206, 196, 0.4);
+  box-shadow: 0 2px 20px rgba(74, 124, 89, 0.06);
+}
+
+.site-navbar .navbar-brand {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--c-primary-dark) !important;
+}
+
+.site-navbar .navbar-nav {
+  gap: 0.2rem;
+}
+
+.site-navbar .nav-link {
+  padding: 0.65rem 0.95rem;
+  border-radius: var(--radius-full);
+  color: var(--c-on-surface-variant);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus-visible,
+.site-navbar .nav-link.active {
+  color: var(--c-primary);
+  background: var(--c-primary-light);
+}
+
+.site-navbar .nav-link.active {
+  font-weight: 600;
+}
+
+/* Icon buttons (wishlist, cart) */
+.site-navbar-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--c-outline-variant);
+  background: var(--c-surface);
+  color: var(--c-on-surface-variant);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.site-navbar-icon:hover,
+.site-navbar-icon:focus-visible {
+  color: var(--c-primary);
+  background: var(--c-primary-light);
+  border-color: var(--c-primary);
+  transform: translateY(-1px);
+}
+
+.site-navbar-cta {
+  min-width: 110px;
+  justify-content: center;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all var(--transition-base);
+}
+
+.site-navbar-cta:hover {
+  background: var(--c-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-primary);
+  color: var(--c-on-primary);
+}
+
+/* ===== Desktop Search Trigger Button ===== */
+.desktop-search-trigger {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--c-outline-variant);
+  background: var(--c-surface);
+  color: var(--c-on-surface-variant);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.desktop-search-trigger:hover,
+.desktop-search-trigger:focus-visible {
+  color: var(--c-primary);
+  background: var(--c-primary-light);
+  border-color: var(--c-primary);
+  transform: translateY(-1px);
+}
+
+.desktop-search-trigger .material-symbols-outlined {
+  font-size: 22px;
+}
+
+/* ===== Desktop Search Panel (slides down) — Premium ===== */
+.desktop-search-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--c-outline-variant);
+  box-shadow: 0 12px 40px -8px rgba(13, 99, 27, 0.1), 0 4px 16px rgba(0, 0, 0, 0.06);
+  z-index: 1050;
+  transform: translateY(-12px) scale(0.98);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: top center;
+}
+
+.desktop-search-panel.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ambient green glow behind search panel */
+.desktop-search-panel::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 300px;
+  height: 100px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(46, 125, 50, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.desktop-search-panel.open::before {
+  opacity: 1;
+}
+
+.desktop-search-panel input {
+  color: var(--c-on-surface);
+  font-size: 1.1rem !important;
+  letter-spacing: 0.01em;
+  caret-color: var(--c-primary);
+}
+
+.desktop-search-panel input:focus {
+  outline: none;
+}
+
+.desktop-search-panel input::placeholder {
+  color: var(--c-outline);
+  font-weight: 400;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.desktop-search-panel input:focus::placeholder {
+  opacity: 0.4;
+}
+
+/* Green accent line under input on focus */
+.desktop-search-panel input {
+  background: transparent !important;
+  background-image: linear-gradient(var(--c-primary), var(--c-primary-dark)), linear-gradient(var(--c-outline-variant), var(--c-outline-variant)) !important;
+  background-size: 0% 2px, 100% 1px !important;
+  background-repeat: no-repeat !important;
+  background-position: center bottom, center bottom !important;
+  transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  padding-bottom: 4px !important;
+}
+
+.desktop-search-panel input:focus {
+  background-size: 100% 2px, 100% 1px !important;
+}
+
+.desktop-search-panel input::placeholder {
+  color: var(--c-outline);
+  font-weight: 400;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.desktop-search-panel input:focus::placeholder {
+  opacity: 0.4;
+}
+
+/* Close button in search panel */
+.desktop-search-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--c-on-surface-variant);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.desktop-search-close-btn:hover,
+.desktop-search-close-btn:focus-visible {
+  background: var(--c-primary-light);
+  color: var(--c-primary);
+  border-color: var(--c-primary);
+  transform: scale(1.05);
+}
+
+.desktop-search-close-btn .material-symbols-outlined {
+  font-size: 22px;
+}
+
+/* Search row — pill container (uses existing d-flex) */
+.desktop-search-panel .d-flex {
+  padding: 8px 12px !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1.5px solid transparent;
+  background: transparent;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 12px !important;
+}
+
+.desktop-search-panel.open .d-flex {
+  background: var(--c-surface);
+  border-color: var(--c-outline-variant);
+  box-shadow: 0 2px 12px rgba(13, 99, 27, 0.04), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.desktop-search-panel .d-flex:focus-within {
+  border-color: var(--c-primary) !important;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1), 0 2px 12px rgba(13, 99, 27, 0.06) !important;
+}
+
+/* ====================================================================
+   USER AVATAR DROPDOWN — Premium Redesign
+   ==================================================================== */
+
+.user-dropdown-premium {
+  position: relative;
+  display: inline-flex;
+}
+
+/* --- Avatar Trigger Button --- */
+.user-avatar-btn {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.user-avatar-btn:hover {
+  transform: translateY(-1px);
+}
+
+.user-avatar-btn:active {
+  transform: scale(0.96);
+}
+
+.user-avatar-ring {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--c-primary), var(--c-primary-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.user-avatar-btn:hover .user-avatar-ring {
+  box-shadow: 0 0 0 3px var(--c-primary-soft), 0 4px 12px rgba(61, 122, 79, 0.25);
+}
+
+.user-avatar-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.user-avatar-initials {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  border: 2px solid white;
+}
+
+.user-avatar-chevron {
+  font-size: 16px !important;
+  color: var(--c-primary);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-left: 0;
+}
+
+/* Rotate chevron when dropdown is open */
+.show > .user-avatar-btn .user-avatar-chevron,
+.user-avatar-btn.show .user-avatar-chevron {
+  transform: rotate(180deg);
+}
+
+/* --- Dropdown Menu Panel --- */
+.user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 260px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-outline-variant);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06);
+  z-index: 1055;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.96);
+  transform-origin: top right;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.show > .user-dropdown-menu,
+.user-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* --- Dropdown Header (User Info Card) --- */
+.user-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 20px 16px;
+  background: linear-gradient(135deg, var(--c-primary-soft), transparent 80%);
+  border-bottom: 1px solid var(--c-outline-variant);
+}
+
+.user-dropdown-avatar {
+  flex-shrink: 0;
+}
+
+.user-dropdown-avatar-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--c-primary);
+}
+
+.user-dropdown-initials {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  border: 2px solid var(--c-primary-light);
+}
+
+.user-dropdown-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-dropdown-name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--c-on-surface);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-dropdown-email {
+  font-size: 0.75rem;
+  color: var(--c-on-surface-variant);
+  margin: 2px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+/* --- Dropdown Body (Menu Items) --- */
+.user-dropdown-body {
+  padding: 8px;
+}
+
+.user-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--c-on-surface);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.user-dropdown-item:hover {
+  background: var(--c-primary-soft);
+  color: var(--c-primary);
+  transform: translateX(3px);
+}
+
+.user-dropdown-item:active {
+  transform: translateX(3px) scale(0.99);
+}
+
+.user-dropdown-item-icon {
+  font-size: 20px !important;
+  width: 24px;
+  text-align: center;
+  color: var(--c-on-surface-variant);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.user-dropdown-item:hover .user-dropdown-item-icon {
+  color: var(--c-primary);
+}
+
+.user-dropdown-item-text {
+  flex: 1;
+}
+
+.user-dropdown-signout {
+  color: var(--c-on-surface-variant) !important;
+}
+
+.user-dropdown-signout:hover {
+  color: var(--c-error) !important;
+  background: rgba(186, 74, 74, 0.08) !important;
+}
+
+.user-dropdown-signout:hover .user-dropdown-item-icon {
+  color: var(--c-error) !important;
+}
+
+.user-dropdown-divider {
+  height: 1px;
+  background: var(--c-outline-variant);
+  margin: 6px 12px;
+  opacity: 0.5;
+}
+
+/* ====================================================================
+   END User Avatar Dropdown
+   ==================================================================== */
+
+/* offcanvas-lg: expand inline on desktop (match navbar-expand-lg at 992px) */
+@media (min-width: 992px) {
+  .offcanvas-lg {
+    --bs-offcanvas-width: auto;
+    --bs-offcanvas-border-width: 0;
+    position: static !important;
+    visibility: visible !important;
+    transform: none !important;
+    background-color: transparent !important;
+  }
+  .offcanvas-lg.offcanvas-end {
+    position: static;
+    width: auto;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    transform: none !important;
+    visibility: visible;
+  }
+  .offcanvas-lg .offcanvas-header {
+    display: none;
+  }
+  .offcanvas-lg .offcanvas-body {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow-y: visible;
+    background-color: transparent !important;
+  }
+  .offcanvas-lg .offcanvas-body .navbar-nav.flex-row {
+    flex-wrap: nowrap;
+  }
+  .offcanvas-lg .site-navbar-icon.nav-link {
+    padding: 0;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .offcanvas-lg .navbar-nav.justify-content-start > .nav-item > .nav-link {
+    padding: 0.65rem 0.95rem;
+  }
+
+  /* Tighter nav links on smaller desktop screens */
+  @media (min-width: 993px) and (max-width: 1199px) {
+    .offcanvas-lg .navbar-nav.justify-content-start > .nav-item > .nav-link {
+      padding: 0.5rem 0.65rem;
+      font-size: 0.82rem;
+    }
+  }
+  @media (min-width: 1200px) and (max-width: 1399px) {
+    .offcanvas-lg .navbar-nav.justify-content-start > .nav-item > .nav-link {
+      padding: 0.55rem 0.8rem;
+      font-size: 0.85rem;
+    }
+  }
+}

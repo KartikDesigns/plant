@@ -1,0 +1,121 @@
+/* ====================================================================
+   FLASH SALE — inline injection styles for product cards
+   ==================================================================== */
+
+/* ---- TOP BANNER ---- */
+.flash-sale-top-banner {
+    background: linear-gradient(135deg, #dc2626, #ef4444, #f59e0b);
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    animation: flash-banner-pulse 2s ease-in-out infinite;
+}
+.flash-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+.flash-banner-icon {
+    font-size: 22px;
+    animation: flash-bolt-spin 1s ease-in-out infinite;
+}
+.flash-banner-sub {
+    opacity: 0.9;
+    font-weight: 400;
+}
+.flash-banner-timer {
+    background: rgba(0,0,0,0.3);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+@keyframes flash-banner-pulse {
+    0%, 100% { box-shadow: 0 0 12px rgba(220,38,38,0.3); }
+    50%      { box-shadow: 0 0 28px rgba(220,38,38,0.6); }
+}
+@keyframes flash-bolt-spin {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50%      { transform: scale(1.2) rotate(10deg); }
+}
+
+/* ---- INJECTED BADGE on product cards ---- */
+.flash-sale-badge-inject {
+    background: linear-gradient(135deg, #dc2626, #f59e0b) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 11px !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    z-index: 5;
+    animation: flash-badge-glow 2s ease-in-out infinite;
+}
+.flash-sale-badge-inject.flash-almost {
+    background: linear-gradient(135deg, #f59e0b, #ef4444) !important;
+}
+.flash-sale-badge-inject.flash-sold-out {
+    background: linear-gradient(135deg, #6b7280, #9ca3af) !important;
+    animation: none !important;
+}
+@keyframes flash-badge-glow {
+    0%, 100% { box-shadow: 0 0 6px rgba(220,38,38,0.3); }
+    50%      { box-shadow: 0 0 16px rgba(220,38,38,0.7); }
+}
+
+/* ---- ALMOST GONE overlay on image ---- */
+.flash-almost-gone-inject {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(245, 158, 11, 0.92);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 5;
+    animation: flash-warn-pulse 1.5s ease-in-out infinite;
+}
+@keyframes flash-warn-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.7; }
+}
+
+/* ---- PRICE DISPLAY ---- */
+.flash-original-price {
+    text-decoration: line-through;
+    color: #9ca3af;
+    font-size: 0.85em;
+    margin-right: 4px;
+}
+.flash-sale-price {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+/* ---- SOLD OUT BUTTON ---- */
+.flash-sold-out-btn {
+    background: #9ca3af !important;
+    color: #fff !important;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+    .flash-banner-inner { font-size: 12px; gap: 6px; }
+    .flash-banner-timer  { font-size: 13px; padding: 3px 8px; }
+    .flash-sale-top-banner { padding: 10px 14px; }
+}

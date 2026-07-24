@@ -1,0 +1,1561 @@
+/* ===== Checkout order summary: text truncation for item names ===== */
+.checkout-order-item .checkout-item-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============== RESPONSIVE HELPERS ============== */
+
+/* Make media elements fluid by default */
+img, picture, video, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Image rendering optimizations for GPU and performance */
+img {
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+/* Provide an explicit object-fit utility used in the HTML */
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Ensure hero images are responsive with viewport-aware sizing */
+.hero-img {
+    height: clamp(220px, 45vw, 600px) !important;
+    object-fit: cover !important;
+    width: 100% !important;
+}
+
+/* ===== Minimum touch target (44px) ===== */
+@media (hover: none) and (pointer: coarse) {
+    .btn-whatsapp,
+    .btn-toggle-wishlist,
+    .qty-selector button,
+    .desktop-search-trigger,
+    .site-navbar-icon,
+    .btn-close,
+    .back-to-top,
+    button:not([class*="btn-"]):not(.btn-close):not(.lightbox-close) {
+        min-width: 44px !important;
+        min-height: 44px !important;
+    }
+}
+
+/* ===== Very Large Screens (≥1600px) ===== */
+@media (min-width: 1600px) {
+    .container-custom {
+        max-width: 1440px;
+    }
+    .hero-img {
+        height: 700px !important;
+    }
+    :root, section {
+        --section-gap: 140px;
+        --margin-desktop: 64px;
+    }
+    .text-display-lg { font-size: clamp(3rem, 4vw, 4.5rem) !important; }
+    .row.g-3 { --bs-gutter-x: 1.5rem; }
+}
+
+/* ===== Large Desktop (1400px–1599px) ===== */
+@media (min-width: 1400px) and (max-width: 1599px) {
+    .container-custom {
+        max-width: 1320px;
+    }
+    
+    .hero-img {
+        height: 650px !important;
+    }
+
+    .row.row-cols-lg-3.g-3 > .col {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    .row.row-cols-lg-3.g-3 {
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
+    }
+
+    :root, section {
+        --section-gap: 120px;
+    }
+
+    .row.row-cols-md-4.g-3 > .col .p-5 {
+        padding: 3rem 2rem !important;
+    }
+
+    footer > .container-custom > .row.g-3 {
+        --bs-gutter-x: 2rem;
+    }
+}
+
+/* ===== Medium-Large Desktop (1200px–1400px) ===== */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container-custom {
+        max-width: 1200px;
+    }
+    
+    /* Product grid spacing */
+    .row.row-cols-lg-3.g-3 > .col {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+/* ===== Desktop (993px–1199px) refinements ===== */
+@media (min-width: 993px) and (max-width: 1199px) {
+    .text-display-lg { font-size: clamp(2.5rem, 4.5vw, 3.25rem) !important; }
+    .hero-img { height: 480px !important; }
+    
+    /* Product grid fits 3 columns better */
+    .row.row-cols-lg-3.g-3 > .col .bg-white.rounded-3.p-3 {
+        padding: 14px;
+    }
+    .row.row-cols-lg-3.g-3 > .col .text-label-md {
+        font-size: 0.8125rem;
+    }
+}
+
+/* ===== Responsive variable overrides: Tablet (768px–992px) ===== */
+@media (max-width: 992px) {
+    :root {
+        --section-gap: 60px;
+        --margin-desktop: 24px;
+        --gutter: 16px;
+    }
+    .h-nav { height: 64px; }
+    .text-display-lg { font-size: 40px; font-variation-settings: 'opsz' 48; }
+    .text-headline-lg { font-size: 28px; font-variation-settings: 'opsz' 42; }
+    .text-headline-md { font-size: 20px; font-variation-settings: 'opsz' 36; }
+    .hero-img { height: 420px !important; }
+
+    /* Tablet spacing improvements */
+    .pt-5 { padding-top: 2rem !important; }
+    .mb-5 { margin-bottom: 2rem !important; }
+    .gap-4 { gap: 1.25rem !important; }
+    .gap-5 { gap: 2rem !important; }
+    .g-5 { --bs-gutter-x: 2rem !important; --bs-gutter-y: 2rem !important; }
+    .px-5.py-3.rounded-3 { padding: 14px 28px !important; }
+
+    /* Tablet card grid - 2 columns */
+    .row.row-cols-md-4.g-3 > .col,
+    .row.row-cols-md-3.g-4 > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    /* Tablet footer - 2x2 grid */
+    footer > .container-custom > .row.g-3 > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* ===== Landscape Tablets (768px–992px) ===== */
+@media (min-width: 768px) and (max-width: 992px) {
+    .container-custom { padding-left: 28px; padding-right: 28px; }
+    .hero-img { height: 380px !important; }
+    .text-display-lg { font-size: 2.75rem !important; }
+    .row.row-cols-md-3.g-4 > .col { flex: 0 0 50%; max-width: 50%; }
+    .row.row-cols-md-4.g-3 > .col { flex: 0 0 50%; max-width: 50%; }
+    .announcement-scroll-inner p.text-on-primary.text-label-sm { font-size: 0.65rem !important; }
+    
+    /* Better tablet layout for category cards */
+    .row.row-cols-md-3.g-4 .bg-white.rounded-3.p-5 { padding: 2rem 1.5rem !important; }
+}
+
+/* ===== Medium devices (576px–768px) ===== */
+@media (min-width: 576px) and (max-width: 768px) {
+    :root {
+        --section-gap: 50px;
+        --margin-desktop: 20px;
+    }
+    .container-custom { 
+        padding-left: 20px; 
+        padding-right: 20px; 
+    }
+    .hero-img { height: 320px !important; }
+    .text-display-lg { font-size: 2.25rem !important; font-variation-settings: 'opsz' 42 !important; }
+    .text-headline-lg { font-size: 1.5rem !important; font-variation-settings: 'opsz' 36 !important; }
+
+    /* Feature cards on tablet */
+    .row.row-cols-md-4.g-3 > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    /* Product detail - related */
+    #related-products.row.row-cols-1.row-cols-sm-2.row-cols-lg-4 > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    /* Shop sidebar */
+    .col-lg-3 {
+        margin-bottom: 1.5rem;
+    }
+    .col-lg-3 .in-stock-toggle {
+        display: flex !important;
+    }
+    
+    /* Checkout */
+    .position-sticky[style*="top:100px"] {
+        position: static !important;
+    }
+}
+
+/* ===== Reduced Motion for Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .page-loader { display: none !important; }
+    .announcement-scroll-inner { animation: none !important; }
+    .leaf-particle { display: none !important; }
+}
+
+/* Small utility to prevent overflow from very long words or code */
+.text-break-any { word-break: break-word; overflow-wrap: anywhere; }
+
+
+/* Hover direction-aware tilt (card-3d) */
+/* Card base — no image hover effects, images show directly */
+.card-3d {
+    perspective: 1200px;
+}
+
+/* Counters */
+.counter-value {
+    display: inline-block;
+    animation: countUp 0.6s ease forwards;
+}
+
+/* Announcement bar scrolling */
+.announcement-scroll {
+    white-space: nowrap;
+    overflow: hidden;
+}
+.announcement-scroll-inner {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+}
+.announcement-scroll-inner:hover {
+    animation-play-state: paused;
+}
+@keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Scale on hover + shadow lift combo */
+.hover-scale-shadow {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+    border: 1px solid var(--c-outline-variant) !important;
+    position: relative;
+    overflow: hidden;
+}
+.hover-scale-shadow:hover {
+    transform: scale(1.03) translateY(-6px);
+    box-shadow: 0 24px 48px -8px rgba(13, 99, 27, 0.18), 0 8px 16px -6px rgba(0, 0, 0, 0.08);
+    border-color: var(--c-primary) !important;
+}
+
+/* Subtle gradient overlay on card hover for depth */
+.hover-scale-shadow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(13, 99, 27, 0.03), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: inherit;
+}
+.hover-scale-shadow:hover::after {
+    opacity: 1;
+}
+
+/* Image zoom on container hover */
+.img-zoom-container { overflow: hidden; }
+.img-zoom-container img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom-container:hover img {
+    transform: scale(1.08);
+}
+
+/* Underline animation for nav links */
+.nav-underline {
+    position: relative;
+}
+.nav-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--c-primary);
+    transition: width 0.35s ease;
+}
+.nav-underline:hover::after { width: 100%; }
+
+/* ============== MOBILE LAYOUT IMPROVEMENTS ============== */
+@media (max-width: 576px) {
+    :root {
+        --margin-desktop: 16px;
+        --gutter: 12px;
+    }
+    /* ===== Page & Container ===== */
+    .container-custom { 
+        padding-left: 12px; 
+        padding-right: 12px; 
+    }
+    .px-margin-desktop { 
+        padding-left: 12px !important; 
+        padding-right: 12px !important; 
+    }
+    
+    /* ===== Compact header ===== */
+    header .container-custom { padding: 0.6rem 0.75rem; }
+    .h-nav { height: auto; }
+    header .text-headline-md { font-size: 1rem; }
+
+    /* ===== Hero & Typography ===== */
+    .hero-img { height: 220px !important; }
+    .text-display-lg { font-size: 1.75rem !important; font-variation-settings: 'opsz' 36 !important; }
+    .text-headline-lg { font-size: 1.25rem !important; font-variation-settings: 'opsz' 30 !important; }
+    .text-headline-md { font-size: 1.125rem !important; font-variation-settings: 'opsz' 28 !important; }
+    .text-body-lg { font-size: 0.9375rem; line-height: 1.7 !important; }
+    .text-body-md { font-size: 0.875rem; line-height: 1.65 !important; }
+
+    /* Section gap — tighter on mobile */
+    :root, section { --section-gap: 30px; }
+    .py-section-gap { padding-top: 30px; padding-bottom: 30px; }
+    .pt-section-gap { padding-top: 30px; }
+    .pb-section-gap { padding-bottom: 30px; }
+
+    /* ===== Homepage hero area ===== */
+    section.container-custom.pt-5 > .row.align-items-center.g-5 > .col-lg-6:first-child {
+        text-align: center;
+    }
+    section.container-custom.pt-5 > .row.align-items-center.g-5 > .col-lg-6:first-child .d-flex.flex-wrap.gap-3 {
+        justify-content: center;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    section.container-custom.pt-5 > .row.align-items-center.g-5 > .col-lg-6:first-child .d-flex.flex-wrap.gap-3 > a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    section.container-custom.pt-5 > .row.align-items-center.g-5 > .col-lg-6:first-child .d-flex.align-items-center.gap-4 {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Hero badge smaller on mobile */
+    .hero-badge {
+        padding: 0.4rem 0.7rem !important;
+        font-size: 0.75rem !important;
+        gap: 0.35rem !important;
+        margin: 0 auto;
+    }
+    .hero-badge .material-symbols-outlined {
+        font-size: 14px !important;
+    }
+    
+    /* Hero shell image container */
+    .hero-shell.p-2 {
+        padding: 3px !important;
+    }
+    
+    /* Reduce hero heading gap */
+    .hero-text-gap {
+        gap: 0.75rem !important;
+    }
+    
+    /* Hero verification badges row - hide on small mobile */
+    .d-flex.align-items-center.gap-4.pt-4.text-on-surface-variant {
+        display: none !important;
+    }
+
+    /* ===== Product / Category grids ===== */
+    .row.row-cols-2 > .col { 
+        flex: 0 0 50% !important; 
+        max-width: 50% !important; 
+    }
+    #product-grid.row.row-cols-1.row-cols-sm-2.row-cols-lg-3 > .col,
+    #wishlist-grid.row.row-cols-1.row-cols-sm-2.row-cols-lg-3 > .col {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+    
+    /* ===== Product card modern on mobile ===== */
+    .product-card-modern .card-info {
+        padding: 10px;
+    }
+    .product-card-modern .card-info .card-name {
+        font-size: 0.8125rem;
+    }
+    .product-card-modern .card-info .card-price {
+        font-size: 0.875rem;
+    }
+    .product-card-modern .card-info .card-tags {
+        display: none;
+    }
+    .product-card-modern .card-image-wrap {
+        aspect-ratio: 1 / 1;
+    }
+    .product-card-modern .card-actions {
+        opacity: 1;
+        transform: none;
+    }
+    .product-card-modern .card-action-btn {
+        width: 30px;
+        height: 30px;
+        background: rgba(255,255,255,0.95);
+    }
+    .product-card-modern .card-action-btn .material-symbols-outlined {
+        font-size: 16px;
+    }
+    .product-card-modern .card-badge {
+        font-size: 0.625rem;
+        padding: 2px 8px;
+        top: 8px;
+        left: 8px;
+    }
+    .product-card-modern .card-stock {
+        display: none;
+    }
+    .product-card-modern .card-info .card-footer {
+        padding-top: 4px;
+    }
+    .product-card-modern .card-add-btn {
+        width: 30px;
+        height: 30px;
+    }
+    .product-card-modern .card-add-btn .material-symbols-outlined {
+        font-size: 16px;
+    }
+
+    /* ===== Buttons & Touch Targets ===== */
+    .btn-whatsapp, 
+    .btn-toggle-wishlist { 
+        padding: 8px 10px !important; 
+        min-width: 44px;
+        min-height: 44px;
+    }
+    .bg-primary.px-5.py-3 { 
+        padding: 12px 20px !important; 
+        font-size: 0.85rem !important; 
+    }
+    .btn-organic {
+        padding: 12px 24px;
+        font-size: 0.875rem;
+    }
+    .d-flex.flex-wrap.gap-3 { 
+        justify-content: center;
+        width: 100%;
+    }
+    
+    /* ===== Aspect ratio utility ===== */
+    .aspect-4-5 { aspect-ratio: 4/5; }
+
+    /* ===== Hide desktop search ===== */
+    .d-none.d-lg-flex.bg-surface-container-high { display: none !important; }
+
+    /* ===== Ensure text wraps ===== */
+    h1, h2, h3, h4, p { 
+        word-wrap: break-word; 
+        overflow-wrap: break-word; 
+    }
+
+    /* ===== Content visibility for lazy rendering ===== */
+    footer {
+        content-visibility: auto;
+        contain-intrinsic-size: 800px;
+    }
+    .category-hero {
+        content-visibility: auto;
+        contain-intrinsic-size: 200px;
+    }
+    section.py-section-gap {
+        content-visibility: auto;
+        contain-intrinsic-size: 400px;
+    }
+
+    /* ===== Touch optimizations for interactive elements ===== */
+    a, button, .category-pill, .filter-link, .price-check {
+        touch-action: manipulation;
+    }
+
+    /* ===== Very small phones (≤380px) ===== */
+    @media (max-width: 380px) {
+        :root {
+            --margin-desktop: 10px;
+            --section-gap: 28px;
+        }
+        .container-custom { padding-left: 10px; padding-right: 10px; }
+        .px-margin-desktop { padding-left: 10px !important; padding-right: 10px !important; }
+        .text-display-lg { font-size: 1.5rem !important; font-variation-settings: 'opsz' 30 !important; }
+        .text-headline-lg { font-size: 1.1rem !important; font-variation-settings: 'opsz' 26 !important; }
+        .hero-img { height: 180px !important; }
+        .py-section-gap { padding-top: 28px; padding-bottom: 28px; }
+        .pt-section-gap { padding-top: 28px; }
+        .pb-section-gap { padding-bottom: 28px; }
+        .row.g-3 { --bs-gutter-x: 0.5rem; --bs-gutter-y: 0.5rem; }
+        .row.g-4 { --bs-gutter-x: 0.5rem; --bs-gutter-y: 0.5rem; }
+        
+        /* Stack 2-column grids to single column on very small screens */
+        .row.row-cols-2 > .col,
+        #product-grid.row.row-cols-1.row-cols-sm-2.row-cols-lg-3 > .col,
+        #wishlist-grid.row.row-cols-1.row-cols-sm-2.row-cols-lg-3 > .col,
+        .container-custom.px-margin-desktop.d-flex.flex-column .row.g-4 > .col-md-3.col-6 {
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+        }
+        .bg-primary.rounded-4.p-5 { padding: 1.5rem 1rem !important; }
+        nav.navbar .container-custom { padding-left: 8px !important; padding-right: 8px !important; }
+        .announcement-scroll-inner p.text-on-primary.text-label-sm { font-size: 0.55rem !important; }
+        .back-to-top { width: 36px; height: 36px; bottom: 12px; right: 12px; }
+        .back-to-top .material-symbols-outlined { font-size: 18px; }
+        footer .d-flex.gap-2 a[style*="36px"] { width: 36px !important; height: 36px !important; }
+    }
+
+    /* ===== Feature / Icons grid (homepage) ===== */
+    .row.row-cols-md-4.g-3 > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .row.row-cols-md-4.g-3 > .col .p-5 {
+        padding: 1.25rem !important;
+    }
+    .row.row-cols-md-4.g-3 > .col .text-headline-md {
+        font-size: 1rem !important;
+    }
+
+    /* ===== Cart items ===== */
+    #cart-items .row.align-items-center.g-3 > .col-auto:first-child {
+        width: 70px;
+    }
+    #cart-items .row.align-items-center.g-3 .text-label-md {
+        font-size: 0.8125rem;
+    }
+    .qty-selector span {
+        min-width: 32px;
+        line-height: 36px;
+        font-size: 0.875rem;
+    }
+    .qty-selector button {
+        width: 36px;
+        height: 36px;
+    }
+    
+    /* ===== Cart summary sticky ===== */
+    #cart-content .col-lg-4 .position-sticky {
+        position: static !important;
+    }
+    
+    /* ===== Checkout ===== */
+    #checkout-content .row.g-4 > .col-lg-7 .row.g-3 > [class*="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #checkout-content .row.g-4 > .col-lg-7 .row.g-3 > .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #checkout-content .row.g-4 > .col-lg-7 .row.g-3 > .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .position-sticky[style*="top:100px"] {
+        position: static !important;
+    }
+    #ch-pincode + button {
+        padding: 12px 16px;
+        font-size: 0.8125rem;
+    }
+    /* Checkout form label spacing */
+    #checkout-content .text-label-sm {
+        font-size: 0.75rem;
+    }
+    #checkout-content .form-control {
+        font-size: 0.875rem;
+        padding: 10px 12px;
+    }
+    #checkout-content .form-select {
+        font-size: 0.875rem;
+        padding: 10px 12px;
+    }
+    /* Checkout order summary on mobile */
+    #checkout-content .col-lg-5 .position-sticky {
+        position: static !important;
+    }
+    #checkout-items .d-flex.align-items-center.gap-3 {
+        flex-wrap: nowrap;
+    }
+    #checkout-items img[style*="width:50px"] {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    #checkout-items .text-label-md {
+        font-size: 0.8125rem;
+    }
+    /* Checkout order summary items — text truncation on mobile */
+    .checkout-order-item {
+        gap: 10px !important;
+    }
+    .checkout-order-item .checkout-item-name {
+        font-size: 0.8125rem;
+    }
+    .checkout-order-item .checkout-item-price {
+        font-size: 0.8125rem;
+    }
+    .checkout-order-item .text-truncate-block {
+        min-width: 0;
+        overflow: hidden;
+    }
+    /* Success overlay on mobile */
+    #success-overlay .bg-white.rounded-4.p-5 {
+        padding: 2rem 1.25rem !important;
+    }
+
+    /* ===== Grid gaps ===== */
+    .row.g-3 { --bs-gutter-y: 0.75rem; }
+    .row.g-4 { --bs-gutter-y: 0.75rem; }
+
+    /* ===== Announcement bar ===== */
+    .announcement-scroll-inner { animation-duration: 18s; }
+    .announcement-scroll-inner p.text-on-primary.text-label-sm {
+        font-size: 0.65rem !important;
+    }
+
+    /* ===== Shop filter sidebar on mobile ===== */
+    .filter-sidebar {
+        margin-bottom: 1rem;
+        padding: 16px;
+    }
+    .filter-sidebar.mobile-open {
+        padding: 20px 24px calc(20px + env(safe-area-inset-bottom, 0px));
+    }
+    .filter-section-title {
+        font-size: 0.6875rem;
+    }
+    .filter-link {
+        font-size: 0.8125rem;
+        padding: 6px 10px;
+    }
+    .price-check {
+        padding: 6px 10px;
+    }
+    .price-check .price-label {
+        font-size: 0.8125rem;
+    }
+
+    /* ===== Footer: stack columns ===== */
+    footer > .container-custom > .row.g-3 > .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    footer .border-top.pt-4.d-flex.flex-column.flex-md-row {
+        text-align: center;
+    }
+    footer .border-top.pt-4.d-flex.flex-column.flex-md-row .gap-4 {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    footer .d-flex.gap-2 a[style*="36px"] {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    footer .d-flex input.form-control {
+        font-size: 0.8125rem;
+        min-height: 44px;
+    }
+    footer .d-flex button[type="submit"] {
+        min-height: 44px;
+        font-size: 0.8125rem;
+    }
+
+    /* ===== Tulsi page ===== */
+    .col-lg-6.reveal-fade-left .position-relative.rounded-4 img[style*="height: 600px"] {
+        height: 350px !important;
+    }
+    .col-lg-5.reveal-fade-right .d-flex.flex-column.gap-3 .d-flex.align-items-start {
+        padding: 12px !important;
+    }
+    .col-lg-5.reveal-fade-right .d-flex.flex-column.gap-3 .d-flex.align-items-start .text-label-md {
+        font-size: 0.8125rem;
+    }
+    .col-lg-5.reveal-fade-right .d-flex.flex-column.gap-3 .d-flex.align-items-start .text-body-md {
+        font-size: 0.8125rem;
+    }
+    /* Tulsi breadcrumb & badge */
+    .col-lg-6.reveal-fade-right .breadcrumb {
+        font-size: 0.75rem;
+    }
+    .col-lg-6.reveal-fade-right .badge.rounded-5 {
+        font-size: 0.7rem !important;
+    }
+    /* Tulsi hero heading */
+    .col-lg-6.reveal-fade-right h1.text-headline-lg {
+        font-size: 1.5rem !important;
+    }
+    /* Tulsi price row */
+    .col-lg-6.reveal-fade-right .d-flex.align-items-center.gap-3.mb-3 {
+        flex-wrap: wrap;
+    }
+    .col-lg-6.reveal-fade-right .d-flex.align-items-center.gap-3.mb-3 .fw-bold.text-primary {
+        font-size: 1.25rem;
+    }
+    /* Tulsi feature icons */
+    .col-lg-6.reveal-fade-right .d-flex.flex-column.gap-3.mb-4 .d-flex.align-items-center.gap-3 {
+        gap: 0.75rem !important;
+    }
+    .col-lg-6.reveal-fade-right .d-flex.flex-column.gap-3.mb-4 .d-flex.align-items-center.gap-3 .text-label-md {
+        font-size: 0.8125rem;
+    }
+    /* Tulsi quantity + buttons */
+    .col-lg-6.reveal-fade-right .d-flex.align-items-center.gap-3.mb-4 {
+        flex-wrap: wrap;
+    }
+    .col-lg-6.reveal-fade-right .d-flex.gap-3.flex-wrap {
+        flex-direction: column;
+    }
+    .col-lg-6.reveal-fade-right .d-flex.gap-3.flex-wrap button {
+        width: 100%;
+        justify-content: center;
+    }
+    /* Tulsi features section */
+    .col-lg-7.reveal-fade-up .row.row-cols-1.row-cols-sm-2.g-4 > .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .col-lg-7.reveal-fade-up .row.row-cols-1.row-cols-sm-2.g-4 > .col .bg-surface-container-low.rounded-3.p-4 {
+        padding: 14px !important;
+    }
+    .col-lg-7.reveal-fade-up .row.row-cols-1.row-cols-sm-2.g-4 .text-label-md {
+        font-size: 0.8125rem;
+    }
+    .col-lg-7.reveal-fade-up .row.row-cols-1.row-cols-sm-2.g-4 .text-body-md {
+        font-size: 0.8125rem;
+    }
+    /* Tulsi care section */
+    .col-lg-5.reveal-fade-right .stock-indicator {
+        font-size: 0.6875rem;
+    }
+    .col-lg-5.reveal-fade-right h2.text-headline-md {
+        font-size: 1.25rem !important;
+    }
+    /* Tulsi CTA */
+    .bg-primary.rounded-4.p-5 .d-flex.justify-content-center.gap-3.flex-wrap a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ===== COMPREHENSIVE RESPONSIVE FIXES ===== */
+
+/* Prevent horizontal scroll on all devices */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Hero images fallback */
+[class*="hero"] img {
+    max-height: 85vh;
+    object-fit: cover;
+}
+
+/* Sticky positioning - convert to relative on small screens */
+@media (max-width: 768px) {
+    .position-sticky {
+        position: relative !important;
+    }
+    .col-lg-4.position-sticky,
+    .col-lg-5.position-sticky,
+    #cart-content .col-lg-4 .position-sticky,
+    #checkout-content .col-lg-5 .position-sticky {
+        position: relative !important;
+    }
+}
+
+/* Safe area support for notched devices */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    .container-custom {
+        padding-left: max(16px, env(safe-area-inset-left, 16px));
+        padding-right: max(16px, env(safe-area-inset-right, 16px));
+    }
+}
+
+/* Landscape orientation fixes */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero-img, [class*="hero"] img {
+        height: 300px !important;
+    }
+    section.pt-5, section.py-section-gap {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+    }
+}
+
+/* Extra small devices - prevent layout shifts */
+@media (max-width: 320px) {
+    :root {
+        --margin-desktop: 8px;
+        --section-gap: 20px;
+    }
+    .container-custom {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .text-display-lg { font-size: 1.25rem !important; font-variation-settings: 'opsz' 24 !important; }
+    .text-headline-lg { font-size: 1rem !important; font-variation-settings: 'opsz' 24 !important; }
+    .text-headline-md { font-size: 0.875rem !important; font-variation-settings: 'opsz' 22 !important; }
+    /* Tulsi bottom section heading */
+    .bg-surface-container-low .container-custom .text-center.mb-5 h2.text-headline-lg {
+        font-size: 1.25rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    /* ===== Quiz page ===== */
+    #quiz-container .quiz-option {
+        padding: 16px !important;
+    }
+    #quiz-container .quiz-option .text-label-md {
+        font-size: 0.875rem;
+    }
+    .quiz-option .icon {
+        font-size: 28px !important;
+    }
+    .btn-next {
+        width: 100%;
+        padding: 14px 24px;
+    }
+    #result-card .row.align-items-center.g-4 > .col-md-5 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #result-card .row.align-items-center.g-4 > .col-md-7 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+    #result-card .d-flex.gap-3 {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #result-card .d-flex.gap-3 a,
+    #result-card .d-flex.gap-3 button {
+        width: 100%;
+        justify-content: center;
+    }
+    /* Quiz heading */
+    #quiz-header h1.text-headline-lg {
+        font-size: 1.35rem !important;
+    }
+    /* Quiz progress bar */
+    .quiz-progress {
+        margin-bottom: 20px;
+    }
+    /* Quiz question */
+    #question-area h3.text-headline-md {
+        font-size: 1.15rem !important;
+    }
+
+    /* ===== Care guide page ===== */
+    .col-lg-4.reveal .bg-white.rounded-3.p-4 {
+        padding: 16px !important;
+    }
+    .col-lg-4.reveal .text-headline-md {
+        font-size: 1.1rem !important;
+    }
+    .col-lg-5.reveal-fade-left .bg-white.rounded-3.p-4 {
+        padding: 14px !important;
+    }
+    .col-lg-5.reveal-fade-left .text-label-md {
+        font-size: 0.8125rem;
+    }
+    /* Care guide hero */
+    .container-custom.pt-5 h1.text-headline-lg {
+        font-size: 1.5rem !important;
+    }
+    /* Care guide issues section */
+    .col-lg-5.reveal-fade-left .bg-white.rounded-3.p-4 {
+        padding: 12px !important;
+    }
+    .col-lg-5.reveal-fade-left .text-body-md {
+        font-size: 0.8125rem;
+    }
+    .col-lg-5.reveal-fade-left .d-flex.align-items-center.gap-3.mb-2 {
+        gap: 0.5rem !important;
+    }
+    .col-lg-5.reveal-fade-left .material-symbols-outlined.text-tertiary {
+        font-size: 20px !important;
+    }
+    /* Care guide image */
+    .col-lg-7.reveal-fade-right img[style*="height:500px"] {
+        height: 320px !important;
+    }
+    /* Care guide tags */
+    .col-lg-4.reveal .bg-surface-container-high.text-label-sm.px-3.py-1 {
+        font-size: 0.6875rem;
+        padding: 3px 8px !important;
+    }
+
+    /* ===== About page ===== */
+    .col-lg-8.text-start {
+        text-align: center !important;
+    }
+    .row.row-cols-2.row-cols-md-4.g-4 > .col .text-display-lg {
+        font-size: 2rem !important;
+    }
+    .row.row-cols-2.row-cols-md-4.g-4 > .col .text-label-md {
+        font-size: 0.75rem;
+    }
+    .col-lg-4.reveal-fade-left img[style*="height:400px"] {
+        height: 320px !important;
+    }
+    /* About hero heading */
+    .container-custom.pt-5 .col-lg-6.reveal-fade-left h1.text-display-lg {
+        font-size: 2rem !important;
+    }
+    /* About values cards */
+    .row.row-cols-md-3.g-4 > .col .bg-white.rounded-3.p-5 {
+        padding: 1.5rem !important;
+    }
+    .row.row-cols-md-3.g-4 > .col .text-headline-md {
+        font-size: 1.1rem !important;
+    }
+    .row.row-cols-md-3.g-4 > .col .text-body-md {
+        font-size: 0.8125rem;
+    }
+    /* About counter section */
+    .bg-surface.border-top.py-section-gap .row.row-cols-2.row-cols-md-4.g-4 {
+        --bs-gutter-x: 0.75rem;
+    }
+    .bg-surface.border-top.py-section-gap .row.row-cols-2.row-cols-md-4.g-4 > .col {
+        padding: 0 0.375rem;
+    }
+    /* About founder */
+    .col-lg-8.text-start.reveal-fade-right .text-label-sm.text-on-surface-variant.text-uppercase {
+        font-size: 0.7rem;
+    }
+    .col-lg-8.text-start.reveal-fade-right .text-body-md {
+        font-size: 0.8125rem;
+    }
+    .col-lg-8.text-start.reveal-fade-right .text-headline-md.text-primary {
+        font-size: 1.25rem;
+    }
+
+    /* ===== Contact page ===== */
+    .col-lg-5 .bg-white.rounded-3.p-4 {
+        padding: 16px !important;
+    }
+    .col-lg-5 .bg-white.rounded-3.p-4 .text-label-md {
+        font-size: 0.875rem;
+    }
+    .col-lg-5 .bg-white.rounded-3.p-4 .text-body-md {
+        font-size: 0.8125rem;
+    }
+    .col-lg-7 .bg-white.rounded-3.p-5 {
+        padding: 20px !important;
+    }
+    .col-lg-7 .row.g-3 > [class*="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    /* Contact cards gap */
+    .col-lg-5 .d-flex.flex-column.gap-4 {
+        gap: 0.75rem !important;
+    }
+    .col-lg-5 .bg-white.rounded-3.p-4.shadow-sm.d-flex.align-items-center.gap-4 {
+        gap: 0.75rem !important;
+        padding: 12px !important;
+    }
+    .col-lg-5 .bg-white.rounded-3.p-4.shadow-sm.d-flex.align-items-center.gap-4 .rounded-circle.p-3 {
+        width: 44px !important;
+        height: 44px !important;
+        padding: 0 !important;
+    }
+    .col-lg-5 .bg-white.rounded-3.p-4.shadow-sm.d-flex.align-items-center.gap-4 .rounded-circle.p-3 .material-symbols-outlined {
+        font-size: 20px !important;
+    }
+    /* Contact FAQ cards */
+    .col-lg-8.text-start .bg-white.rounded-3.p-4 {
+        padding: 14px !important;
+    }
+    .col-lg-8.text-start .bg-white.rounded-3.p-4 .text-label-md {
+        font-size: 0.8125rem;
+    }
+    .col-lg-8.text-start .bg-white.rounded-3.p-4 .text-body-md {
+        font-size: 0.8125rem;
+    }
+    /* Contact form */
+    .col-lg-7 .bg-white.rounded-3.p-5 h3.text-headline-md {
+        font-size: 1.25rem !important;
+    }
+    .col-lg-7 .bg-white.rounded-3.p-5 .text-label-sm {
+        font-size: 0.75rem;
+    }
+
+    /* ===== Product detail page ===== */
+    #product-detail .row.g-5 > .col-lg-6 .d-flex.flex-wrap.gap-4 > .d-flex {
+        flex: 0 0 calc(50% - 12px);
+        max-width: calc(50% - 12px);
+    }
+    #product-detail .row.g-5 > .col-lg-6 .d-flex.flex-wrap.gap-4 > .d-flex .text-label-sm {
+        font-size: 0.6875rem;
+    }
+    #product-detail .row.g-5 > .col-lg-6 .d-flex.flex-wrap.gap-4 > .d-flex .text-label-md {
+        font-size: 0.75rem;
+    }
+    #product-detail .d-flex.flex-wrap.gap-3.text-label-sm.text-on-surface-variant {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    #product-detail .d-flex.flex-wrap.gap-3.text-label-sm.text-on-surface-variant .d-flex {
+        width: 100%;
+    }
+    #product-detail .care-tip-card {
+        padding: 16px !important;
+    }
+    #product-detail .care-tip-card .text-label-md {
+        font-size: 0.8125rem;
+    }
+    #product-detail .care-tip-card .text-body-md {
+        font-size: 0.8125rem;
+    }
+    #related-products.row.row-cols-1.row-row-cols-sm-2.row-cols-lg-4 > .col,
+    #related-products > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    #related-products .bg-white.rounded-3.p-3 {
+        padding: 8px !important;
+    }
+    #related-products .text-label-md {
+        font-size: 0.8125rem !important;
+    }
+    #related-products .fw-bold.text-primary {
+        font-size: 0.8125rem !important;
+    }
+    /* Product detail care tips grid */
+    #product-detail .mt-5.pt-5 .row.g-3 > .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    #product-detail .mt-5.pt-5 .row.g-3 > .col-md-3 .care-tip-card {
+        padding: 12px !important;
+    }
+    #product-detail .mt-5.pt-5 .row.g-3 > .col-md-3 .care-tip-card .rounded-circle.p-3 {
+        width: 44px !important;
+        height: 44px !important;
+        padding: 0 !important;
+        margin-bottom: 0.5rem !important;
+    }
+    #product-detail .mt-5.pt-5 .row.g-3 > .col-md-3 .care-tip-card .rounded-circle.p-3 .material-symbols-outlined {
+        font-size: 20px !important;
+    }
+    #product-detail .mt-5.pt-5 .row.g-3 > .col-md-3 .care-tip-card .text-label-md {
+        font-size: 0.75rem;
+    }
+    #product-detail .mt-5.pt-5 .row.g-3 > .col-md-3 .care-tip-card .text-body-md {
+        font-size: 0.75rem;
+    }
+    /* Product detail headings */
+    #product-detail h2.text-headline-lg {
+        font-size: 1.25rem !important;
+    }
+    #product-detail h1.text-headline-lg {
+        font-size: 1.35rem !important;
+    }
+    /* Product detail add-to-cart section */
+    #product-detail .bg-surface-container-low.rounded-3.p-4 {
+        padding: 14px !important;
+    }
+    /* Product detail reviews */
+    #reviews-section .bg-surface-container-low.rounded-4.p-4.p-md-5 {
+        padding: 16px !important;
+    }
+    #reviews-section .star-rating-btn .material-symbols-outlined {
+        font-size: 28px !important;
+    }
+    #reviews-section h3.text-headline-md {
+        font-size: 1.15rem !important;
+    }
+    .d-flex.flex-wrap.gap-3.text-label-sm.text-on-surface-variant .d-flex.align-items-center.gap-2 {
+        width: 100%;
+    }
+    /* Product rating display */
+    #product-rating-display .d-flex.align-items-center {
+        flex-wrap: wrap;
+    }
+
+    /* ===== Orders page ===== */
+    .status-timeline {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 0;
+        padding-bottom: 4px;
+    }
+    .status-step .step-label {
+        font-size: 0.6rem !important;
+    }
+    .status-step .step-dot {
+        width: 24px !important;
+        height: 24px !important;
+    }
+    .status-step .step-dot .material-symbols-outlined {
+        font-size: 14px !important;
+    }
+    /* Orders page items */
+    #orders-list .bg-white.rounded-3.shadow-sm .px-4.py-3.d-flex.flex-wrap {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+    #orders-list .bg-white.rounded-3.shadow-sm .px-4.py-3:not(.d-flex) {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+    /* Orders reorder button */
+    #orders-list .btn-reorder {
+        font-size: 0.7rem;
+        padding: 6px 10px !important;
+    }
+    #orders-list .d-flex.justify-content-between.align-items-center.mt-3.pt-2 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+    #orders-list .d-flex.justify-content-between.align-items-center.mt-3.pt-2 .d-flex.align-items-center.gap-2 {
+        width: 100%;
+        justify-content: space-between;
+    }
+    /* Orders count */
+    #orders-content .d-flex.justify-content-between.align-items-center.mb-4 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+
+    /* ===== Wishlist page ===== */
+    #wishlist-grid .bg-white.rounded-3.p-3 {
+        padding: 10px !important;
+    }
+    #wishlist-grid .text-label-md {
+        font-size: 0.8125rem !important;
+    }
+    #wishlist-grid .fw-bold.text-primary {
+        font-size: 0.8125rem !important;
+    }
+    #wishlist-content .d-flex.justify-content-between.align-items-center.mb-4 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+
+    /* ===== CTA sections (colored boxes) ===== */
+    .bg-primary.rounded-4.p-5 {
+        padding: 1.75rem 1.25rem !important;
+        border-radius: 16px !important;
+    }
+    .bg-primary.rounded-4.p-5 .text-headline-lg {
+        font-size: 1.2rem !important;
+    }
+    .bg-primary.rounded-4.p-5 .d-flex.justify-content-center.gap-3 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .bg-primary.rounded-4.p-5 .d-flex.justify-content-center.gap-3 a {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    .bg-primary.rounded-4.p-5 .text-body-lg {
+        font-size: 0.875rem;
+    }
+
+    /* ===== Back to top ===== */
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 16px;
+        right: 16px;
+    }
+    .back-to-top .material-symbols-outlined {
+        font-size: 20px;
+    }
+
+    /* ===== 404 page ===== */
+    .material-symbols-outlined[style*="font-size:96px"] {
+        font-size: 64px !important;
+    }
+    /* 404 suggestion cards */
+    .row.row-cols-1.row-cols-md-3.g-4.stagger-children.active > .col .bg-white.rounded-3.p-4 {
+        padding: 1.25rem !important;
+    }
+    .row.row-cols-1.row-cols-md-3.g-4.stagger-children.active > .col .text-headline-md {
+        font-size: 1.1rem !important;
+    }
+    .row.row-cols-1.row-cols-md-3.g-4.stagger-children.active > .col .text-body-md {
+        font-size: 0.8125rem;
+    }
+
+    /* ===== History page ===== */
+    /* Stats row */
+    #stats-row .col-6.col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    #stats-row .bg-white.rounded-3.p-4 {
+        padding: 14px !important;
+    }
+    #stats-row .material-symbols-outlined[style*="font-size:32px"] {
+        font-size: 26px !important;
+    }
+    #stats-row .text-headline-md {
+        font-size: 1.25rem !important;
+    }
+    /* History tabs */
+    #history-tabs {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+    }
+    #history-tabs .btn {
+        flex-shrink: 0;
+        font-size: 0.75rem;
+        padding: 8px 14px !important;
+        white-space: nowrap;
+    }
+    /* History tab panels */
+    .tab-pane .text-center.py-5 .text-headline-md {
+        font-size: 1.15rem !important;
+    }
+    .tab-pane .text-center.py-5 .text-body-md {
+        font-size: 0.8125rem;
+    }
+    /* History orders */
+    #panel-orders .animate-item .px-4.py-3 {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+    #panel-orders .animate-item .bg-surface-container-low.px-4.py-3 {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+    #panel-orders .d-flex.justify-content-between.align-items-center.mt-3.pt-2 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.25rem;
+    }
+    /* History streak */
+    #panel-streak .rounded-circle.bg-venus-light[style*="width:100px"] {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    #panel-streak .streak-flame[style*="font-size:48px"] {
+        font-size: 38px !important;
+    }
+    #panel-streak h2.text-headline-lg {
+        font-size: 1.35rem !important;
+    }
+    #panel-streak .bg-white.rounded-3.p-4 {
+        padding: 14px !important;
+    }
+    #panel-streak .bg-white.rounded-3.p-4 .text-label-md.fw-bold.text-on-surface {
+        font-size: 0.8125rem;
+    }
+    #panel-streak .bg-white.rounded-3.p-4 .text-body-md {
+        font-size: 0.8125rem;
+    }
+    #panel-streak .d-flex.flex-column.gap-2 .d-flex.justify-content-between.py-1 {
+        gap: 0.5rem;
+    }
+    /* History reviews */
+    #panel-reviews .animate-item .px-4.py-3 {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+    #panel-reviews .bg-white.rounded-3.p-4 {
+        padding: 14px !important;
+    }
+    #panel-reviews .bg-white.rounded-3.p-4 .text-body-md {
+        font-size: 0.8125rem;
+    }
+    #panel-reviews .d-flex.justify-content-between.align-items-center.mb-3 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+    /* History clear all buttons */
+    .tab-pane .d-flex.justify-content-between.align-items-center.mb-3 .bg-transparent.border {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* ===== Navbar mobile ===== */
+    nav.navbar .container-custom {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    /* ===== Skip to content ===== */
+    .skip-link {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+    /* ===== Homepage sections ===== */
+    /* Why Choose Tulsi grid */
+    .container-custom.px-margin-desktop.d-flex.flex-column .row.g-4 > .col-md-3.col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .container-custom.px-margin-desktop.d-flex.flex-column .row.g-4 > .col-md-3.col-6 .bg-white.rounded-3.p-4 {
+        padding: 12px !important;
+    }
+    .container-custom.px-margin-desktop.d-flex.flex-column .row.g-4 > .col-md-3.col-6 .text-label-md.fw-bold {
+        font-size: 0.75rem;
+    }
+    .container-custom.px-margin-desktop.d-flex.flex-column .row.g-4 > .col-md-3.col-6 .text-body-md {
+        font-size: 0.75rem;
+    }
+    .container-custom.px-margin-desktop.d-flex.flex-column .row.g-4 > .col-md-3.col-6 .rounded-circle.p-3 {
+        width: 44px !important;
+        height: 44px !important;
+        padding: 0 !important;
+        margin-bottom: 0.5rem !important;
+    }
+    .container-custom.px-margin-desktop.d-flex.flex-column .row.g-4 > .col-md-3.col-6 .rounded-circle.p-3 .material-symbols-outlined {
+        font-size: 22px !important;
+    }
+    /* Tulsi Varieties section heading */
+    .container-custom.px-margin-desktop .d-flex.justify-content-between.align-items-end.mb-5 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem !important;
+    }
+    .container-custom.px-margin-desktop .d-flex.justify-content-between.align-items-end.mb-5 > div h2.text-headline-lg {
+        font-size: 1.25rem !important;
+    }
+    /* Homepage Sacred Tulsi Collection heading */
+    .text-center.mb-5.reveal-fade-down h2.text-headline-lg {
+        font-size: 1.25rem !important;
+    }
+    /* Homepage features section heading */
+    .d-flex.justify-content-between.align-items-center.mb-5.reveal-fade-down h2.text-headline-lg {
+        font-size: 1.25rem !important;
+    }
+    /* Homepage section header row */
+    .d-flex.justify-content-between.align-items-center.mb-5 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+
+    /* ===== Section spacing consistency ===== */
+    section:last-of-type {
+        margin-bottom: 0;
+    }
+
+    /* ===== Header announcement compact ===== */
+    .bg-primary.py-2 {
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+    }
+
+    /* ===== MOBILE LAYOUT OVERRIDES ===== */
+
+    /* Reduce hero top padding */
+    section.container-custom.pt-5 {
+        padding-top: 1rem !important;
+    }
+    
+    /* Tighten hero heading heading + paragraph gap */
+    section.container-custom.pt-5 > .row.align-items-center.g-5 > .col-lg-6 .d-flex.flex-column.gap-4 {
+        gap: 0.75rem !important;
+    }
+
+    /* Reduce excessive gap sizes */
+    .gap-4 { gap: 1rem !important; }
+    .gap-5 { gap: 1.5rem !important; }
+    .g-5 { --bs-gutter-x: 1.5rem !important; --bs-gutter-y: 1.5rem !important; }
+
+    /* Reduce mb-5 to mb-3 on mobile */
+    .mb-5 { margin-bottom: 1.5rem !important; }
+
+    /* Reduce large button horizontal padding */
+    .px-5.py-3.rounded-3 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+        font-size: 0.8125rem !important;
+    }
+    a.bg-primary.px-5.py-3,
+    button.bg-primary.px-5.py-3 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+
+    /* Full-width CTA buttons on mobile */
+    .d-flex.flex-wrap.gap-3.pt-3 > a {
+        flex: 1 1 auto;
+        min-width: 140px;
+        text-align: center;
+    }
+
+    /* Reduce card padding on mobile */
+    .bg-white.rounded-3.p-4 { padding: 12px !important; }
+    .bg-white.rounded-3.p-5 { padding: 1.25rem !important; }
+    .bg-white.rounded-3.p-3.shadow-sm { padding: 8px !important; }
+    
+    /* Soft card (homepage features) tighter padding */
+    .soft-card.p-5 {
+        padding: 1.25rem 0.75rem !important;
+    }
+    .soft-card .rounded-circle.p-4 {
+        padding: 0.6rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    .soft-card .rounded-circle.p-4 .material-symbols-outlined {
+        font-size: 20px !important;
+    }
+    .soft-card .text-headline-md {
+        font-size: 0.95rem !important;
+    }
+    .soft-card .text-label-md {
+        font-size: 0.75rem !important;
+    }
+
+    /* Fix footer newsletter full-width on mobile */
+    footer .d-flex input.form-control {
+        min-width: 0;
+        width: auto;
+        flex: 1;
+    }
+    footer .d-flex button[type="submit"] {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    /* Navbar brand - prevent overflow */
+    nav.navbar .navbar-brand {
+        max-width: 50%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 1rem !important;
+    }
+
+    /* Navbar padding reduction */
+    nav.navbar {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    /* Fix hero verification badges wrapping */
+    .d-flex.align-items-center.gap-4.pt-4 {
+        flex-wrap: wrap;
+        gap: 0.5rem !important;
+    }
+    .d-flex.align-items-center.gap-4.pt-4 .d-flex.align-items-center.gap-2 {
+        gap: 0.375rem !important;
+    }
+
+    /* Ensure images don't overflow */
+    img, svg {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Offcanvas: prevent background scroll */
+    .offcanvas-backdrop {
+        touch-action: none;
+    }
+
+    /* ===== Feature icon circles on mobile ===== */
+    .row.row-cols-md-4.g-3 > .col .rounded-circle.p-4 {
+        padding: 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .row.row-cols-md-4.g-3 > .col .rounded-circle.p-4 .material-symbols-outlined {
+        font-size: 22px !important;
+    }
+
+    /* Sacred Tulsi Collection grid — 2 columns on mobile */
+    .row.row-cols-md-2.row-cols-lg-3.g-3 > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    /* Center-aligned CTA button — full width on mobile */
+    .text-center.mt-5 a.bg-primary.px-5.py-3 {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* Shop sort select on mobile */
+    .results-bar .sort-select {
+        min-width: 100%;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+
+    /* Category pills on mobile */
+    .category-pill {
+        padding: 6px 10px;
+        font-size: 0.6875rem;
+        gap: 4px;
+    }
+    .category-pill .pill-icon {
+        font-size: 14px;
+    }
+
+    /* Skip link on mobile */
+    .skip-link {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    /* Lightbox close button position */
+    .lightbox-close {
+        top: 12px !important;
+        right: 12px !important;
+        font-size: 28px !important;
+    }
+
+    /* prefers-reduced-motion: ensure mobile nav items visible */
+    @media (prefers-reduced-motion: reduce) {
+        .mobile-nav-item {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+}
